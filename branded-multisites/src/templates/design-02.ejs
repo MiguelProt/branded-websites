@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<%- include('partials/head', data) %>
+<body class="design-02">
+<main>
+  <section class="hero hero-human">
+    <div class="container">
+      <div class="human-photo-wrap">
+        <img class="human-headshot" src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high">
+        <div class="human-intro">
+          <p class="eyebrow">Hi, I’m <%= advisor.identity.firstName %></p>
+          <h1>I help families feel more confident about retirement.</h1>
+          <p><%= advisor.identity.positioning %></p>
+          <%- include('partials/trust', data) %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section personal-story">
+    <div class="container narrow">
+      <blockquote class="personal-quote">“<%= advisor.professional.story.quote %>”</blockquote>
+      <% advisor.professional.story.paragraphs.forEach((paragraph, i) => { %><p<%= i === 0 ? ' class="lead-copy"' : '' %>><%= paragraph %></p><% }) %>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container"><%- include('partials/credentials', data) %></div>
+  </section>
+
+  <section class="section lifestyle-section">
+    <div class="container">
+      <div class="lifestyle-photo-collage">
+        <% advisor.personal.lifestylePhotos.forEach(image => { %>
+          <img src="<%= image.src %>" alt="<%= image.alt %>" width="<%= image.width %>" height="<%= image.height %>" loading="lazy">
+        <% }) %>
+      </div>
+      <div class="more-about-card">
+        <p class="eyebrow">Beyond retirement planning</p>
+        <h2><%= advisor.personal.moreAboutMe.title %></h2>
+        <% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/reviews', data) %>
+  <%- include('partials/contact', data) %>
+</main>
+<%- include('partials/footer', data) %>
+<%- include('partials/schema', data) %>
+</body></html>

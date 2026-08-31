@@ -1,0 +1,10 @@
+body.design-05{--surface:#f4f5f2;--surface-2:#fff;--ink:#20251f;--accent:#3f553c;--radius:6px}
+.design-05 .institutional-bar{border-bottom:1px solid var(--line);font-size:1.25rem;text-transform:uppercase;letter-spacing:.06em}
+.design-05 .institutional-bar .container{display:flex;justify-content:space-between;padding-block:1rem}
+.design-05 .institution-main{display:grid;gap:2rem;align-items:center;padding-block:4rem}
+.design-05 .institution-photo img{border-radius:0;height:620px;object-fit:cover}
+.design-05 .credential-band{background:#273229;padding:2rem 0}
+.design-05 .credential-band .credential{background:transparent;color:#fff;border-color:rgba(255,255,255,.2)}
+.design-05 .credential-band .credential span{color:rgba(255,255,255,.7)}
+.design-05 .institutional-columns{display:grid;gap:2rem}
+@media(min-width:850px){.design-05 .institution-main,.design-05 .institutional-columns{grid-template-columns:1fr 1fr}}

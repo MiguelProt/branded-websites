@@ -1,0 +1,9 @@
+body.design-09{--surface:#fbf4e8;--surface-2:#fffaf2;--ink:#2c241c;--accent:#9d5d31}
+.design-09 .magazine-grid{display:grid;gap:1rem;padding-block:3rem}
+.design-09 .magazine-kicker{display:flex;justify-content:space-between;border-top:1px solid var(--ink);padding-top:.75rem;text-transform:uppercase;font-size:1.25rem}
+.design-09 .magazine-name h1{font-family:Georgia,serif;font-size:clamp(4rem,15vw,10rem);font-weight:400;line-height:.78}
+.design-09 .magazine-photo img{width:100%;height:600px;object-fit:cover;border-radius:0}
+.design-09 .magazine-story .container,.design-09 .magazine-proof .container{display:grid;gap:2rem}
+.design-09 .magazine-story-title{display:flex;gap:1rem;align-items:flex-start}
+.design-09 .magazine-story-title span{font-size:3rem;color:var(--accent)}
+@media(min-width:900px){.design-09 .magazine-grid{grid-template-columns:1.1fr .9fr}.design-09 .magazine-kicker{grid-column:1/-1}.design-09 .magazine-name{grid-column:1/-1}.design-09 .magazine-copy{grid-column:1}.design-09 .magazine-photo{grid-column:2;grid-row:3/5}.design-09 .magazine-story .container,.design-09 .magazine-proof .container{grid-template-columns:.6fr 1.4fr}}

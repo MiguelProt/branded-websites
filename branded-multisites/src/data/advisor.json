@@ -1,0 +1,230 @@
+{
+  "advisor": {
+    "identity": {
+      "name": "Matt Rowenczak",
+      "firstName": "Matt",
+      "lastName": "Rowenczak",
+      "headline": "Retirement Planning & Annuity Specialist",
+      "positioning": "I'm dedicated to empowering clients to be prepared for their retirement and ultimately accomplish their goals. With a focus on guaranteed income, growth, and protection of assets, I can provide clients with an approach customized to their needs. My personalized approach ensures that clients can be more confident and comfortable either in their retirement or whatever their life goals may be.",
+      "serviceArea": "Based in Georgia, I operate my office out of the Atlanta area, but I serve clients nationwide. Through advanced technology, I offer virtual meetings, allowing clients to engage in real-time discussions about their financial goals and strategies.",
+      "location": "Atlanta, GA"
+    },
+    "professional": {
+      "bio": "Matt Rowenczak is a Retirement Planning & Annuity Specialist based in Atlanta, Georgia, with 16 years of experience in the financial services industry. A U.S. Navy veteran and former Supply Corps Officer, he holds a Bachelor of Arts in Economics from The Ohio State University and an MBA in Finance and Marketing from the University of Georgia's Terry College of Business. He helps clients nationwide build retirement strategies centered on guaranteed income, growth, and protection of assets.",
+      "story": {
+        "title": "My professional journey",
+        "paragraphs": [
+          "With 16 years in the financial space, I focus on helping clients nationwide secure their financial futures. I focus on effective strategies to accumulate or generate retirement income while protecting those assets from risk. As a Navy veteran, I bring a disciplined approach to financial planning, emphasizing the importance of preparedness and security.",
+          "I hold a Bachelor of Arts in Economics from The Ohio State University and an MBA in Finance and Marketing from the University of Georgia's Terry College of Business. My career spans from military service as a Supply Corps Officer in the Navy to a decade in corporate America. My experience enables me to offer valuable insights to clients navigating their retirement or personal financial journeys."
+        ],
+        "quote": "My goal is to demystify the world of annuities and retirement income strategies, ensuring clients can confidently plan for a secure and fulfilling retirement."
+      },
+      "credentials": [
+        {
+          "value": "16+",
+          "label": "Years in financial services"
+        },
+        {
+          "value": "Navy Veteran",
+          "label": "Supply Corps Officer"
+        },
+        {
+          "value": "MBA",
+          "label": "Finance & Marketing, UGA"
+        },
+        {
+          "value": "Nationwide",
+          "label": "Virtual client service"
+        }
+      ]
+    },
+    "trust": {
+      "trustpilot": {
+        "enabled": true,
+        "rating": 4.9,
+        "reviewCount": 557,
+        "profileUrl": "https://www.trustpilot.com/review/annuitygator.com",
+        "businessUnitId": "5b4e452e446a9e000177e8ff"
+      }
+    },
+    "personal": {
+      "moreAboutMe": {
+        "title": "More about me",
+        "paragraphs": [
+          "Outside of work, I enjoy the excitement of college football, exploring the great outdoors, diving into American history, and traveling to experience other cultures. My Southern roots influence my tastes, especially my love for BBQ, while my time living in Southern California sparked a fondness for quality tacos and burritos. XX I hope you share a little bit about what you enjoy as well.",
+          "Based in Georgia, I operate my office out of the Atlanta area, but I serve clients nationwide. Through advanced technology, I offer virtual meetings, allowing clients to engage in real-time discussions about their financial goals and strategies. XX This flexibility ensures that clients can easily access the guidance they need from the comfort of their homes. Reach out to me for advice on retirement planning and annuity options tailored to your needs and goals."
+        ]
+      },
+      "lifestylePhotos": [
+        {
+          "src": "./assets/images/about-me.webp",
+          "alt": "Matt Rowenczak enjoying the outdoors",
+          "width": 640,
+          "height": 640,
+          "position": "center"
+        },
+        {
+          "src": "./assets/images/professional-journey.webp",
+          "alt": "Matt Rowenczak speaking with clients",
+          "width": 642,
+          "height": 642,
+          "position": "center"
+        }
+      ]
+    },
+    "contact": {
+      "phone": "(678) 338 8236",
+      "email": "",
+      "title": "Send me a question",
+      "intro": "Your information is 100% confidential and your email will never be spammed! Just a friendly response to answer your questions and help point you in the right direction.",
+      "form": {
+        "method": "POST",
+        "action": "",
+        "submitLabel": "Next",
+        "fields": [
+          {
+            "name": "firstName",
+            "label": "First name",
+            "type": "text",
+            "autocomplete": "given-name",
+            "required": true
+          },
+          {
+            "name": "lastName",
+            "label": "Last name",
+            "type": "text",
+            "autocomplete": "family-name",
+            "required": true
+          },
+          {
+            "name": "email",
+            "label": "Email",
+            "type": "email",
+            "autocomplete": "email",
+            "required": true
+          },
+          {
+            "name": "phone",
+            "label": "Phone",
+            "type": "tel",
+            "autocomplete": "tel",
+            "required": true
+          },
+          {
+            "name": "message",
+            "label": "Message",
+            "type": "textarea",
+            "autocomplete": "off",
+            "required": true
+          }
+        ]
+      }
+    },
+    "compliance": {
+      "firmName": "Matt Rowenczak",
+      "text": "Matt Rowenczak is an independent financial services firm that creates retirement strategies using a variety of investment and insurance products. Neither the firm nor its representatives may give tax or legal advice. Investing involves risk, including the potential loss of principal. No investment strategy can guarantee a profit or protect against loss in periods of declining values. Any references to protection benefits or lifetime income generally refer to fixed insurance products, never securities or investment products. Insurance and annuity product guarantees are backed by the financial strength and claims-paying ability of the issuing insurance company."
+    }
+  },
+  "images": {
+    "headshot": {
+      "src": "./assets/images/headshot.webp",
+      "alt": "Portrait of Matt Rowenczak",
+      "width": 716,
+      "height": 952,
+      "position": "center"
+    },
+    "contactPhoto": {
+      "src": "./assets/images/contact-photo.webp",
+      "alt": "Matt Rowenczak headshot",
+      "width": 150,
+      "height": 150,
+      "position": "center"
+    }
+  },
+  "optional": {
+    "reviews": [
+      {
+        "quote": "XX Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        "author": "XX Lorem Ipsum Client"
+      },
+      {
+        "quote": "XX Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+        "author": "XX Lorem Ipsum Client"
+      },
+      {
+        "quote": "XX Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.",
+        "author": "XX Lorem Ipsum Client"
+      }
+    ],
+    "faq": [
+      {
+        "question": "XX Lorem ipsum dolor sit amet?",
+        "answer": "XX Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      {
+        "question": "XX Ut enim ad minim veniam?",
+        "answer": "XX Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      },
+      {
+        "question": "XX Duis aute irure dolor in reprehenderit?",
+        "answer": "XX In voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat."
+      }
+    ],
+    "education": [
+      {
+        "degree": "XX Lorem Ipsum Degree",
+        "school": "XX Lorem Ipsum University"
+      },
+      {
+        "degree": "XX Lorem Ipsum Graduate Program",
+        "school": "XX Lorem Ipsum College of Business"
+      }
+    ],
+    "militaryService": {
+      "branch": "XX Lorem Ipsum Branch",
+      "role": "XX Lorem Ipsum Role",
+      "summary": "XX Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    "philosophy": "XX Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "affiliations": [
+      "XX Lorem Ipsum Financial Planning Association",
+      "XX Lorem Ipsum National Advisors Council",
+      "XX Lorem Ipsum Retirement Income Alliance"
+    ],
+    "mediaMentions": [
+      {
+        "outlet": "XX Lorem Ipsum Business Journal",
+        "title": "XX Lorem ipsum dolor sit amet consectetur adipiscing elit",
+        "url": ""
+      },
+      {
+        "outlet": "XX Lorem Ipsum Finance Weekly",
+        "title": "XX Excepteur sint occaecat cupidatat non proident",
+        "url": ""
+      }
+    ],
+    "designations": [
+      "XX Lorem Ipsum Designation (LID)",
+      "XX Lorem Ipsum Certified Planner (LICP)"
+    ]
+  },
+  "seo": {
+    "title": "Matt Rowenczak | Retirement Planning & Annuity Specialist",
+    "description": "Matt Rowenczak is a Navy veteran and retirement planning and annuity specialist with 16 years of experience, helping clients nationwide secure guaranteed retirement income.",
+    "canonical": "https://www.meetmattrowenczak.com/",
+    "ogImage": "./assets/images/headshot.webp",
+    "favicon": "./assets/images/favicon.ico"
+  },
+  "integrations": {
+    "crm": {
+      "provider": "",
+      "endpoint": ""
+    },
+    "email": {
+      "enabled": false,
+      "provider": "",
+      "from": "",
+      "to": ""
+    }
+  }
+}

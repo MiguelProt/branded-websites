@@ -1,0 +1,36 @@
+<script type="application/ld+json">
+<%- JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": seo.canonical + "#person",
+      "name": advisor.identity.name,
+      "jobTitle": advisor.identity.headline,
+      "telephone": advisor.contact.phone,
+      "email": advisor.contact.email,
+      "image": images.headshot.src,
+      "description": advisor.identity.positioning
+    },
+    {
+      "@type": "FinancialService",
+      "@id": seo.canonical + "#service",
+      "name": advisor.compliance.firmName,
+      "url": seo.canonical,
+      "areaServed": "US",
+      "employee": {
+        "@id": seo.canonical + "#person"
+      },
+      ...(advisor.trust.trustpilot.enabled && Number.isFinite(Number(advisor.trust.trustpilot.rating)) && Number.isFinite(Number(advisor.trust.trustpilot.reviewCount)) && Number(advisor.trust.trustpilot.reviewCount) > 0 ? {
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": String(advisor.trust.trustpilot.rating),
+          "reviewCount": String(advisor.trust.trustpilot.reviewCount),
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+      } : {})
+    }
+  ]
+}, null, 2) %>
+</script>

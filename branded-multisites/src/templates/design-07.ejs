@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<%- include('partials/head', data) %>
+<body class="design-07">
+<main>
+  <section class="hero hero-credentials-first">
+    <div class="container">
+      <div class="credentials-top"><%- include('partials/credentials', data) %></div>
+      <div class="cred-hero-grid">
+        <div><p class="eyebrow">Retirement Planning & Annuity Specialist</p><h1><%= advisor.identity.name %></h1><p class="hero-positioning"><%= advisor.identity.positioning %></p><%- include('partials/trust', data) %></div>
+        <img src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section class="section compact-story">
+    <div class="container narrow"><h2><%= advisor.professional.story.title %></h2><p><%= advisor.professional.story.paragraphs[0] %></p></div>
+  </section>
+
+  <section class="section lifestyle-section">
+    <div class="container">
+      <h2><%= advisor.personal.moreAboutMe.title %></h2>
+      <div class="lifestyle-grid">
+        <% advisor.personal.lifestylePhotos.forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
+        <div class="lifestyle-copy"><% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/reviews', data) %>
+
+  <section class="section"><div class="container narrow"><blockquote class="pull-quote">“<%= advisor.professional.story.quote %>”<cite><%= advisor.identity.name %></cite></blockquote></div></section>
+  <%- include('partials/contact', data) %>
+</main>
+<%- include('partials/footer', data) %>
+<%- include('partials/schema', data) %>
+</body></html>

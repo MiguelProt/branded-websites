@@ -1,0 +1,9 @@
+body.design-04{--surface:#f7fbff;--surface-2:#fff;--ink:#142739;--accent:#14669a}
+.design-04 .social-hero-grid{display:grid;gap:2rem;align-items:center}
+.design-04 .social-hero-grid>img{width:100%;height:620px;object-fit:cover;border-radius:28px}
+.design-04 .mini-proof{display:flex;gap:1rem;flex-wrap:wrap;color:var(--muted);font-size:1.25rem}
+.design-04 .reviews-section{padding-top:2rem}
+.design-04 .review-card{box-shadow:0 20px 55px rgba(20,39,57,.08);border:0}
+.design-04 .review-card:first-child{transform:translateY(-1rem)}
+.design-04 .split-proof{display:grid;gap:2rem}
+@media(min-width:850px){.design-04 .social-hero-grid{grid-template-columns:1.1fr .9fr}.design-04 .split-proof{grid-template-columns:.8fr 1.2fr}}

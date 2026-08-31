@@ -1,0 +1,13 @@
+<% if (advisor.trust.trustpilot.enabled && advisor.trust.trustpilot.reviewCount) { %>
+  <a class="trust-summary" href="<%= advisor.trust.trustpilot.profileUrl %>" target="_blank" rel="noopener noreferrer" aria-label="View Trustpilot profile">
+    <span class="stars" aria-hidden="true">★★★★★</span>
+    <strong><%= advisor.trust.trustpilot.rating %></strong>
+    <span>Trustpilot</span>
+    <small><%= advisor.trust.trustpilot.reviewCount %> reviews</small>
+  </a>
+<% } else { %>
+  <div class="trust-summary trust-summary--fallback">
+    <strong>Professional guidance</strong>
+    <span>Clear, personal, no-pressure conversations</span>
+  </div>
+<% } %>

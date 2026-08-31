@@ -1,0 +1,8 @@
+body.design-08{--surface:#eef7f3;--surface-2:#fbfffd;--ink:#18322a;--accent:#2c7561}
+.design-08 .calm-grid{display:grid;gap:3rem;align-items:center;padding-block:4rem}
+.design-08 .calm-image-stack{position:relative;padding-bottom:3rem}
+.design-08 .main-photo{width:85%;height:600px;object-fit:cover;border-radius:120px 120px 24px 24px}
+.design-08 .accent-photo{position:absolute;right:0;bottom:0;width:45%;height:240px;object-fit:cover;border:10px solid var(--surface);border-radius:50%}
+.design-08 .calm-story-grid{display:grid;gap:2rem}
+.design-08 .calm-quote{font-family:Georgia,serif;font-size:clamp(2rem,6vw,3.6rem);line-height:1.15}
+@media(min-width:850px){.design-08 .calm-grid,.design-08 .calm-story-grid{grid-template-columns:1fr 1fr}}

@@ -1,0 +1,23 @@
+<section class="section reviews-section" aria-labelledby="reviews-title">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Client feedback</p>
+      <h2 id="reviews-title">What clients say</h2>
+    </div>
+
+    <div class="review-grid">
+      <% optional.reviews.forEach(review => { %>
+        <figure class="review-card">
+          <blockquote>“<%= review.quote %>”</blockquote>
+          <figcaption><%= review.author %></figcaption>
+        </figure>
+      <% }) %>
+    </div>
+
+    <% if (advisor.trust.trustpilot.enabled) { %>
+      <div class="trustbox-placeholder">
+        Official Trustpilot TrustBox goes here in production.
+      </div>
+    <% } %>
+  </div>
+</section>

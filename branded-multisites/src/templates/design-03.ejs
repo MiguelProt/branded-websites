@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<%- include('partials/head', data) %>
+<body class="design-03">
+<main>
+  <section class="hero hero-editorial">
+    <div class="container editorial-grid">
+      <div class="editorial-number">01</div>
+      <div class="editorial-title">
+        <p class="eyebrow">Advisor profile</p>
+        <h1><%= advisor.identity.name %></h1>
+        <p><%= advisor.identity.headline %></p>
+      </div>
+      <div class="editorial-photo"><img src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high"></div>
+      <div class="editorial-proof">
+        <p class="hero-positioning"><%= advisor.identity.positioning %></p>
+        <%- include('partials/trust', data) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section editorial-credentials">
+    <div class="container"><%- include('partials/credentials', data) %></div>
+  </section>
+
+  <section class="section editorial-story">
+    <div class="container editorial-story-grid">
+      <div><span class="chapter">02</span><h2>Why this work matters to me</h2></div>
+      <div><% advisor.professional.story.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %><blockquote>“<%= advisor.professional.story.quote %>”</blockquote></div>
+    </div>
+  </section>
+
+  <section class="section lifestyle-section">
+    <div class="container">
+      <span class="chapter">03</span>
+      <h2><%= advisor.personal.moreAboutMe.title %></h2>
+      <div class="lifestyle-grid">
+        <% advisor.personal.lifestylePhotos.forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
+        <div class="lifestyle-copy"><% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/reviews', data) %>
+  <%- include('partials/contact', data) %>
+</main>
+<%- include('partials/footer', data) %>
+<%- include('partials/schema', data) %>
+</body></html>

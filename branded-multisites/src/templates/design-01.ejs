@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<%- include('partials/head', data) %>
+<body class="design-01">
+<main>
+  <section class="hero hero-fiat">
+    <div class="container hero-grid">
+      <div class="hero-photo">
+        <img src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high">
+      </div>
+      <div class="hero-copy">
+        <span class="fiat-badge"><%= advisor.identity.headline %></span>
+        <h1><%= advisor.identity.name %></h1>
+        <blockquote class="fiat-quote">&ldquo;<%= advisor.professional.story.quote %>&rdquo;</blockquote>
+
+        <% if (advisor.trust.trustpilot.enabled && advisor.trust.trustpilot.reviewCount) { %>
+          <a class="fiat-trust-badge" href="<%= advisor.trust.trustpilot.profileUrl %>" target="_blank" rel="noopener noreferrer" aria-label="View Trustpilot profile">
+            <span class="fiat-trust-stars" aria-hidden="true">
+              <% for (let i = 0; i < 5; i++) { %><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg><% } %>
+            </span>
+            <strong><%= advisor.trust.trustpilot.rating %></strong> on Trustpilot &middot; <%= Number(advisor.trust.trustpilot.reviewCount).toLocaleString() %>+ reviews
+          </a>
+        <% } %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fiat-story">
+    <div class="container story-grid">
+      <div>
+        <p class="fiat-eyebrow">Experience with a reason</p>
+        <h2 class="fiat-underline-heading"><%- advisor.professional.story.title.replace(/(\s)([^\s]+)$/, '$1<span>$2</span>') %></h2>
+        <% advisor.professional.story.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %>
+      </div>
+      <div class="fiat-story-side">
+        <div class="fiat-photo-frame">
+          <img src="<%= advisor.personal.lifestylePhotos[1].src %>" alt="<%= advisor.personal.lifestylePhotos[1].alt %>" width="<%= advisor.personal.lifestylePhotos[1].width %>" height="<%= advisor.personal.lifestylePhotos[1].height %>" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fiat-creds">
+    <div class="container">
+      <p class="fiat-eyebrow">Credentials that back it up</p>
+      <div class="fiat-cred-grid">
+        <% advisor.professional.credentials.forEach((credential, i) => { %>
+          <div class="fiat-cred-step">
+            <span class="fiat-cred-number"><%= String(i + 1).padStart(2, '0') %></span>
+            <strong><%= credential.value %></strong>
+            <span><%= credential.label %></span>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fiat-lifestyle">
+    <div class="container lifestyle-grid">
+      <div class="fiat-photo-frame">
+        <img src="<%= advisor.personal.lifestylePhotos[0].src %>" alt="<%= advisor.personal.lifestylePhotos[0].alt %>" width="<%= advisor.personal.lifestylePhotos[0].width %>" height="<%= advisor.personal.lifestylePhotos[0].height %>" loading="lazy">
+      </div>
+      <div class="lifestyle-copy">
+        <p class="fiat-eyebrow">Beyond the office</p>
+        <h2><%= advisor.personal.moreAboutMe.title %></h2>
+        <% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fiat-reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="fiat-banner">
+        <h2 id="reviews-title">What Clients Say</h2>
+        <p>Real feedback from people I've worked with.</p>
+      </div>
+
+      <div class="review-grid">
+        <% optional.reviews.forEach(review => { %>
+          <figure class="fiat-review-card">
+            <blockquote>&ldquo;<%= review.quote %>&rdquo;</blockquote>
+            <figcaption><%= review.author %></figcaption>
+          </figure>
+        <% }) %>
+      </div>
+
+      <% if (advisor.trust.trustpilot.enabled && advisor.trust.trustpilot.reviewCount) { %>
+        <div class="fiat-trust-bar">
+          <a href="<%= advisor.trust.trustpilot.profileUrl %>" target="_blank" rel="noopener noreferrer" class="fiat-trust-bar-link">
+            <div class="fiat-trust-bar-block">
+              <div class="fiat-trust-bar-stars" aria-hidden="true">
+                <% for (let i = 0; i < 5; i++) { %><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg><% } %>
+              </div>
+              <span class="fiat-trust-bar-score"><%= advisor.trust.trustpilot.rating %> / 5 on Trustpilot</span>
+              <span class="fiat-trust-bar-count"><%= Number(advisor.trust.trustpilot.reviewCount).toLocaleString() %>+ verified reviews</span>
+            </div>
+          </a>
+          <div class="fiat-trust-secondary">
+            <% advisor.professional.credentials.slice(0, 3).forEach(credential => { %>
+              <span>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+                <%= credential.value %> <%= credential.label %>
+              </span>
+            <% }) %>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <section class="section fiat-contact" aria-labelledby="contact-title">
+    <div class="container contact-grid">
+      <div>
+        <img class="contact-photo" src="<%= images.contactPhoto.src %>" alt="<%= images.contactPhoto.alt %>" width="<%= images.contactPhoto.width %>" height="<%= images.contactPhoto.height %>" loading="lazy">
+        <p class="fiat-eyebrow">Contact</p>
+        <h2 id="contact-title"><%= advisor.contact.title %></h2>
+        <p><%= advisor.contact.intro %></p>
+        <p class="contact-location"><%= advisor.identity.location %></p>
+        <p class="phone-link"><a href="tel:<%= advisor.contact.phone.replace(/[^\d+]/g, '') %>"><%= advisor.contact.phone %></a></p>
+      </div>
+
+      <form class="contact-form" method="<%= advisor.contact.form.method %>" action="<%= advisor.contact.form.action %>">
+        <% advisor.contact.form.fields.forEach(field => { %>
+          <div class="field">
+            <label for="<%= field.name %>"><%= field.label %><% if (!field.required) { %> <span class="field-optional">Optional</span><% } %></label>
+            <% if (field.type === 'textarea') { %>
+              <textarea id="<%= field.name %>" name="<%= field.name %>" autocomplete="<%= field.autocomplete %>" <%= field.required ? 'required' : '' %>></textarea>
+            <% } else { %>
+              <input id="<%= field.name %>" name="<%= field.name %>" type="<%= field.type %>" autocomplete="<%= field.autocomplete %>" <%= field.required ? 'required' : '' %>>
+            <% } %>
+          </div>
+        <% }) %>
+
+        <p class="confidentiality">Your information is confidential and used only to respond to your request.</p>
+        <button type="submit"><%= advisor.contact.form.submitLabel %></button>
+      </form>
+    </div>
+  </section>
+</main>
+<%- include('partials/footer', data) %>
+<%- include('partials/schema', data) %>
+</body></html>

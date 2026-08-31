@@ -1,0 +1,9 @@
+body.design-07{--surface:#fff;--surface-2:#fff;--ink:#111;--accent:#111;--radius:0}
+.design-07 .hero-credentials-first{padding-top:1.5rem}
+.design-07 .credentials-top{border-top:1px solid #111;border-bottom:1px solid #111;padding:1rem 0;margin-bottom:3rem}
+.design-07 .credentials-top .credential{border:0;border-right:1px solid #ddd;padding:.5rem 1rem}
+.design-07 .cred-hero-grid{display:grid;gap:2rem;align-items:end}
+.design-07 .cred-hero-grid img{width:100%;height:620px;object-fit:cover}
+.design-07 .compact-story{padding-block:3rem}
+.design-07 .review-card{border-width:1px 0 0;padding-inline:0}
+@media(min-width:850px){.design-07 .cred-hero-grid{grid-template-columns:1fr 1fr}}

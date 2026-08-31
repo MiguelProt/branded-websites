@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<%- include('partials/head', data) %>
+<body class="design-06">
+<main>
+  <section class="hero hero-philosophy">
+    <div class="container narrow philosophy-center">
+      <p class="eyebrow">A retirement advisor should make things clearer.</p>
+      <blockquote>“<%= advisor.professional.story.quote %>”</blockquote>
+      <div class="philosophy-person">
+        <img src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high">
+        <div><h1><%= advisor.identity.name %></h1><p><%= advisor.identity.headline %></p></div>
+      </div>
+      <%- include('partials/trust', data) %>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container philosophy-grid">
+      <div><h2>How I think about retirement planning</h2></div>
+      <div><% advisor.professional.story.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+    </div>
+  </section>
+
+  <section class="section lifestyle-section">
+    <div class="container">
+      <p class="eyebrow">Beyond retirement planning</p>
+      <h2><%= advisor.personal.moreAboutMe.title %></h2>
+      <div class="lifestyle-grid">
+        <% advisor.personal.lifestylePhotos.forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
+        <div class="lifestyle-copy"><% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section philosophy-creds"><div class="container"><%- include('partials/credentials', data) %></div></section>
+
+  <section class="section faq-section">
+    <div class="container narrow">
+      <p class="eyebrow">Direct answers</p><h2>Questions worth asking</h2>
+      <% optional.faq.forEach(item => { %><details><summary><%= item.question %></summary><p><%= item.answer %></p></details><% }) %>
+    </div>
+  </section>
+
+  <%- include('partials/reviews', data) %>
+  <%- include('partials/contact', data) %>
+</main>
+<%- include('partials/footer', data) %>
+<%- include('partials/schema', data) %>
+</body></html>

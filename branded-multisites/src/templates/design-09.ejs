@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<%- include('partials/head', data) %>
+<body class="design-09">
+<main>
+  <section class="hero hero-magazine">
+    <div class="container magazine-grid">
+      <div class="magazine-kicker"><span>Advisor profile</span><span>Nationwide</span></div>
+      <div class="magazine-name"><h1><%= advisor.identity.firstName %><br><%= advisor.identity.lastName %></h1></div>
+      <div class="magazine-photo"><img src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high"></div>
+      <div class="magazine-copy"><p class="hero-positioning"><%= advisor.identity.positioning %></p><%- include('partials/trust', data) %></div>
+    </div>
+  </section>
+
+  <section class="section magazine-story">
+    <div class="container">
+      <div class="magazine-story-title"><span>01</span><h2>Story</h2></div>
+      <div class="magazine-story-copy"><% advisor.professional.story.paragraphs.forEach((paragraph, i) => { %><p<%= i === 0 ? ' class="lead-copy"' : '' %>><%= paragraph %></p><% }) %></div>
+    </div>
+  </section>
+
+  <section class="section lifestyle-section">
+    <div class="container">
+      <div class="magazine-story-title"><span>02</span><h2><%= advisor.personal.moreAboutMe.title %></h2></div>
+      <div class="lifestyle-grid">
+        <% advisor.personal.lifestylePhotos.forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
+        <div class="lifestyle-copy"><% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section magazine-proof">
+    <div class="container"><div class="magazine-story-title"><span>03</span><h2>Credentials</h2></div><%- include('partials/credentials', data) %></div>
+  </section>
+
+  <%- include('partials/reviews', data) %>
+  <%- include('partials/contact', data) %>
+</main>
+<%- include('partials/footer', data) %>
+<%- include('partials/schema', data) %>
+</body></html>

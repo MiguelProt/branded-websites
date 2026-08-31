@@ -1,0 +1,28 @@
+<section class="section contact-section" aria-labelledby="contact-title">
+  <div class="container contact-grid">
+    <div>
+      <img class="contact-photo" src="<%= images.contactPhoto.src %>" alt="<%= images.contactPhoto.alt %>" width="<%= images.contactPhoto.width %>" height="<%= images.contactPhoto.height %>" loading="lazy">
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-title"><%= advisor.contact.title %></h2>
+      <p><%= advisor.contact.intro %></p>
+      <p class="contact-location"><%= advisor.identity.location %></p>
+      <p class="phone-link"><a href="tel:<%= advisor.contact.phone.replace(/[^\d+]/g, '') %>"><%= advisor.contact.phone %></a></p>
+    </div>
+
+    <form class="contact-form" method="<%= advisor.contact.form.method %>" action="<%= advisor.contact.form.action %>">
+      <% advisor.contact.form.fields.forEach(field => { %>
+        <div class="field">
+          <label for="<%= field.name %>"><%= field.label %></label>
+          <% if (field.type === 'textarea') { %>
+            <textarea id="<%= field.name %>" name="<%= field.name %>" autocomplete="<%= field.autocomplete %>" <%= field.required ? 'required' : '' %>></textarea>
+          <% } else { %>
+            <input id="<%= field.name %>" name="<%= field.name %>" type="<%= field.type %>" autocomplete="<%= field.autocomplete %>" <%= field.required ? 'required' : '' %>>
+          <% } %>
+        </div>
+      <% }) %>
+
+      <p class="confidentiality">Your information is confidential and used only to respond to your request.</p>
+      <button type="submit"><%= advisor.contact.form.submitLabel %></button>
+    </form>
+  </div>
+</section>

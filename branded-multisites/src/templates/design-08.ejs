@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<%- include('partials/head', data) %>
+<body class="design-08">
+<main>
+  <section class="hero hero-calm">
+    <div class="container calm-grid">
+      <div class="calm-image-stack">
+        <img class="main-photo" src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high">
+        <% if(advisor.personal.lifestylePhotos[0]) { %><img class="accent-photo" src="<%= advisor.personal.lifestylePhotos[0].src %>" alt="<%= advisor.personal.lifestylePhotos[0].alt %>" loading="lazy"><% } %>
+      </div>
+      <div class="calm-copy">
+        <p class="eyebrow">Retirement should feel more understandable.</p>
+        <h1><%= advisor.identity.name %></h1>
+        <p class="hero-positioning"><%= advisor.identity.positioning %></p>
+        <p><%= advisor.professional.story.title %></p>
+        <%- include('partials/trust', data) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section calm-proof"><div class="container"><%- include('partials/credentials', data) %></div></section>
+
+  <section class="section">
+    <div class="container calm-story-grid">
+      <div><h2>My reason for doing this work</h2><% advisor.professional.story.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+      <div class="calm-quote">“<%= advisor.professional.story.quote %>”</div>
+    </div>
+  </section>
+
+  <section class="section lifestyle-section">
+    <div class="container">
+      <p class="eyebrow">Beyond retirement planning</p>
+      <h2><%= advisor.personal.moreAboutMe.title %></h2>
+      <div class="lifestyle-grid">
+        <% advisor.personal.lifestylePhotos.forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
+        <div class="lifestyle-copy"><% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/reviews', data) %>
+  <%- include('partials/contact', data) %>
+</main>
+<%- include('partials/footer', data) %>
+<%- include('partials/schema', data) %>
+</body></html>

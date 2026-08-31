@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<%- include('partials/head', data) %>
+<body class="design-05">
+<main>
+  <section class="hero hero-institutional">
+    <div class="institutional-bar"><div class="container"><span><%= advisor.compliance.firmName %></span><span><%= advisor.identity.serviceArea %></span></div></div>
+    <div class="container institution-main">
+      <div>
+        <p class="eyebrow"><%= advisor.identity.headline %></p>
+        <h1><%= advisor.identity.name %></h1>
+        <p class="hero-positioning"><%= advisor.identity.positioning %></p>
+        <%- include('partials/trust', data) %>
+      </div>
+      <div class="institution-photo"><img src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high"></div>
+    </div>
+  </section>
+
+  <section class="credential-band"><div class="container"><%- include('partials/credentials', data) %></div></section>
+
+  <section class="section">
+    <div class="container institutional-columns">
+      <div><p class="eyebrow">Advisor philosophy</p><h2><%= advisor.professional.story.title %></h2></div>
+      <div><% advisor.professional.story.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+    </div>
+  </section>
+
+  <section class="section lifestyle-section">
+    <div class="container">
+      <p class="eyebrow">Beyond the office</p>
+      <h2><%= advisor.personal.moreAboutMe.title %></h2>
+      <div class="lifestyle-grid">
+        <% advisor.personal.lifestylePhotos.forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
+        <div class="lifestyle-copy"><% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/reviews', data) %>
+  <%- include('partials/contact', data) %>
+</main>
+<%- include('partials/footer', data) %>
+<%- include('partials/schema', data) %>
+</body></html>

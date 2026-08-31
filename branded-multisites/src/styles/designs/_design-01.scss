@@ -1,0 +1,75 @@
+body.design-01{--surface:#fff;--surface-2:#fff;--ink:#0a0a0a;--accent:#3fa431;--accent-contrast:#0a0a0a;--radius:10px;font-family:'Poppins',Arial,sans-serif}
+.design-01 p{font-family:'Poppins',Arial,sans-serif;font-weight:300}
+.design-01 h1,.design-01 h2{font-family:'Archivo Black',Impact,sans-serif;text-transform:uppercase;letter-spacing:-.01em;font-weight:400}
+.design-01 .fiat-eyebrow{display:inline-block;background:var(--accent);color:#0a0a0a;font-family:'Poppins',Arial,sans-serif;font-weight:600;font-size:.85rem;letter-spacing:.05em;padding:.35rem .75rem;border-radius:6px;margin-bottom:1rem;text-transform:uppercase}
+
+.design-01 .hero-fiat{position:relative;min-height:640px;display:flex;align-items:center;padding:5rem 0;background:linear-gradient(to right,#fff 0%,#fff 40%,rgba(255,255,255,.7) 62%,rgba(255,255,255,.1) 88%),url("assets/images/hero-bg.jpg") center right/cover no-repeat}
+.design-01 .hero-fiat .hero-grid{display:grid;gap:2rem;grid-template-columns:1fr}
+.design-01 .hero-copy{position:relative;z-index:1}
+.design-01 .hero-photo{position:relative;z-index:1}
+.design-01 .hero-photo img{display:block;width:100%;max-width:280px;aspect-ratio:3/4;object-fit:contain;border-radius:var(--radius);}
+@media(min-width:760px){.design-01 .hero-fiat .hero-grid{grid-template-columns:auto 1fr;align-items:center}}
+.design-01 .fiat-badge{display:inline-block;font-family:'Poppins',Arial,sans-serif;font-weight:600;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:#0a0a0a;border-bottom:3px solid var(--accent);padding-bottom:.4rem;margin-bottom:1.25rem}
+.design-01 .hero-copy h1{font-size:clamp(2.6rem,7vw,4.5rem);line-height:.98;margin-bottom:1.25rem}
+.design-01 .hero-positioning{font-size:1.25rem;max-width:38rem}
+.design-01 .fiat-trust-badge{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.75rem;padding:.75rem 1.1rem;background:#fff;box-shadow:0 10px 30px rgba(10,10,10,.12);border-radius:var(--radius);text-decoration:none;color:#0a0a0a;font-size:1rem}
+.design-01 .fiat-trust-stars{display:flex;gap:1px}
+.design-01 .fiat-trust-stars svg{width:16px;height:16px;fill:#00b67a}
+.design-01 .fiat-trust-badge strong{font-weight:700}
+
+.design-01 .fiat-story{background:#faf7ef;padding:5rem 0}
+.design-01 .fiat-underline-heading{font-size:clamp(2rem,5vw,3rem);margin-bottom:1.5rem}
+.design-01 .fiat-underline-heading span{background:linear-gradient(to bottom,transparent 60%,var(--accent) 60%);padding:0 .05em}
+.design-01 .fiat-story-side{align-self:start}
+.design-01 .fiat-story-side .fiat-photo-frame{max-width:100%}
+.design-01 .fiat-quote{margin:1.5rem 0;max-width:38rem;padding:1.5rem 1.75rem;background:transparent;border:0px solid #0a0a0a;border-radius:var(--radius);font-family:'Archivo Black',Impact,sans-serif;font-size:1.35rem;line-height:1.3}
+.design-01 .fiat-quote cite{display:block;margin-top:1.25rem;font-family:'Poppins',Arial,sans-serif;font-size:1rem;font-weight:600;font-style:normal;color:var(--muted)}
+
+.design-01 .fiat-creds{padding:5rem 0;background:#fff}
+.design-01 .fiat-cred-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem 2rem;margin-top:1rem}
+.design-01 .fiat-cred-step strong{display:block;font-size:1.3rem;margin-bottom:.25rem;color:#0a0a0a}
+.design-01 .fiat-cred-step span:last-child{color:var(--muted);font-size:1.05rem}
+.design-01 .fiat-cred-number{display:block;font-family:'Archivo Black',Impact,sans-serif;font-size:4rem;line-height:1;color:var(--accent);-webkit-text-stroke:0;margin-bottom:.5rem}
+
+.design-01 .fiat-lifestyle{padding:5rem 0;background:#faf7ef}
+.design-01 .fiat-photo-frame{position:relative;max-width:90%}
+.design-01 .fiat-photo-frame::before{content:"";position:absolute;inset:-1rem -1rem -1rem 2rem;background:var(--accent);border-radius:var(--radius);z-index:0}
+.design-01 .fiat-photo-frame img{position:relative;z-index:1;display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius);border:0}
+.design-01 .lifestyle-copy h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:1rem}
+
+.design-01 .fiat-reviews{padding:5rem 0;background:#fff}
+.design-01 .fiat-banner{background:var(--accent);border-radius:var(--radius);padding:2rem;text-align:center;margin-bottom:3rem}
+.design-01 .fiat-banner h2{margin:0 0 .5rem;font-size:clamp(1.8rem,5vw,2.6rem)}
+.design-01 .fiat-banner p{margin:0;font-style:italic;font-size:1.1rem;color:#0a0a0a}
+.design-01 .fiat-review-card{margin:0;padding:1.75rem;background:#fff;box-shadow:0 10px 30px rgba(10,10,10,.12);border-radius:var(--radius)}
+.design-01 .fiat-review-card blockquote{margin:0 0 1rem;font-size:1.2rem;line-height:1.6;color:#0a0a0a}
+.design-01 .fiat-review-card figcaption{font-weight:700;color:var(--muted);font-size:1rem}
+
+.design-01 .fiat-trust-bar{margin-top:3rem;padding:2rem;box-shadow:0 10px 30px rgba(10,10,10,.12);border-radius:var(--radius);text-align:center;background:#faf7ef}
+.design-01 .fiat-trust-bar-link{text-decoration:none}
+.design-01 .fiat-trust-bar-block{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.design-01 .fiat-trust-bar-stars{display:flex;gap:2px}
+.design-01 .fiat-trust-bar-stars svg{width:18px;height:18px;fill:#00b67a}
+.design-01 .fiat-trust-bar-score{font-family:'Archivo Black',Impact,sans-serif;font-size:1.1rem;color:#0a0a0a}
+.design-01 .fiat-trust-bar-count{font-size:.9rem;color:var(--muted)}
+.design-01 .fiat-trust-secondary{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.5rem;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(10,10,10,.12)}
+.design-01 .fiat-trust-secondary span{display:flex;align-items:center;gap:.35rem;font-size:.9rem;color:#0a0a0a}
+.design-01 .fiat-trust-secondary svg{width:16px;height:16px;fill:var(--accent)}
+
+.design-01 .fiat-contact{background:#0a0a0a;color:#fff;padding:5rem 0}
+.design-01 .fiat-contact h2{color:#fff}
+.design-01 .fiat-contact p{color:#c7c7c7}
+.design-01 .fiat-contact .phone-link a{color:var(--accent);font-weight:700}
+.design-01 .fiat-contact .contact-location{color:#fff;font-weight:700}
+.design-01 .contact-form{background:#fff;color:#0a0a0a;padding:2rem;border-radius:var(--radius)}
+.design-01 .contact-form .field label{color:#0a0a0a;font-weight:700}
+.design-01 .field-optional{color:var(--muted);font-weight:400;font-size:.9rem}
+.design-01 .contact-form input,.design-01 .contact-form textarea{border:0;box-shadow:0 1px 4px rgba(10,10,10,.18);border-radius:8px}
+.design-01 .contact-form button{background:var(--accent);color:#0a0a0a;border:0;box-shadow:0 6px 16px rgba(10,10,10,.25);border-radius:8px;font-family:'Archivo Black',Impact,sans-serif;text-transform:uppercase;letter-spacing:.03em}
+.lifestyle-grid {
+  gap: 3rem;
+}
+@media(min-width:760px){
+  .design-01 .fiat-cred-grid{grid-template-columns:repeat(4,1fr)}
+  .design-01 .fiat-lifestyle .lifestyle-grid{grid-template-columns:1fr 1fr;align-items:center}
+}

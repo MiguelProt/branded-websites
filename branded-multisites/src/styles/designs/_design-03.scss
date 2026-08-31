@@ -1,0 +1,9 @@
+body.design-03{--surface:#111314;--surface-2:#171b1c;--ink:#f4f2ec;--muted:#b6b8b6;--accent:#d7ba80;--line:rgba(255,255,255,.15)}
+.design-03 .editorial-grid{display:grid;gap:1.5rem;padding-block:4rem}
+.design-03 .editorial-number,.design-03 .chapter{font-size:5rem;color:var(--accent);font-family:Georgia,serif}
+.design-03 .editorial-title h1{font-family:Georgia,serif;font-weight:400}
+.design-03 .editorial-photo img{width:100%;height:620px;object-fit:cover;border-radius:0}
+.design-03 .editorial-proof{align-self:end}
+.design-03 .editorial-story-grid{display:grid;gap:2rem}
+.design-03 .editorial-story blockquote{font-family:Georgia,serif;font-size:2rem}
+@media(min-width:900px){.design-03 .editorial-grid{grid-template-columns:.3fr 1fr 1fr;grid-template-rows:auto auto}.design-03 .editorial-photo{grid-column:3;grid-row:1/3}.design-03 .editorial-proof{grid-column:2}.design-03 .editorial-story-grid{grid-template-columns:1fr 1.2fr}}

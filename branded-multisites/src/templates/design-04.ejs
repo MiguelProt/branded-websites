@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<%- include('partials/head', data) %>
+<body class="design-04">
+<main>
+  <section class="hero hero-social">
+    <div class="container social-hero-grid">
+      <div class="social-copy">
+        <p class="eyebrow">Trusted retirement guidance</p>
+        <h1><%= advisor.identity.name %></h1>
+        <p class="hero-positioning"><%= advisor.identity.positioning %></p>
+        <%- include('partials/trust', data) %>
+        <div class="mini-proof"><span><%= advisor.trust.trustpilot.reviewCount %> verified reviews</span><span><%= advisor.identity.serviceArea %></span></div>
+      </div>
+      <img src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high">
+    </div>
+  </section>
+
+  <%- include('partials/reviews', data) %>
+
+  <section class="section">
+    <div class="container split-proof">
+      <div><p class="eyebrow">Credentials</p><h2>Professional experience you can scan in seconds.</h2></div>
+      <%- include('partials/credentials', data) %>
+    </div>
+  </section>
+
+  <section class="section story-section">
+    <div class="container narrow">
+      <h2>What shaped my approach</h2>
+      <% advisor.professional.story.paragraphs.forEach((paragraph, i) => { %><p<%= i === 0 ? ' class="lead-copy"' : '' %>><%= paragraph %></p><% }) %>
+    </div>
+  </section>
+
+  <section class="section lifestyle-section">
+    <div class="container">
+      <p class="eyebrow">Beyond the office</p>
+      <h2><%= advisor.personal.moreAboutMe.title %></h2>
+      <div class="lifestyle-grid">
+        <% advisor.personal.lifestylePhotos.forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
+        <div class="lifestyle-copy"><% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/contact', data) %>
+</main>
+<%- include('partials/footer', data) %>
+<%- include('partials/schema', data) %>
+</body></html>
