@@ -2,6 +2,7 @@
 <html lang="en">
 <%- include('partials/head', data) %>
 <body class="design-08">
+<%- include('partials/nav', data) %>
 <main>
   <section class="hero hero-calm">
     <div class="container calm-grid">
@@ -19,16 +20,16 @@
     </div>
   </section>
 
-  <section class="section calm-proof"><div class="container"><%- include('partials/credentials', data) %></div></section>
+  <section class="section calm-proof" id="credentials"><div class="container"><%- include('partials/credentials', data) %></div></section>
 
   <section class="section">
-    <div class="container calm-story-grid">
+    <div class="container calm-story-grid" id="story">
       <div><h2>My reason for doing this work</h2><% advisor.professional.story.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
       <div class="calm-quote">“<%= advisor.professional.story.quote %>”</div>
     </div>
   </section>
 
-  <section class="section lifestyle-section">
+  <section class="section lifestyle-section" id="lifestyle">
     <div class="container">
       <p class="eyebrow">Beyond retirement planning</p>
       <h2><%= advisor.personal.moreAboutMe.title %></h2>
@@ -41,6 +42,7 @@
 
   <%- include('partials/reviews', data) %>
   <%- include('partials/contact', data) %>
+  <%- include('partials/faq', data) %>
 </main>
 <%- include('partials/footer', data) %>
 <%- include('partials/schema', data) %>

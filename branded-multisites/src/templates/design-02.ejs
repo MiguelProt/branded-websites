@@ -2,40 +2,55 @@
 <html lang="en">
 <%- include('partials/head', data) %>
 <body class="design-02">
+<%- include('partials/nav', data) %>
+
+<div class="firm-strip">
+  <div class="container firm-strip-inner">
+    <span><%= advisor.identity.location %></span>
+    <span class="firm-strip-sep" aria-hidden="true">&middot;</span>
+    <a href="tel:<%= advisor.contact.phone.replace(/[^\d+]/g, '') %>"><%= advisor.contact.phone %></a>
+  </div>
+</div>
+
 <main>
-  <section class="hero hero-human">
-    <div class="container">
-      <div class="human-photo-wrap">
-        <img class="human-headshot" src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high">
-        <div class="human-intro">
-          <p class="eyebrow">Hi, I’m <%= advisor.identity.firstName %></p>
-          <h1>I help families feel more confident about retirement.</h1>
-          <p><%= advisor.identity.positioning %></p>
-          <%- include('partials/trust', data) %>
-        </div>
+  <section class="hero firm-hero">
+    <div class="container firm-hero-grid">
+      <div class="firm-hero-copy">
+        <p class="eyebrow"><%= advisor.identity.headline %></p>
+        <h1><%= advisor.identity.name %></h1>
+        <p class="firm-hero-positioning"><%= advisor.identity.positioning %></p>
+        <%- include('partials/trust', data) %>
+      </div>
+      <div class="firm-hero-media">
+        <img class="firm-hero-photo" src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high">
       </div>
     </div>
   </section>
 
-  <section class="section personal-story">
+  <section class="section firm-story" id="story">
     <div class="container narrow">
-      <blockquote class="personal-quote">“<%= advisor.professional.story.quote %>”</blockquote>
+      <p class="eyebrow">Welcome</p>
+      <h2><%= advisor.professional.story.title %></h2>
+      <blockquote class="firm-quote">&ldquo;<%= advisor.professional.story.quote %>&rdquo;</blockquote>
       <% advisor.professional.story.paragraphs.forEach((paragraph, i) => { %><p<%= i === 0 ? ' class="lead-copy"' : '' %>><%= paragraph %></p><% }) %>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container"><%- include('partials/credentials', data) %></div>
+  <section class="section firm-credentials" id="credentials">
+    <div class="container">
+      <p class="eyebrow">Credentials</p>
+      <%- include('partials/credentials', data) %>
+    </div>
   </section>
 
-  <section class="section lifestyle-section">
-    <div class="container">
-      <div class="lifestyle-photo-collage">
-        <% advisor.personal.lifestylePhotos.forEach(image => { %>
+  <section class="section firm-lifestyle" id="lifestyle">
+    <div class="container firm-lifestyle-grid">
+      <div class="firm-lifestyle-photos">
+        <% advisor.personal.lifestylePhotos.slice(1, 2).forEach(image => { %>
           <img src="<%= image.src %>" alt="<%= image.alt %>" width="<%= image.width %>" height="<%= image.height %>" loading="lazy">
         <% }) %>
       </div>
-      <div class="more-about-card">
+      <div class="firm-lifestyle-copy">
         <p class="eyebrow">Beyond retirement planning</p>
         <h2><%= advisor.personal.moreAboutMe.title %></h2>
         <% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %>
@@ -44,7 +59,20 @@
   </section>
 
   <%- include('partials/reviews', data) %>
-  <%- include('partials/contact', data) %>
+  <%
+    const contactData = {
+      ...data,
+      advisor: {
+        ...advisor,
+        contact: {
+          ...advisor.contact,
+          form: { ...advisor.contact.form, submitLabel: 'Send' }
+        }
+      }
+    };
+  %>
+  <%- include('partials/contact', contactData) %>
+  <%- include('partials/faq', data) %>
 </main>
 <%- include('partials/footer', data) %>
 <%- include('partials/schema', data) %>

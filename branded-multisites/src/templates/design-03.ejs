@@ -2,10 +2,11 @@
 <html lang="en">
 <%- include('partials/head', data) %>
 <body class="design-03">
+<%- include('partials/nav', data) %>
 <main>
   <section class="hero hero-editorial">
     <div class="container editorial-grid">
-      <div class="editorial-number">01</div>
+      <div class="editorial-number">I</div>
       <div class="editorial-title">
         <p class="eyebrow">Advisor profile</p>
         <h1><%= advisor.identity.name %></h1>
@@ -14,35 +15,103 @@
       <div class="editorial-photo"><img src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high"></div>
       <div class="editorial-proof">
         <p class="hero-positioning"><%= advisor.identity.positioning %></p>
-        <%- include('partials/trust', data) %>
+        <% if (advisor.trust.trustpilot.enabled && advisor.trust.trustpilot.reviewCount) { %>
+          <a class="tp-rating-badge" href="<%= advisor.trust.trustpilot.profileUrl %>" target="_blank" rel="noopener noreferrer" aria-label="View Trustpilot profile">
+            <p class="tp-review-count">Based on <%= Number(advisor.trust.trustpilot.reviewCount).toLocaleString() %> reviews</p>
+            <span class="tp-stars-row" aria-hidden="true">
+              <% for (let i = 1; i <= 5; i++) { const fill = Math.max(0, Math.min(1, Number(advisor.trust.trustpilot.rating) - (i - 1))); %>
+                <span class="tp-star-cell">
+                  <span class="tp-star-fill" style="width:<%= (fill * 100).toFixed(0) %>%"></span>
+                  <span class="tp-star-icon"></span>
+                </span>
+              <% } %>
+            </span>
+            <span class="tp-logo" aria-hidden="true">
+              <span class="tp-logo-star"></span>
+              <span class="tp-logo-text">Trustpilot</span>
+            </span>
+          </a>
+        <% } else { %>
+          <div class="trust-summary trust-summary--fallback">
+            <strong>Professional guidance</strong>
+            <span>Clear, personal, no-pressure conversations</span>
+          </div>
+        <% } %>
       </div>
     </div>
   </section>
 
-  <section class="section editorial-credentials">
+  <section class="section editorial-credentials" id="credentials">
     <div class="container"><%- include('partials/credentials', data) %></div>
   </section>
 
-  <section class="section editorial-story">
+  <section class="section editorial-story" id="story">
     <div class="container editorial-story-grid">
-      <div><span class="chapter">02</span><h2>Why this work matters to me</h2></div>
+      <div><span class="chapter">II</span><h2>Why this work matters to me</h2></div>
       <div><% advisor.professional.story.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %><blockquote>“<%= advisor.professional.story.quote %>”</blockquote></div>
     </div>
   </section>
 
-  <section class="section lifestyle-section">
+  <section class="section lifestyle-section" id="lifestyle">
     <div class="container">
-      <span class="chapter">03</span>
+      <span class="chapter">III</span>
       <h2><%= advisor.personal.moreAboutMe.title %></h2>
       <div class="lifestyle-grid">
-        <% advisor.personal.lifestylePhotos.forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
+        <% advisor.personal.lifestylePhotos.slice(0, 1).forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
         <div class="lifestyle-copy"><% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
       </div>
     </div>
   </section>
 
-  <%- include('partials/reviews', data) %>
+  <section class="section reviews-section" id="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Client feedback</p>
+        <h2 id="reviews-title">What clients say</h2>
+      </div>
+
+      <div class="review-grid">
+        <% optional.reviews.forEach(review => { %>
+          <figure class="review-card">
+            <blockquote>“<%= review.quote %>”</blockquote>
+            <figcaption><%= review.author %></figcaption>
+          </figure>
+        <% }) %>
+      </div>
+
+      <% if (advisor.trust.trustpilot.enabled && advisor.trust.trustpilot.reviewCount) { %>
+        <div class="trust-bar">
+          <div class="trust-bar-inner">
+            <a href="<%= advisor.trust.trustpilot.profileUrl %>" target="_blank" rel="noopener noreferrer" class="trust-bar-link">
+              <div class="trust-bar-block">
+                <div class="trust-bar-stars" aria-hidden="true">
+                  <% for (let i = 0; i < 5; i++) { %><svg class="trust-bar-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg><% } %>
+                </div>
+                <span class="trust-bar-score"><%= advisor.trust.trustpilot.rating %> / 5 on Trustpilot</span>
+                <span class="trust-bar-count"><%= Number(advisor.trust.trustpilot.reviewCount).toLocaleString() %>+ verified reviews</span>
+              </div>
+            </a>
+
+            <div class="trust-secondary-line">
+              <% advisor.professional.credentials.slice(0, 3).forEach(credential => { %>
+                <span>
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+                  <%= credential.value %> <%= credential.label %>
+                </span>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+      <% } else if (advisor.trust.trustpilot.enabled) { %>
+        <div class="trustbox-placeholder">
+          Official Trustpilot TrustBox goes here in production.
+        </div>
+      <% } %>
+    </div>
+  </section>
+
   <%- include('partials/contact', data) %>
+  <%- include('partials/faq', data) %>
 </main>
 <%- include('partials/footer', data) %>
 <%- include('partials/schema', data) %>

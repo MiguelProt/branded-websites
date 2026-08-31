@@ -1,10 +1,102 @@
-body.design-05{--surface:#f4f5f2;--surface-2:#fff;--ink:#20251f;--accent:#3f553c;--radius:6px}
-.design-05 .institutional-bar{border-bottom:1px solid var(--line);font-size:1.25rem;text-transform:uppercase;letter-spacing:.06em}
-.design-05 .institutional-bar .container{display:flex;justify-content:space-between;padding-block:1rem}
-.design-05 .institution-main{display:grid;gap:2rem;align-items:center;padding-block:4rem}
-.design-05 .institution-photo img{border-radius:0;height:620px;object-fit:cover}
-.design-05 .credential-band{background:#273229;padding:2rem 0}
-.design-05 .credential-band .credential{background:transparent;color:#fff;border-color:rgba(255,255,255,.2)}
-.design-05 .credential-band .credential span{color:rgba(255,255,255,.7)}
+@font-face{font-family:'Source Serif 4';font-style:normal;font-weight:300 700;font-display:swap;src:url(https://fonts.gstatic.com/s/sourceserif4/v14/vEFF2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6kDXr4.woff2) format('woff2')}
+@font-face{font-family:'Source Serif 4';font-style:italic;font-weight:400 600;font-display:swap;src:url(https://fonts.gstatic.com/s/sourceserif4/v14/vEFH2_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US0r6aX0.woff2) format('woff2')}
+body.design-05{--surface:#f2f3f1;--surface-2:#fff;--ink:#101d2c;--muted:#5a6675;--accent:#0f2d4e;--accent-contrast:#fff;--line:rgba(16,29,44,.14);--radius:4px;--shadow:0 20px 45px rgba(16,29,44,.12);--gold:#b8935a}
+.design-05 h1,.design-05 h2{font-family:'Source Serif 4',Georgia,serif;font-weight:400;letter-spacing:-.01em}
+.design-05 .eyebrow{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--accent);font-size:1.3rem}
+.design-05 .site-nav-brand{font-family:'Source Serif 4',Georgia,serif;font-size:1.5rem;letter-spacing:.01em}
+.design-05 .site-nav-links a{text-transform:uppercase;font-size:.85rem;letter-spacing:.07em;font-weight:600}
+.design-05 button{border-radius:2px;text-transform:uppercase;letter-spacing:.04em;font-size:1rem;font-weight:600}
+.design-05 .site-footer{background:#0a1826}
+
+.design-05 .institutional-bar{background:var(--surface-2);border-bottom:1px solid var(--line);font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.design-05 .institutional-bar .container{display:flex;justify-content:space-between;padding-block:.7rem}
+.design-05 .hero-banner{position:relative;min-height:380px;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(9,20,33,.15) 0%,rgba(9,20,33,.88) 100%),url("assets/images/advisor-handshake.jpg") center 30%/cover no-repeat;color:#fff}
+.design-05 .hero-banner-inner{padding-block:2.5rem 3rem}
+.design-05 .hero-banner .eyebrow{color:#e4d3ac}
+.design-05 .hero-banner-title{font-family:'Source Serif 4',Georgia,serif;font-weight:400;font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.1;margin:0 0 .75rem;color:#fff}
+.design-05 .hero-banner-sub{font-size:1.2rem;color:rgba(255,255,255,.85);max-width:34rem;margin-bottom:1.75rem}
+.design-05 .hero-cta{display:inline-block;padding:.9rem 1.75rem;border:1px solid rgba(255,255,255,.7);color:#fff;text-decoration:none;font-size:1rem;text-transform:uppercase;letter-spacing:.04em;transition:background .2s ease,color .2s ease}
+.design-05 .hero-cta:hover{background:#fff;color:var(--ink)}
+
+.design-05 .institution-main{display:grid;gap:2rem;padding:3rem 0 4rem}
+.design-05 .institution-card{background:var(--surface-2);padding:2.5rem;position:relative;z-index:2}
+.design-05 .institution-photo{position:relative;z-index:1}
+.design-05 .institution-photo img{border-radius:0;height:480px;object-fit:cover}
+.design-05 .tp-rating-badge{display:inline-flex;flex-direction:column;align-items:flex-start;gap:.5rem;margin:1.25rem 0;text-decoration:none}
+.design-05 .tp-review-count{margin:0;font-size:1.05rem;color:var(--ink);font-weight:600}
+.design-05 .tp-stars-row{display:flex;gap:4px}
+.design-05 .tp-star-cell{position:relative;width:28px;height:28px;background:#e3e3e8;overflow:hidden}
+.design-05 .tp-star-fill{position:absolute;top:0;left:0;height:100%;background:#00b67a}
+.design-05 .tp-star-icon{position:absolute;inset:5px;background:#fff;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);z-index:1}
+.design-05 .tp-logo{display:flex;align-items:center;gap:.5rem}
+.design-05 .tp-logo-star{position:relative;width:22px;height:22px;background:#00b67a;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.design-05 .tp-logo-text{font-weight:700;font-size:1.15rem;color:#191919}
+.design-05 .institution-links{display:flex;flex-direction:column;gap:.2rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.design-05 .institution-links a{display:flex;align-items:center;justify-content:space-between;color:var(--ink);text-decoration:none;font-weight:600;padding:.5rem 0}
+.design-05 .institution-links a span{color:var(--gold);transition:transform .2s ease}
+.design-05 .institution-links a:hover span{transform:translateX(4px)}
+
+.design-05 .quote-band-section{background:var(--ink);color:#fff;padding:4rem 0}
+.design-05 .quote-band{display:grid;gap:1.5rem;align-items:start}
+.design-05 .quote-band-mark{width:34px;height:2px;background:var(--gold);margin-top:.6rem}
+.design-05 .quote-band blockquote{margin:0 0 1.5rem;font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(1.5rem,4vw,2.3rem);line-height:1.35;color:#fff}
+.design-05 .quote-band-cta{display:inline-block;padding:.85rem 1.6rem;border:1px solid rgba(255,255,255,.6);color:#fff;text-decoration:none;font-size:1rem;text-transform:uppercase;letter-spacing:.04em}
+.design-05 .quote-band-cta:hover{background:#fff;color:var(--ink)}
+
+.design-05 .credential-band{background:var(--surface-2);padding:3rem 0;border-bottom:1px solid var(--line)}
+.design-05 .band-label{display:flex;align-items:center;gap:1.5rem;margin-bottom:2.25rem;color:var(--muted);font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:1.3rem}
+.design-05 .band-label::before,.design-05 .band-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.design-05 .credential-band .credential{background:transparent;border:0;border-left:1px solid var(--line);border-radius:0;padding:0 0 0 1.5rem}
+.design-05 .credential-band .credential:first-child{border-left:0;padding-left:0}
+.design-05 .credential-band .credential strong{color:var(--accent);font-family:'Source Serif 4',Georgia,serif;font-size:1.6rem}
+.design-05 .credential-band .credential span{color:var(--muted)}
+
 .design-05 .institutional-columns{display:grid;gap:2rem}
-@media(min-width:850px){.design-05 .institution-main,.design-05 .institutional-columns{grid-template-columns:1fr 1fr}}
+.design-05 .institutional-columns blockquote{font-family:'Source Serif 4',Georgia,serif}
+
+.design-05 .photo-break{margin:0}
+.design-05 .photo-break img{width:100%;height:420px;object-fit:cover;display:block}
+.design-05 .photo-break figcaption{text-align:center;padding:1.5rem 0 0;font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:1.3rem;color:var(--ink)}
+
+.design-05 .reviews-section{background:var(--surface-2)}
+.design-05 .review-card{border:1px solid var(--line);border-radius:2px;box-shadow:none}
+.design-05 .review-card blockquote{font-family:'Source Serif 4',Georgia,serif;font-style:italic}
+.design-05 .trustbox-placeholder{display:none}
+.design-05 .trust-bar{padding:1.5rem 0 3rem;background:var(--surface-2)}
+.design-05 .trust-bar-inner{display:flex;flex-direction:column;align-items:center;gap:.5rem;max-width:600px;margin-inline:auto;text-align:center}
+.design-05 .trust-bar-link{text-decoration:none}
+.design-05 .trust-bar-block{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.design-05 .trust-bar-stars{display:flex;gap:2px}
+.design-05 .trust-bar-star{width:16px;height:16px;fill:#00b67a}
+.design-05 .trust-bar-score{margin:0;font-size:1rem;font-weight:700;color:var(--ink)}
+.design-05 .trust-bar-count{margin:0;font-size:.9rem;color:var(--muted)}
+.design-05 .trust-secondary-line{display:flex;gap:.4rem 1.5rem;flex-wrap:wrap;justify-content:center;margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--line)}
+.design-05 .trust-secondary-line span{display:flex;align-items:center;gap:.35rem;font-size:.9rem;color:var(--ink)}
+.design-05 .trust-secondary-line svg{width:14px;height:14px;fill:var(--gold)}
+
+.design-05 .contact-form{border-radius:0;padding:2.5rem 2rem}
+.design-05 .contact-form .field{margin-bottom:1.75rem}
+.design-05 .contact-form .field label{font-family:'Source Serif 4',Georgia,serif;font-size:1.4rem;font-weight:400}
+.design-05 .contact-form input,.design-05 .contact-form textarea{border-radius:2px;border-color:rgba(16,29,44,.35);padding:.75rem .9rem}
+.design-05 .contact-form textarea{min-height:220px}
+.design-05 .contact-form .field:has(textarea) label{display:block;margin-bottom:0}
+.design-05 .contact-form .field:has(textarea) label::after{content:"Please share a few details in the box below:";display:block;margin-top:.5rem;font-size:.85rem;font-weight:400;font-family:Arial,Helvetica,sans-serif;color:var(--muted)}
+
+@media(min-width:850px){
+  .design-05 .institution-main{grid-template-columns:1fr 1fr;align-items:center}
+  .design-05 .institution-card{margin-right:-3rem;box-shadow:var(--shadow);padding:3rem}
+  .design-05 .institutional-columns{grid-template-columns:1fr 1fr}
+  .design-05 .institutional-columns>div:last-child{border-left:1px solid var(--line);padding-left:2.5rem}
+  .design-05 .quote-band{grid-template-columns:3rem 1fr}
+}
+
+@media(min-width:760px){
+  .design-05 .contact-grid{grid-template-columns:.85fr 1.3fr}
+  .design-05 .lifestyle-grid{grid-template-columns:1fr 1.2fr}
+  .design-05 .lifestyle-grid img{min-height:440px}
+}
+
+@media(min-width:640px){
+  .design-05 .contact-form .field:not(:has(textarea)){display:grid;grid-template-columns:150px 1fr;align-items:center;gap:1.5rem}
+  .design-05 .contact-form .field:not(:has(textarea)) label{margin-bottom:0}
+}

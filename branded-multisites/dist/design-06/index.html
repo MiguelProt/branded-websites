@@ -27,16 +27,37 @@
 </head>
 
 <body class="design-06">
-<main>
-  <section class="hero hero-philosophy">
-    <div class="container narrow philosophy-center">
-      <p class="eyebrow">A retirement advisor should make things clearer.</p>
-      <blockquote>“My goal is to demystify the world of annuities and retirement income strategies, ensuring clients can confidently plan for a secure and fulfilling retirement.”</blockquote>
-      <div class="philosophy-person">
-        <img src="./assets/images/headshot.webp" alt="Portrait of Matt Rowenczak" width="716" height="952" fetchpriority="high">
-        <div><h1>Matt Rowenczak</h1><p>Retirement Planning &amp; Annuity Specialist</p></div>
-      </div>
-      
+
+<header class="site-nav">
+  <div class="container site-nav-bar">
+    <a class="site-nav-brand" href="#">Matt Rowenczak</a>
+
+    <nav class="site-nav-links site-nav-links--desktop" aria-label="Page sections">
+      <a href="#story">Story</a><a href="#credentials">Credentials</a><a href="#lifestyle">Beyond the Office</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a><a href="#faq">FAQ</a>
+    </nav>
+
+    <details class="site-nav-menu">
+      <summary class="site-nav-summary" aria-label="Open section menu">
+        <span class="site-nav-burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        Menu
+      </summary>
+      <nav class="site-nav-links site-nav-links--mobile" aria-label="Page sections">
+        <a href="#story">Story</a><a href="#credentials">Credentials</a><a href="#lifestyle">Beyond the Office</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a><a href="#faq">FAQ</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+
+<section class="hero dc-hero">
+  <div class="container narrow dc-hero-inner">
+    <p class="eyebrow">Retirement Planning &amp; Annuity Specialist</p>
+    <blockquote class="dc-hero-quote">&ldquo;My goal is to demystify the world of annuities and retirement income strategies, ensuring clients can confidently plan for a secure and fulfilling retirement.&rdquo;</blockquote>
+    <div class="dc-hero-person">
+      <img src="./assets/images/headshot.webp" alt="Portrait of Matt Rowenczak" width="716" height="952" fetchpriority="high">
+      <div><strong>Matt Rowenczak</strong><span>Atlanta, GA</span></div>
+    </div>
+    
   <a class="trust-summary" href="https://www.trustpilot.com/review/annuitygator.com" target="_blank" rel="noopener noreferrer" aria-label="View Trustpilot profile">
     <span class="stars" aria-hidden="true">★★★★★</span>
     <strong>4.9</strong>
@@ -45,28 +66,66 @@
   </a>
 
 
-    </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section">
-    <div class="container philosophy-grid">
-      <div><h2>How I think about retirement planning</h2></div>
-      <div><p>With 16 years in the financial space, I focus on helping clients nationwide secure their financial futures. I focus on effective strategies to accumulate or generate retirement income while protecting those assets from risk. As a Navy veteran, I bring a disciplined approach to financial planning, emphasizing the importance of preparedness and security.</p><p>I hold a Bachelor of Arts in Economics from The Ohio State University and an MBA in Finance and Marketing from the University of Georgia&#39;s Terry College of Business. My career spans from military service as a Supply Corps Officer in the Navy to a decade in corporate America. My experience enables me to offer valuable insights to clients navigating their retirement or personal financial journeys.</p></div>
-    </div>
-  </section>
+<div class="container dc-layout">
+  <aside class="dc-aside" id="contact" aria-label="Contact">
+    <div class="dc-contact-card">
+      <p class="eyebrow">Let&rsquo;s talk</p>
+      <img class="dc-contact-photo" src="./assets/images/contact-photo.webp" alt="Matt Rowenczak headshot" width="150" height="150" loading="lazy">
+      <h2>Send me a question</h2>
+      <p class="dc-contact-intro">Your information is 100% confidential and your email will never be spammed! Just a friendly response to answer your questions and help point you in the right direction.</p>
+      <p class="dc-contact-location">Atlanta, GA</p>
+      <p class="dc-contact-phone"><a href="tel:6783388236">(678) 338 8236</a></p>
 
-  <section class="section lifestyle-section">
-    <div class="container">
-      <p class="eyebrow">Beyond retirement planning</p>
-      <h2>More about me</h2>
-      <div class="lifestyle-grid">
-        <img src="./assets/images/about-me.webp" alt="Matt Rowenczak enjoying the outdoors" width="640" height="640" loading="lazy"><img src="./assets/images/professional-journey.webp" alt="Matt Rowenczak speaking with clients" width="642" height="642" loading="lazy">
-        <div class="lifestyle-copy"><p>Outside of work, I enjoy the excitement of college football, exploring the great outdoors, diving into American history, and traveling to experience other cultures. My Southern roots influence my tastes, especially my love for BBQ, while my time living in Southern California sparked a fondness for quality tacos and burritos. XX I hope you share a little bit about what you enjoy as well.</p><p>Based in Georgia, I operate my office out of the Atlanta area, but I serve clients nationwide. Through advanced technology, I offer virtual meetings, allowing clients to engage in real-time discussions about their financial goals and strategies. XX This flexibility ensures that clients can easily access the guidance they need from the comfort of their homes. Reach out to me for advice on retirement planning and annuity options tailored to your needs and goals.</p></div>
-      </div>
+      <form class="dc-contact-form" method="POST" action="">
+        
+          <div class="field">
+            <label for="firstName">First name</label>
+            
+              <input id="firstName" name="firstName" type="text" autocomplete="given-name" required>
+            
+          </div>
+        
+          <div class="field">
+            <label for="lastName">Last name</label>
+            
+              <input id="lastName" name="lastName" type="text" autocomplete="family-name" required>
+            
+          </div>
+        
+          <div class="field">
+            <label for="email">Email</label>
+            
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            
+          </div>
+        
+          <div class="field">
+            <label for="phone">Phone</label>
+            
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+            
+          </div>
+        
+          <div class="field">
+            <label for="message">Message</label>
+            
+              <textarea id="message" name="message" autocomplete="off" required></textarea>
+            
+          </div>
+        
+        <p class="confidentiality">Your information is confidential and used only to respond to your request.</p>
+        <button type="submit">Next</button>
+      </form>
     </div>
-  </section>
+  </aside>
 
-  <section class="section philosophy-creds"><div class="container"><div class="credentials" aria-label="Advisor credentials">
+  <div class="dc-main-col">
+    <section class="section dc-credentials" id="credentials">
+      <p class="eyebrow">Credentials</p>
+      <div class="credentials" aria-label="Advisor credentials">
   
     <div class="credential">
       <strong>16+</strong>
@@ -89,16 +148,23 @@
     </div>
   
 </div>
-</div></section>
 
-  <section class="section faq-section">
-    <div class="container narrow">
-      <p class="eyebrow">Direct answers</p><h2>Questions worth asking</h2>
-      <details><summary>XX Lorem ipsum dolor sit amet?</summary><p>XX Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></details><details><summary>XX Ut enim ad minim veniam?</summary><p>XX Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></details><details><summary>XX Duis aute irure dolor in reprehenderit?</summary><p>XX In voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.</p></details>
-    </div>
-  </section>
+    </section>
 
-  <section class="section reviews-section" aria-labelledby="reviews-title">
+    <section class="section dc-story" id="story">
+      <p class="eyebrow">Philosophy</p>
+      <h2>How I think about retirement planning</h2>
+      <p>With 16 years in the financial space, I focus on helping clients nationwide secure their financial futures. I focus on effective strategies to accumulate or generate retirement income while protecting those assets from risk. As a Navy veteran, I bring a disciplined approach to financial planning, emphasizing the importance of preparedness and security.</p><p>I hold a Bachelor of Arts in Economics from The Ohio State University and an MBA in Finance and Marketing from the University of Georgia&#39;s Terry College of Business. My career spans from military service as a Supply Corps Officer in the Navy to a decade in corporate America. My experience enables me to offer valuable insights to clients navigating their retirement or personal financial journeys.</p>
+    </section>
+
+    <section class="section dc-lifestyle" id="lifestyle">
+      <p class="eyebrow">Beyond retirement planning</p>
+      <h2>More about me</h2>
+      <img class="dc-lifestyle-photo" src="./assets/images/about-me.webp" alt="Matt Rowenczak enjoying the outdoors" width="640" height="640" loading="lazy">
+      <p>Outside of work, I enjoy the excitement of college football, exploring the great outdoors, diving into American history, and traveling to experience other cultures. My Southern roots influence my tastes, especially my love for BBQ, while my time living in Southern California sparked a fondness for quality tacos and burritos. XX I hope you share a little bit about what you enjoy as well.</p><p>Based in Georgia, I operate my office out of the Atlanta area, but I serve clients nationwide. Through advanced technology, I offer virtual meetings, allowing clients to engage in real-time discussions about their financial goals and strategies. XX This flexibility ensures that clients can easily access the guidance they need from the comfort of their homes. Reach out to me for advice on retirement planning and annuity options tailored to your needs and goals.</p>
+    </section>
+
+    <section class="section reviews-section" id="reviews" aria-labelledby="reviews-title">
   <div class="container">
     <div class="section-heading">
       <p class="eyebrow">Client feedback</p>
@@ -132,62 +198,36 @@
   </div>
 </section>
 
-  <section class="section contact-section" aria-labelledby="contact-title">
-  <div class="container contact-grid">
-    <div>
-      <img class="contact-photo" src="./assets/images/contact-photo.webp" alt="Matt Rowenczak headshot" width="150" height="150" loading="lazy">
-      <p class="eyebrow">Contact</p>
-      <h2 id="contact-title">Send me a question</h2>
-      <p>Your information is 100% confidential and your email will never be spammed! Just a friendly response to answer your questions and help point you in the right direction.</p>
-      <p class="contact-location">Atlanta, GA</p>
-      <p class="phone-link"><a href="tel:6783388236">(678) 338 8236</a></p>
+    
+  <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+    <div class="container narrow">
+      <p class="eyebrow">Frequently asked questions</p>
+      <h2 id="faq-title">Questions worth asking</h2>
+      <div class="faq-list">
+        
+          <details>
+            <summary>XX Lorem ipsum dolor sit amet?</summary>
+            <p>XX Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </details>
+        
+          <details>
+            <summary>XX Ut enim ad minim veniam?</summary>
+            <p>XX Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </details>
+        
+          <details>
+            <summary>XX Duis aute irure dolor in reprehenderit?</summary>
+            <p>XX In voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.</p>
+          </details>
+        
+      </div>
     </div>
+  </section>
 
-    <form class="contact-form" method="POST" action="">
-      
-        <div class="field">
-          <label for="firstName">First name</label>
-          
-            <input id="firstName" name="firstName" type="text" autocomplete="given-name" required>
-          
-        </div>
-      
-        <div class="field">
-          <label for="lastName">Last name</label>
-          
-            <input id="lastName" name="lastName" type="text" autocomplete="family-name" required>
-          
-        </div>
-      
-        <div class="field">
-          <label for="email">Email</label>
-          
-            <input id="email" name="email" type="email" autocomplete="email" required>
-          
-        </div>
-      
-        <div class="field">
-          <label for="phone">Phone</label>
-          
-            <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-          
-        </div>
-      
-        <div class="field">
-          <label for="message">Message</label>
-          
-            <textarea id="message" name="message" autocomplete="off" required></textarea>
-          
-        </div>
-      
 
-      <p class="confidentiality">Your information is confidential and used only to respond to your request.</p>
-      <button type="submit">Next</button>
-    </form>
   </div>
-</section>
+</div>
 
-</main>
 <footer class="site-footer">
   <div class="container">
     <p>Matt Rowenczak is an independent financial services firm that creates retirement strategies using a variety of investment and insurance products. Neither the firm nor its representatives may give tax or legal advice. Investing involves risk, including the potential loss of principal. No investment strategy can guarantee a profit or protect against loss in periods of declining values. Any references to protection benefits or lifetime income generally refer to fixed insurance products, never securities or investment products. Insurance and annuity product guarantees are backed by the financial strength and claims-paying ability of the issuing insurance company.</p>

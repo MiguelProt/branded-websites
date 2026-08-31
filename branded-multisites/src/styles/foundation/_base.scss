@@ -3,6 +3,132 @@
   margin-inline: auto;
 }
 
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .9rem 0;
+}
+
+.site-nav-brand {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem 1.5rem;
+}
+
+.site-nav-links a {
+  display: inline-block;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: .5rem .2rem;
+}
+
+.site-nav-links a:hover {
+  color: var(--accent);
+}
+
+.site-nav-links--desktop {
+  display: none;
+}
+
+.site-nav-menu {
+  position: relative;
+}
+
+.site-nav-summary {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  list-style: none;
+  cursor: pointer;
+  padding: .55rem .9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  min-height: 44px;
+}
+
+.site-nav-summary::-webkit-details-marker,
+.site-nav-summary::marker {
+  display: none;
+  content: "";
+}
+
+.site-nav-burger {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.site-nav-burger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+}
+
+.site-nav-links--mobile {
+  position: absolute;
+  right: 0;
+  top: calc(100% + .6rem);
+  flex-direction: column;
+  flex-wrap: nowrap;
+  min-width: 220px;
+  padding: .5rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  gap: 0;
+}
+
+.site-nav-links--mobile a {
+  display: block;
+  padding: .8rem .6rem;
+  border-radius: 8px;
+}
+
+.site-nav-links--mobile a:hover {
+  background: var(--surface);
+}
+
+.site-nav a:focus-visible,
+.site-nav summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (min-width: 760px) {
+  .site-nav-links--desktop {
+    display: flex;
+  }
+
+  .site-nav-menu {
+    display: none;
+  }
+}
+
 .narrow {
   width: min(100% - 2rem, 820px);
 }

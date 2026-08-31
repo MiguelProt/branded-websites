@@ -2,49 +2,71 @@
 <html lang="en">
 <%- include('partials/head', data) %>
 <body class="design-06">
-<main>
-  <section class="hero hero-philosophy">
-    <div class="container narrow philosophy-center">
-      <p class="eyebrow">A retirement advisor should make things clearer.</p>
-      <blockquote>“<%= advisor.professional.story.quote %>”</blockquote>
-      <div class="philosophy-person">
-        <img src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high">
-        <div><h1><%= advisor.identity.name %></h1><p><%= advisor.identity.headline %></p></div>
-      </div>
-      <%- include('partials/trust', data) %>
-    </div>
-  </section>
+<%- include('partials/nav', data) %>
 
-  <section class="section">
-    <div class="container philosophy-grid">
-      <div><h2>How I think about retirement planning</h2></div>
-      <div><% advisor.professional.story.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+<section class="hero dc-hero">
+  <div class="container narrow dc-hero-inner">
+    <p class="eyebrow"><%= advisor.identity.headline %></p>
+    <blockquote class="dc-hero-quote">&ldquo;<%= advisor.professional.story.quote %>&rdquo;</blockquote>
+    <div class="dc-hero-person">
+      <img src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high">
+      <div><strong><%= advisor.identity.name %></strong><span><%= advisor.identity.location %></span></div>
     </div>
-  </section>
+    <%- include('partials/trust', data) %>
+  </div>
+</section>
 
-  <section class="section lifestyle-section">
-    <div class="container">
+<div class="container dc-layout">
+  <aside class="dc-aside" id="contact" aria-label="Contact">
+    <div class="dc-contact-card">
+      <p class="eyebrow">Let&rsquo;s talk</p>
+      <img class="dc-contact-photo" src="<%= images.contactPhoto.src %>" alt="<%= images.contactPhoto.alt %>" width="<%= images.contactPhoto.width %>" height="<%= images.contactPhoto.height %>" loading="lazy">
+      <h2><%= advisor.contact.title %></h2>
+      <p class="dc-contact-intro"><%= advisor.contact.intro %></p>
+      <p class="dc-contact-location"><%= advisor.identity.location %></p>
+      <p class="dc-contact-phone"><a href="tel:<%= advisor.contact.phone.replace(/[^\d+]/g, '') %>"><%= advisor.contact.phone %></a></p>
+
+      <form class="dc-contact-form" method="<%= advisor.contact.form.method %>" action="<%= advisor.contact.form.action %>">
+        <% advisor.contact.form.fields.forEach(field => { %>
+          <div class="field">
+            <label for="<%= field.name %>"><%= field.label %></label>
+            <% if (field.type === 'textarea') { %>
+              <textarea id="<%= field.name %>" name="<%= field.name %>" autocomplete="<%= field.autocomplete %>" <%= field.required ? 'required' : '' %>></textarea>
+            <% } else { %>
+              <input id="<%= field.name %>" name="<%= field.name %>" type="<%= field.type %>" autocomplete="<%= field.autocomplete %>" <%= field.required ? 'required' : '' %>>
+            <% } %>
+          </div>
+        <% }) %>
+        <p class="confidentiality">Your information is confidential and used only to respond to your request.</p>
+        <button type="submit"><%= advisor.contact.form.submitLabel %></button>
+      </form>
+    </div>
+  </aside>
+
+  <div class="dc-main-col">
+    <section class="section dc-credentials" id="credentials">
+      <p class="eyebrow">Credentials</p>
+      <%- include('partials/credentials', data) %>
+    </section>
+
+    <section class="section dc-story" id="story">
+      <p class="eyebrow">Philosophy</p>
+      <h2>How I think about retirement planning</h2>
+      <% advisor.professional.story.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %>
+    </section>
+
+    <section class="section dc-lifestyle" id="lifestyle">
       <p class="eyebrow">Beyond retirement planning</p>
       <h2><%= advisor.personal.moreAboutMe.title %></h2>
-      <div class="lifestyle-grid">
-        <% advisor.personal.lifestylePhotos.forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
-        <div class="lifestyle-copy"><% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
-      </div>
-    </div>
-  </section>
+      <img class="dc-lifestyle-photo" src="<%= advisor.personal.lifestylePhotos[0].src %>" alt="<%= advisor.personal.lifestylePhotos[0].alt %>" width="<%= advisor.personal.lifestylePhotos[0].width %>" height="<%= advisor.personal.lifestylePhotos[0].height %>" loading="lazy">
+      <% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %>
+    </section>
 
-  <section class="section philosophy-creds"><div class="container"><%- include('partials/credentials', data) %></div></section>
+    <%- include('partials/reviews', data) %>
+    <%- include('partials/faq', data) %>
+  </div>
+</div>
 
-  <section class="section faq-section">
-    <div class="container narrow">
-      <p class="eyebrow">Direct answers</p><h2>Questions worth asking</h2>
-      <% optional.faq.forEach(item => { %><details><summary><%= item.question %></summary><p><%= item.answer %></p></details><% }) %>
-    </div>
-  </section>
-
-  <%- include('partials/reviews', data) %>
-  <%- include('partials/contact', data) %>
-</main>
 <%- include('partials/footer', data) %>
 <%- include('partials/schema', data) %>
 </body></html>

@@ -1,6 +1,8 @@
 body.design-01{--surface:#fff;--surface-2:#fff;--ink:#0a0a0a;--accent:#3fa431;--accent-contrast:#0a0a0a;--radius:10px;font-family:'Poppins',Arial,sans-serif}
 .design-01 p{font-family:'Poppins',Arial,sans-serif;font-weight:300}
 .design-01 h1,.design-01 h2{font-family:'Archivo Black',Impact,sans-serif;text-transform:uppercase;letter-spacing:-.01em;font-weight:400}
+.design-01 .site-nav-brand,.design-01 .site-nav-summary{font-family:'Archivo Black',Impact,sans-serif;text-transform:uppercase;letter-spacing:-.01em}
+.design-01 .site-nav-links a{font-family:'Poppins',Arial,sans-serif;text-transform:uppercase;font-size:.95rem;letter-spacing:.03em}
 .design-01 .fiat-eyebrow{display:inline-block;background:var(--accent);color:#0a0a0a;font-family:'Poppins',Arial,sans-serif;font-weight:600;font-size:.85rem;letter-spacing:.05em;padding:.35rem .75rem;border-radius:6px;margin-bottom:1rem;text-transform:uppercase}
 
 .design-01 .hero-fiat{position:relative;min-height:640px;display:flex;align-items:center;padding:5rem 0;background:linear-gradient(to right,#fff 0%,#fff 40%,rgba(255,255,255,.7) 62%,rgba(255,255,255,.1) 88%),url("assets/images/hero-bg.jpg") center right/cover no-repeat}

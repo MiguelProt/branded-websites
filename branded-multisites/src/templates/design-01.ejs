@@ -2,6 +2,7 @@
 <html lang="en">
 <%- include('partials/head', data) %>
 <body class="design-01">
+<%- include('partials/nav', data) %>
 <main>
   <section class="hero hero-fiat">
     <div class="container hero-grid">
@@ -25,7 +26,7 @@
     </div>
   </section>
 
-  <section class="section fiat-story">
+  <section class="section fiat-story" id="story">
     <div class="container story-grid">
       <div>
         <p class="fiat-eyebrow">Experience with a reason</p>
@@ -40,7 +41,7 @@
     </div>
   </section>
 
-  <section class="section fiat-creds">
+  <section class="section fiat-creds" id="credentials">
     <div class="container">
       <p class="fiat-eyebrow">Credentials that back it up</p>
       <div class="fiat-cred-grid">
@@ -55,7 +56,7 @@
     </div>
   </section>
 
-  <section class="section fiat-lifestyle">
+  <section class="section fiat-lifestyle" id="lifestyle">
     <div class="container lifestyle-grid">
       <div class="fiat-photo-frame">
         <img src="<%= advisor.personal.lifestylePhotos[0].src %>" alt="<%= advisor.personal.lifestylePhotos[0].alt %>" width="<%= advisor.personal.lifestylePhotos[0].width %>" height="<%= advisor.personal.lifestylePhotos[0].height %>" loading="lazy">
@@ -68,7 +69,7 @@
     </div>
   </section>
 
-  <section class="section fiat-reviews" aria-labelledby="reviews-title">
+  <section class="section fiat-reviews" id="reviews" aria-labelledby="reviews-title">
     <div class="container">
       <div class="fiat-banner">
         <h2 id="reviews-title">What Clients Say</h2>
@@ -108,7 +109,7 @@
     </div>
   </section>
 
-  <section class="section fiat-contact" aria-labelledby="contact-title">
+  <section class="section fiat-contact" id="contact" aria-labelledby="contact-title">
     <div class="container contact-grid">
       <div>
         <img class="contact-photo" src="<%= images.contactPhoto.src %>" alt="<%= images.contactPhoto.alt %>" width="<%= images.contactPhoto.width %>" height="<%= images.contactPhoto.height %>" loading="lazy">
@@ -136,6 +137,8 @@
       </form>
     </div>
   </section>
+
+  <%- include('partials/faq', data) %>
 </main>
 <%- include('partials/footer', data) %>
 <%- include('partials/schema', data) %>

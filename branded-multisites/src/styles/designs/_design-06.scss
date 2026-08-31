@@ -1,12 +1,56 @@
-body.design-06{--surface:#f6f0f8;--surface-2:#fff;--ink:#2a2230;--accent:#6e4f78}
-.design-06 .philosophy-center{text-align:center;padding-block:5rem}
-.design-06 .philosophy-center>blockquote{font-family:Georgia,serif;font-size:clamp(2.4rem,8vw,5rem);line-height:1.05;margin-bottom:2.5rem}
-.design-06 .philosophy-person{display:flex;align-items:center;justify-content:center;gap:1rem}
-.design-06 .philosophy-person img{width:84px;height:84px;border-radius:50%;object-fit:cover}
-.design-06 .philosophy-person h1{font-size:1.4rem;margin:0}
-.design-06 .philosophy-person p{margin:0;text-align:left}
-.design-06 .philosophy-grid{display:grid;gap:2rem}
-.design-06 .philosophy-creds{background:#2f2535}
-.design-06 .philosophy-creds .credential{background:transparent;color:#fff;border-color:rgba(255,255,255,.18)}
-.design-06 .philosophy-creds .credential span{color:rgba(255,255,255,.7)}
-@media(min-width:800px){.design-06 .philosophy-grid{grid-template-columns:1fr 1fr}}
+body.design-06{--surface:#f3faf7;--surface-2:#fff;--ink:#0b2430;--muted:#4b6b71;--accent:#0c7a59;--accent-contrast:#fff;--line:rgba(11,36,48,.12);--radius:20px;--shadow:0 20px 48px rgba(11,36,48,.1);font-family:'Poppins',Arial,sans-serif}
+.design-06 h1,.design-06 h2{font-family:'Poppins',Arial,sans-serif;font-weight:700;letter-spacing:-.01em}
+.design-06 .site-nav{border-bottom:1px solid var(--line)}
+.design-06 .site-nav-links--desktop a{border-radius:999px;padding:.5rem 1rem;transition:background-color .15s ease}
+.design-06 .site-nav-links--desktop a:hover{background:var(--surface);color:var(--accent)}
+.design-06 a:focus-visible,.design-06 button:focus-visible,.design-06 summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+.design-06 .dc-hero{position:relative;padding:5.5rem 0 4rem;background:linear-gradient(165deg,rgba(11,36,48,.92) 0%,rgba(12,122,89,.75) 100%),url("assets/images/hero-bg.jpg") center 35%/cover no-repeat;color:#fff}
+.design-06 .dc-hero .eyebrow{color:#8de8c9}
+.design-06 .dc-hero-quote{font-weight:600;font-size:clamp(2rem,6vw,3.4rem);line-height:1.15;letter-spacing:-.01em;margin:0 0 2rem;color:#fff}
+.design-06 .dc-hero-person{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.design-06 .dc-hero-person img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.5)}
+.design-06 .dc-hero-person strong{display:block;font-size:1.15rem}
+.design-06 .dc-hero-person span{color:rgba(255,255,255,.75);font-size:1.05rem}
+.design-06 .dc-hero .trust-summary{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.32);color:#fff}
+.design-06 .dc-hero .trust-summary small{color:rgba(255,255,255,.75)}
+
+.design-06 .dc-layout{display:grid;grid-template-columns:1fr;gap:1.5rem;padding-block:3rem}
+.design-06 .dc-main-col{display:grid;gap:1.5rem}
+.design-06 .dc-main-col>section{background:var(--surface-2);border-radius:var(--radius);padding:1.75rem 1.25rem;box-shadow:0 10px 26px rgba(11,36,48,.05);margin:0}
+
+.design-06 .dc-contact-card{background:var(--surface-2);border-radius:calc(var(--radius) + 6px);box-shadow:var(--shadow);padding:1.75rem}
+@media(min-width:640px){
+  .design-06 .dc-main-col>section{padding:2.75rem 2rem}
+  .design-06 .dc-contact-card{padding:2.25rem}
+}
+.design-06 .dc-contact-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:1rem}
+.design-06 .dc-contact-card .eyebrow{font-size:.8rem;margin-bottom:.5rem}
+.design-06 .dc-contact-card h2{font-size:1.35rem;line-height:1.25;margin-bottom:.6rem}
+.design-06 .dc-contact-intro{font-size:.92rem;line-height:1.6}
+.design-06 .dc-contact-location{font-size:.92rem;font-weight:700;margin:.75rem 0 .1rem}
+.design-06 .dc-contact-phone a{font-size:1.05rem;font-weight:700;color:var(--accent);text-decoration:none}
+.design-06 .dc-contact-form{margin-top:1.5rem}
+.design-06 .dc-contact-form .field{margin-bottom:.8rem}
+.design-06 .dc-contact-form .field label{font-size:.82rem;margin-bottom:.3rem}
+.design-06 .dc-contact-form input,.design-06 .dc-contact-form textarea{font-size:.9rem;padding:.7rem .8rem}
+.design-06 .dc-contact-form .confidentiality{font-size:.78rem;line-height:1.5}
+.design-06 .dc-contact-form button{font-size:.92rem;padding:.85rem 1.1rem}
+.design-06 .dc-lifestyle-photo{display:block;width:100%;max-height:480px;object-fit:cover;border-radius:calc(var(--radius) - 6px);box-shadow:var(--shadow);margin:1.25rem 0}
+
+.design-06 .credentials{grid-template-columns:repeat(2,minmax(0,1fr))}
+.design-06 .credential{border:0;background:var(--surface);box-shadow:0 8px 20px rgba(11,36,48,.05)}
+.design-06 .review-grid{grid-template-columns:1fr;gap:.75rem}
+.design-06 .review-card{border:0;box-shadow:0 8px 20px rgba(11,36,48,.05);padding:1rem}
+.design-06 .review-card blockquote{font-size:.92rem;line-height:1.5}
+.design-06 .review-card figcaption{font-size:.8rem}
+@media(min-width:560px){.design-06 .review-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1180px){.design-06 .review-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.design-06 button{border-radius:999px}
+.design-06 .site-footer{background:var(--ink)}
+
+@media(min-width:960px){
+  .design-06 .dc-layout{grid-template-columns:1fr 360px;gap:3rem;align-items:start}
+  .design-06 .dc-aside{grid-column:2;grid-row:1;position:sticky;top:6rem}
+  .design-06 .dc-main-col{grid-column:1;grid-row:1}
+}

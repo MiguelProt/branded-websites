@@ -1,0 +1,16 @@
+<% if (optional.faq && optional.faq.length) { %>
+  <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+    <div class="container narrow">
+      <p class="eyebrow">Frequently asked questions</p>
+      <h2 id="faq-title">Questions worth asking</h2>
+      <div class="faq-list">
+        <% optional.faq.forEach(item => { %>
+          <details>
+            <summary><%= item.question %></summary>
+            <p><%= item.answer %></p>
+          </details>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+<% } %>

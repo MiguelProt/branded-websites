@@ -1,9 +1,41 @@
-body.design-09{--surface:#fbf4e8;--surface-2:#fffaf2;--ink:#2c241c;--accent:#9d5d31}
-.design-09 .magazine-grid{display:grid;gap:1rem;padding-block:3rem}
-.design-09 .magazine-kicker{display:flex;justify-content:space-between;border-top:1px solid var(--ink);padding-top:.75rem;text-transform:uppercase;font-size:1.25rem}
-.design-09 .magazine-name h1{font-family:Georgia,serif;font-size:clamp(4rem,15vw,10rem);font-weight:400;line-height:.78}
-.design-09 .magazine-photo img{width:100%;height:600px;object-fit:cover;border-radius:0}
-.design-09 .magazine-story .container,.design-09 .magazine-proof .container{display:grid;gap:2rem}
-.design-09 .magazine-story-title{display:flex;gap:1rem;align-items:flex-start}
-.design-09 .magazine-story-title span{font-size:3rem;color:var(--accent)}
-@media(min-width:900px){.design-09 .magazine-grid{grid-template-columns:1.1fr .9fr}.design-09 .magazine-kicker{grid-column:1/-1}.design-09 .magazine-name{grid-column:1/-1}.design-09 .magazine-copy{grid-column:1}.design-09 .magazine-photo{grid-column:2;grid-row:3/5}.design-09 .magazine-story .container,.design-09 .magazine-proof .container{grid-template-columns:.6fr 1.4fr}}
+body.design-09{--surface:#0a1120;--surface-2:rgba(255,255,255,.09);--ink:#eef3fb;--muted:#a7b6cf;--accent:#4cc9f0;--accent-contrast:#06111f;--line:rgba(255,255,255,.26);--radius:28px;--shadow:0 25px 70px rgba(3,10,20,.55);font-family:'Poppins',Arial,sans-serif}
+.design-09{background:radial-gradient(1100px circle at 12% 8%,rgba(76,201,240,.16),transparent 60%),radial-gradient(1000px circle at 88% 22%,rgba(58,91,219,.22),transparent 55%),radial-gradient(1300px circle at 50% 95%,rgba(15,150,196,.16),transparent 60%),var(--surface)}
+.design-09 h1,.design-09 h2{font-family:'Poppins',Arial,sans-serif;font-weight:600;letter-spacing:-.01em}
+.design-09 p{font-family:'Poppins',Arial,sans-serif;font-weight:300}
+.design-09 .eyebrow{font-size:.95rem;letter-spacing:.16em;font-weight:600}
+
+.design-09 .site-nav{background:var(--surface-2);border-bottom:1px solid var(--line)}
+.design-09 .site-nav-brand{font-weight:700;letter-spacing:-.01em}
+.design-09 .site-nav,.design-09 .site-nav-links--mobile,.design-09 .site-nav-summary,.design-09 .credential,.design-09 .review-card,.design-09 .contact-form,.design-09 .trust-summary,.design-09 .liquid-card{backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),var(--shadow)}
+
+.design-09 .magazine-story-title{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.design-09 .magazine-story-title span{display:inline-flex;align-items:center;justify-content:center;min-width:2.75rem;height:2.75rem;padding:0 .5rem;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:var(--accent);font-weight:700;font-size:1.05rem}
+
+.design-09 .liquid-card{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius);padding:2.25rem}
+
+.design-09 .hero-liquid{position:relative;padding:3rem 0 4rem;background:linear-gradient(115deg,rgba(6,13,26,.92) 30%,rgba(6,13,26,.55) 75%),url("assets/images/liquid-hero-skyline.jpg") center/cover no-repeat}
+.design-09 .liquid-hero-grid{display:grid;gap:2rem;align-items:center}
+.design-09 .liquid-hero-card h1{font-size:clamp(2.3rem,5.5vw,3.6rem);margin-bottom:.5rem}
+.design-09 .hero-role{color:var(--accent);font-weight:600;margin-bottom:1rem}
+.design-09 .hero-positioning{max-width:36rem}
+.design-09 .liquid-hero-photo img{width:100%;height:460px;object-fit:contain;border-radius:var(--radius);border:1px solid var(--line);box-shadow:var(--shadow)}
+
+.design-09 .magazine-story-copy{max-width:46rem}
+.design-09 .lead-copy{color:var(--ink);font-weight:400}
+
+.design-09 .lifestyle-grid img{border:1px solid var(--line)}
+.design-09 .lifestyle-copy{align-self:start}
+
+.design-09 .credentials{gap:1.25rem}
+
+.design-09 .review-card blockquote{color:var(--ink)}
+
+.design-09 .contact-section{background:linear-gradient(rgba(6,13,26,.9),rgba(6,13,26,.9)),url("assets/images/liquid-contact-skyline.jpg") center/cover no-repeat}
+.design-09 .contact-section .eyebrow,.design-09 .contact-section p,.design-09 .contact-section a{color:var(--ink)}
+.design-09 .contact-form{padding:2.5rem}
+.design-09 .field input,.design-09 .field textarea{border-radius:14px;color:#0f1b2c}
+.design-09 button{box-shadow:0 10px 30px rgba(76,201,240,.4)}
+
+.design-09 .section{border-top:1px solid var(--line)}
+
+@media(min-width:900px){.design-09 .liquid-hero-grid{grid-template-columns:1.15fr .85fr}}

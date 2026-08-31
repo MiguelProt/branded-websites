@@ -27,6 +27,27 @@
 </head>
 
 <body class="design-08">
+
+<header class="site-nav">
+  <div class="container site-nav-bar">
+    <a class="site-nav-brand" href="#">Matt Rowenczak</a>
+
+    <nav class="site-nav-links site-nav-links--desktop" aria-label="Page sections">
+      <a href="#story">Story</a><a href="#credentials">Credentials</a><a href="#lifestyle">Beyond the Office</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a><a href="#faq">FAQ</a>
+    </nav>
+
+    <details class="site-nav-menu">
+      <summary class="site-nav-summary" aria-label="Open section menu">
+        <span class="site-nav-burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        Menu
+      </summary>
+      <nav class="site-nav-links site-nav-links--mobile" aria-label="Page sections">
+        <a href="#story">Story</a><a href="#credentials">Credentials</a><a href="#lifestyle">Beyond the Office</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a><a href="#faq">FAQ</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
 <main>
   <section class="hero hero-calm">
     <div class="container calm-grid">
@@ -52,7 +73,7 @@
     </div>
   </section>
 
-  <section class="section calm-proof"><div class="container"><div class="credentials" aria-label="Advisor credentials">
+  <section class="section calm-proof" id="credentials"><div class="container"><div class="credentials" aria-label="Advisor credentials">
   
     <div class="credential">
       <strong>16+</strong>
@@ -78,13 +99,13 @@
 </div></section>
 
   <section class="section">
-    <div class="container calm-story-grid">
+    <div class="container calm-story-grid" id="story">
       <div><h2>My reason for doing this work</h2><p>With 16 years in the financial space, I focus on helping clients nationwide secure their financial futures. I focus on effective strategies to accumulate or generate retirement income while protecting those assets from risk. As a Navy veteran, I bring a disciplined approach to financial planning, emphasizing the importance of preparedness and security.</p><p>I hold a Bachelor of Arts in Economics from The Ohio State University and an MBA in Finance and Marketing from the University of Georgia&#39;s Terry College of Business. My career spans from military service as a Supply Corps Officer in the Navy to a decade in corporate America. My experience enables me to offer valuable insights to clients navigating their retirement or personal financial journeys.</p></div>
       <div class="calm-quote">“My goal is to demystify the world of annuities and retirement income strategies, ensuring clients can confidently plan for a secure and fulfilling retirement.”</div>
     </div>
   </section>
 
-  <section class="section lifestyle-section">
+  <section class="section lifestyle-section" id="lifestyle">
     <div class="container">
       <p class="eyebrow">Beyond retirement planning</p>
       <h2>More about me</h2>
@@ -95,7 +116,7 @@
     </div>
   </section>
 
-  <section class="section reviews-section" aria-labelledby="reviews-title">
+  <section class="section reviews-section" id="reviews" aria-labelledby="reviews-title">
   <div class="container">
     <div class="section-heading">
       <p class="eyebrow">Client feedback</p>
@@ -129,7 +150,7 @@
   </div>
 </section>
 
-  <section class="section contact-section" aria-labelledby="contact-title">
+  <section class="section contact-section" id="contact" aria-labelledby="contact-title">
   <div class="container contact-grid">
     <div>
       <img class="contact-photo" src="./assets/images/contact-photo.webp" alt="Matt Rowenczak headshot" width="150" height="150" loading="lazy">
@@ -183,6 +204,33 @@
     </form>
   </div>
 </section>
+
+  
+  <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+    <div class="container narrow">
+      <p class="eyebrow">Frequently asked questions</p>
+      <h2 id="faq-title">Questions worth asking</h2>
+      <div class="faq-list">
+        
+          <details>
+            <summary>XX Lorem ipsum dolor sit amet?</summary>
+            <p>XX Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </details>
+        
+          <details>
+            <summary>XX Ut enim ad minim veniam?</summary>
+            <p>XX Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </details>
+        
+          <details>
+            <summary>XX Duis aute irure dolor in reprehenderit?</summary>
+            <p>XX In voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.</p>
+          </details>
+        
+      </div>
+    </div>
+  </section>
+
 
 </main>
 <footer class="site-footer">

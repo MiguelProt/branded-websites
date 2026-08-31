@@ -1,0 +1,29 @@
+<%
+  const navLinks = [
+    { href: '#story', label: 'Story' },
+    { href: '#credentials', label: 'Credentials' },
+    { href: '#lifestyle', label: 'Beyond the Office' },
+    { href: '#reviews', label: 'Reviews' },
+    { href: '#contact', label: 'Contact' },
+    ...(optional.faq && optional.faq.length ? [{ href: '#faq', label: 'FAQ' }] : [])
+  ];
+%>
+<header class="site-nav">
+  <div class="container site-nav-bar">
+    <a class="site-nav-brand" href="#"><%= advisor.identity.name %></a>
+
+    <nav class="site-nav-links site-nav-links--desktop" aria-label="Page sections">
+      <% navLinks.forEach(link => { %><a href="<%= link.href %>"><%= link.label %></a><% }) %>
+    </nav>
+
+    <details class="site-nav-menu">
+      <summary class="site-nav-summary" aria-label="Open section menu">
+        <span class="site-nav-burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        Menu
+      </summary>
+      <nav class="site-nav-links site-nav-links--mobile" aria-label="Page sections">
+        <% navLinks.forEach(link => { %><a href="<%= link.href %>"><%= link.label %></a><% }) %>
+      </nav>
+    </details>
+  </div>
+</header>

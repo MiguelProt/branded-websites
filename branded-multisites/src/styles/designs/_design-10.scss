@@ -1,4 +1,6 @@
 body.design-10{--surface:#fff;--surface-2:#fff;--ink:#161b22;--accent:#27374a;--radius:0}
+.design-10 .site-nav-summary,.design-10 .site-nav-links--mobile{border-radius:0}
+.design-10 .site-nav-links a{text-transform:uppercase;font-size:.95rem;letter-spacing:.05em}
 .design-10 .executive-grid{display:grid;gap:2rem;align-items:center;min-height:78vh}
 .design-10 .line-label{display:inline-block;border-top:2px solid var(--ink);padding-top:.6rem;text-transform:uppercase;letter-spacing:.08em;font-size:1.25rem}
 .design-10 .executive-copy h1{font-size:clamp(3rem,9vw,7rem);font-weight:700}
@@ -29,7 +31,7 @@ body.design-10{--surface:#fff;--surface-2:#fff;--ink:#161b22;--accent:#27374a;--
 .design-10 .review-arrow{position:absolute;top:50%;translate:0 -50%;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(22,27,34,.15);background:#fff;box-shadow:0 8px 20px rgba(22,27,34,.15);font-size:1.5rem;line-height:1;color:var(--ink);cursor:pointer;z-index:2}
 .design-10 .review-arrow-prev{left:-.5rem}
 .design-10 .review-arrow-next{right:-.5rem}
-.design-10 .contact-section{background:#fff;color:var(--ink); padding:0;}
+.design-10 .contact-section{background:#fff;color:var(--ink);padding:0;position:relative;z-index:1;box-shadow:0 30px 25px -25px rgba(22,27,34,.35)}
 .design-10 .contact-section .contact-info {padding: 2rem 0;}
 .design-10 .contact-section .eyebrow{color:var(--accent)}
 .design-10 .contact-section p,.design-10 .contact-section a{color:var(--muted)}

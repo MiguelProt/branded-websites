@@ -1,11 +1,38 @@
-body.design-02{--surface:#fff8f2;--surface-2:#fff;--ink:#342a26;--accent:#9c6047}
-.design-02 .hero-human{padding-top:3rem}
-.design-02 .human-photo-wrap{position:relative}
-.design-02 .human-headshot{width:100%;max-height:720px;object-fit:cover;border-radius:36px}
-.design-02 .human-intro{margin:-5rem 1rem 0;background:#fff;padding:2rem;border-radius:28px;position:relative;box-shadow:var(--shadow)}
-.design-02 .human-intro h1{font-size:clamp(2.2rem,8vw,4.5rem)}
-.design-02 .personal-quote{font-size:clamp(2rem,7vw,4rem);line-height:1.1;text-align:center}
-.design-02 .lifestyle-photo-collage{display:grid;grid-template-columns:1.2fr .8fr;gap:1rem}
-.design-02 .lifestyle-photo-collage img{height:350px;width:100%;object-fit:cover;border-radius:24px}
-.design-02 .more-about-card{margin-top:1.5rem;max-width:720px}
-@media(min-width:900px){.design-02 .human-intro{position:absolute;left:4%;bottom:5%;width:48%;margin:0}.design-02 .human-headshot{margin-left:auto;width:66%}}
+body.design-02{--surface:#f4f6f9;--surface-2:#fff;--ink:#12294f;--muted:#55627a;--accent:#8f6a1a;--accent-contrast:#fff;--line:rgba(18,41,79,.16);--radius:10px;--shadow:0 16px 40px rgba(18,41,79,.12);font-family:'Poppins',Arial,sans-serif}
+.design-02 h1,.design-02 h2{font-family:'Poppins',Arial,sans-serif;font-weight:700;letter-spacing:-.01em}
+.design-02 .site-nav{border-top:3px solid var(--accent)}
+.design-02 a:focus-visible,.design-02 button:focus-visible,.design-02 summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+.design-02 .firm-strip{background:var(--ink)}
+.design-02 .firm-strip-inner{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1rem;padding:.55rem 0;font-size:.95rem;color:#fff}
+.design-02 .firm-strip-inner a{color:#fff;text-decoration:none;font-weight:600}
+.design-02 .firm-strip-sep{opacity:.5}
+
+.design-02 .firm-hero{padding:3rem 0 2.5rem;border-bottom:1px solid var(--line)}
+.design-02 .firm-hero-grid{display:grid;gap:2rem}
+.design-02 .firm-hero-copy h1{font-size:clamp(2.1rem,5.5vw,3.4rem)}
+.design-02 .firm-hero-positioning{font-size:1.2rem;max-width:34rem;color:var(--muted)}
+.design-02 .firm-hero-media{order:-1;background:var(--surface);padding:1.5rem 1.5rem 0;box-shadow:var(--shadow)}
+.design-02 .firm-hero-photo{display:block;width:100%;height:auto;border-bottom:6px solid var(--accent)}
+@media(min-width:900px){.design-02 .firm-hero-grid{grid-template-columns:1.05fr .95fr;align-items:center}.design-02 .firm-hero-media{order:0}}
+
+.design-02 .firm-story{background:var(--surface-2)}
+.design-02 .firm-story h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+.design-02 .firm-quote{margin:1.25rem 0;padding:1.1rem 1.4rem;border-left:4px solid var(--accent);background:var(--surface);font-size:clamp(1.25rem,3vw,1.6rem);line-height:1.4;font-style:italic;color:var(--ink)}
+.design-02 .lead-copy{font-size:1.35rem;font-weight:500;color:var(--ink)}
+
+.design-02 .firm-credentials{background:var(--surface)}
+.design-02 .firm-credentials .credential{border-radius:0;border-top:3px solid var(--accent);background:var(--surface-2);text-align:center}
+.design-02 .firm-credentials .credential strong{color:var(--ink)}
+
+.design-02 .firm-lifestyle{background:var(--surface-2)}
+.design-02 .firm-lifestyle-grid{display:grid;gap:2rem}
+.design-02 .firm-lifestyle-photos{display:grid;grid-template-columns:1fr;gap:1rem}
+.design-02 .firm-lifestyle-photos img{width:100%;height:auto;box-shadow:var(--shadow)}
+@media(min-width:900px){.design-02 .firm-lifestyle-grid{grid-template-columns:1fr 1fr;align-items:center}}
+
+.design-02 .review-card{border-radius:0;border-top:3px solid var(--accent)}
+.design-02 .contact-grid{grid-template-columns:1fr}
+.design-02 .contact-form{border-radius:0;padding:3rem 2.25rem;width:100%}
+.design-02 button{border-radius:5px;text-transform:uppercase;letter-spacing:.04em}
+.design-02 .site-footer{background:var(--ink)}

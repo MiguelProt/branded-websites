@@ -2,6 +2,7 @@
 <html lang="en">
 <%- include('partials/head', data) %>
 <body class="design-10">
+<%- include('partials/nav', data) %>
 <main>
   <section class="hero hero-executive">
     <div class="container executive-grid">
@@ -39,9 +40,9 @@
     </div>
   </section>
 
-  <section class="section executive-creds"><div class="container"><%- include('partials/credentials', data) %></div></section>
+  <section class="section executive-creds" id="credentials"><div class="container"><%- include('partials/credentials', data) %></div></section>
 
-  <section class="section executive-story bg-gray">
+  <section class="section executive-story bg-gray" id="story">
     <div class="container executive-story-grid">
       <div>
         <h2>Clear advice.<br />Personal context.<br />No unnecessary complexity.</h2>
@@ -51,7 +52,7 @@
     </div>
   </section>
 
-  <section class="section lifestyle-section">
+  <section class="section lifestyle-section" id="lifestyle">
     <div class="container">
       <span class="line-label">Beyond the office</span>
       <h2><%= advisor.personal.moreAboutMe.title %></h2>
@@ -64,7 +65,7 @@
     </div>
   </section>
 
-  <section class="section reviews-section" aria-labelledby="reviews-title">
+  <section class="section reviews-section" id="reviews" aria-labelledby="reviews-title">
     <div class="container">
       <div class="section-heading">
         <p class="eyebrow">Client feedback</p>
@@ -134,7 +135,7 @@
     })();
   </script>
 
-  <section class="section contact-section" aria-labelledby="contact-title">
+  <section class="section contact-section" id="contact" aria-labelledby="contact-title">
     <div class="container contact-grid">
       <div class="contact-info">
         <img class="contact-photo" src="<%= images.contactPhoto.src %>" alt="<%= images.contactPhoto.alt %>" width="<%= images.contactPhoto.width %>" height="<%= images.contactPhoto.height %>" loading="lazy">
@@ -165,6 +166,8 @@
       </form>
     </div>
   </section>
+
+  <%- include('partials/faq', data) %>
 </main>
 <%- include('partials/footer', data) %>
 <%- include('partials/schema', data) %>
