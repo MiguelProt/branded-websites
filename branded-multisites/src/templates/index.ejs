@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Branded multisites — revisión de diseños</title>
+  <meta name="description" content="Índice de propuestas para revisar los diseños de branded multisites.">
+  <style>
+    :root {
+      --ink: #17222b;
+      --muted: #63717b;
+      --paper: #f2f5f3;
+      --card: #ffffff;
+      --rule: #cbd3cf;
+      --signal: #0c66e4;
+      --signal-soft: #dceaff;
+      --shadow: 0 18px 50px rgba(23, 34, 43, .1);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .shell {
+      width: min(1480px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 36px;
+      align-items: end;
+      padding: 56px 0 32px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .eyebrow,
+    .count,
+    .card-number {
+      font-family: "Courier New", Courier, monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--signal);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    h1 {
+      max-width: 920px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 6vw, 88px);
+      font-weight: 400;
+      letter-spacing: -.055em;
+      line-height: .94;
+    }
+
+    .count {
+      display: grid;
+      width: 132px;
+      height: 132px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--signal);
+      color: white;
+      font-size: 13px;
+      text-align: center;
+      transform: rotate(4deg);
+    }
+
+    .count strong {
+      display: block;
+      margin-bottom: -18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 54px;
+      font-weight: 400;
+      letter-spacing: -.06em;
+    }
+
+    .intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 24px 0 38px;
+      color: var(--muted);
+    }
+
+    .intro p { max-width: 650px; margin: 0; line-height: 1.55; }
+    .intro span { font-family: "Courier New", Courier, monospace; font-size: 13px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
+      padding-bottom: 72px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      background: var(--card);
+      color: inherit;
+      text-decoration: none;
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--signal);
+      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+    }
+
+    .card:focus-visible { outline: 4px solid var(--signal-soft); outline-offset: 3px; }
+
+    .preview {
+      position: relative;
+      height: 390px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--rule);
+      background: #e5e9e7;
+    }
+
+    iframe {
+      width: 1440px;
+      height: 900px;
+      border: 0;
+      pointer-events: none;
+      transform: scale(.49);
+      transform-origin: top left;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 20px;
+    }
+
+    .card-number { font-size: 13px; font-weight: 700; }
+    .open { color: var(--signal); font-size: 14px; font-weight: 700; }
+
+    footer {
+      padding: 24px 0 40px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      header { grid-template-columns: 1fr; padding-top: 38px; }
+      .count { display: none; }
+      .grid { grid-template-columns: 1fr; }
+      .preview { height: min(58vw, 390px); }
+      iframe { transform: scale(.48); }
+    }
+
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 24px, 1480px); }
+      .intro { display: block; }
+      .intro span { display: block; margin-top: 14px; }
+      .grid { gap: 18px; }
+      .preview { height: 62vw; }
+      iframe { transform: scale(.27); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .card { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div>
+        <p class="eyebrow">Branded multisites / revisión</p>
+        <h1>Diez direcciones.<br>Una decisión.</h1>
+      </div>
+      <div class="count" aria-label="10 propuestas"><strong>10</strong>propuestas</div>
+    </header>
+
+    <div class="intro">
+      <p>Selecciona una propuesta para abrirla a tamaño completo. Cada versión comparte el mismo contenido; cambia la dirección visual y la composición.</p>
+      <span>Actualizado automáticamente desde main</span>
+    </div>
+
+    <section class="grid" aria-label="Propuestas de diseño">
+      <% designs.forEach((design) => { %>
+        <a class="card" href="./design-<%= design %>/" aria-label="Abrir diseño <%= design %>">
+          <div class="preview" aria-hidden="true">
+            <iframe src="./design-<%= design %>/" title="" tabindex="-1" loading="lazy"></iframe>
+          </div>
+          <div class="card-meta">
+            <span class="card-number">Diseño <%= design %></span>
+            <span class="open">Abrir propuesta ↗</span>
+          </div>
+        </a>
+      <% }); %>
+    </section>
+  </main>
+
+  <footer><div class="shell">Vista de revisión · branded-multisites</div></footer>
+</body>
+</html>

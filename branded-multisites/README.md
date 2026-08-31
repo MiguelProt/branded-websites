@@ -36,6 +36,13 @@ Open any generated `index.html` in a browser.
 npm run build
 ```
 
+The build also creates `dist/index.html`, a review dashboard linking to all ten
+designs. On every push to `main` that changes this project, GitHub Actions builds
+and publishes the complete `dist/` directory to GitHub Pages.
+
+To activate the deployment for the first time, open the repository on GitHub and
+select **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
 ## Core rule
 
 Advisor content lives in:

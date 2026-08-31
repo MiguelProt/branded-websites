@@ -45,4 +45,13 @@ for (let i = 1; i <= 10; i++) {
   );
 }
 
-console.log("Built 10 advisor designs in /dist");
+const reviewIndex = await ejs.renderFile(
+  path.join(root, "src/templates/index.ejs"),
+  { designs: Array.from({ length: 10 }, (_, index) => String(index + 1).padStart(2, "0")) },
+  { filename: path.join(root, "src/templates/index.ejs") }
+);
+
+await fs.writeFile(path.join(root, "dist/index.html"), reviewIndex);
+await fs.writeFile(path.join(root, "dist/.nojekyll"), "");
+
+console.log("Built the review index and 10 advisor designs in /dist");
