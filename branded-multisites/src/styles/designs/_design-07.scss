@@ -37,7 +37,32 @@ body.design-07{--surface:#fff;--surface-2:#fff;--ink:#111;--muted:#5b5b5b;--acce
 
 .design-07 .lifestyle-section .lifestyle-grid{grid-template-columns:1fr;gap:2rem;align-items:center}
 .design-07 .lifestyle-section .lifestyle-grid img{width:100%;height:520px;object-fit:cover;border:1px solid var(--ink)}
+
+.design-07 .direct-contact{position:relative;background:var(--accent);color:#fff;border-top:1px solid var(--ink);overflow:hidden}
+.design-07 .direct-contact::before{content:"ASK";position:absolute;left:-.06em;bottom:-.24em;color:rgba(255,255,255,.08);font-size:clamp(10rem,30vw,28rem);font-weight:700;line-height:1;letter-spacing:-.1em;pointer-events:none}
+.design-07 .direct-contact-grid{position:relative;z-index:1;display:grid;gap:3rem;align-items:start}
+.design-07 .direct-contact-label{display:inline-block;margin:0 0 1.5rem;padding:.45rem .7rem;background:var(--ink);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.design-07 .direct-contact h2{max-width:680px;color:#fff;font-size:clamp(2.8rem,7vw,5.4rem);line-height:.98}
+.design-07 .direct-contact-copy>p:not(.direct-contact-label){max-width:570px;color:rgba(255,255,255,.78)}
+.design-07 .direct-contact-person{display:flex;align-items:center;gap:1rem;margin-top:2.25rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.45)}
+.design-07 .direct-contact-person img{width:72px;height:72px;object-fit:cover;border:2px solid #fff;border-radius:0}
+.design-07 .direct-contact-person span,.design-07 .direct-contact-person a{display:block;color:#fff}
+.design-07 .direct-contact-person span{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em}
+.design-07 .direct-contact-person a{font-size:1.45rem;font-weight:700;text-decoration:none}
+.design-07 .direct-contact-form{padding:1.5rem;background:#fff;color:var(--ink);border:1px solid var(--ink);box-shadow:14px 14px 0 var(--ink)}
+.design-07 .direct-form-heading{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:2rem;padding-bottom:1rem;border-bottom:4px solid var(--ink)}
+.design-07 .direct-form-heading strong{font-size:1.4rem}
+.design-07 .direct-form-heading span{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+.design-07 .direct-contact-form .field{margin-bottom:1rem}
+.design-07 .direct-contact-form label{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em}
+.design-07 .direct-contact-form input,.design-07 .direct-contact-form textarea{border:1px solid var(--ink);background:#fff}
+.design-07 .direct-contact-form input:focus,.design-07 .direct-contact-form textarea:focus{outline:3px solid var(--accent);outline-offset:0}
+.design-07 .direct-contact-form button{display:flex;align-items:center;justify-content:space-between;background:var(--ink);color:#fff;text-align:left;text-transform:uppercase;letter-spacing:.05em}
+.design-07 .direct-contact-form button span{font-size:1.3rem}
+.design-07 .direct-form-privacy{margin:.8rem 0 0;color:var(--muted);font-size:.75rem;text-align:center}
 @media(min-width:850px){
   .design-07 .cred-hero-grid{grid-template-columns:1fr 1fr}
   .design-07 .lifestyle-section .lifestyle-grid{grid-template-columns:1fr 1fr}
+  .design-07 .direct-contact-grid{grid-template-columns:minmax(0,1fr) minmax(360px,.75fr);gap:5rem}
+  .design-07 .direct-contact-form{padding:2rem}
 }

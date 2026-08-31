@@ -44,7 +44,35 @@
     </div>
   </section>
 
-  <%- include('partials/contact', data) %>
+  <section class="section direct-contact" id="contact" aria-labelledby="direct-contact-title">
+    <div class="container direct-contact-grid">
+      <div class="direct-contact-copy">
+        <p class="direct-contact-label">Direct line</p>
+        <h2 id="direct-contact-title">Bring the question.<br>Leave with a clearer next step.</h2>
+        <p><%= advisor.contact.intro %></p>
+        <div class="direct-contact-person">
+          <img src="<%= images.contactPhoto.src %>" alt="<%= images.contactPhoto.alt %>" width="<%= images.contactPhoto.width %>" height="<%= images.contactPhoto.height %>" loading="lazy">
+          <div><span><%= advisor.identity.location %> · Nationwide</span><a href="tel:<%= advisor.contact.phone.replace(/[^\d+]/g, '') %>"><%= advisor.contact.phone %></a></div>
+        </div>
+      </div>
+
+      <form class="contact-form direct-contact-form" method="<%= advisor.contact.form.method %>" action="<%= advisor.contact.form.action %>">
+        <div class="direct-form-heading"><strong>Ask <%= advisor.identity.firstName %></strong><span>All fields are required</span></div>
+        <% advisor.contact.form.fields.forEach(field => { %>
+          <div class="field">
+            <label for="direct-<%= field.name %>"><%= field.label %></label>
+            <% if (field.type === 'textarea') { %>
+              <textarea id="direct-<%= field.name %>" name="<%= field.name %>" autocomplete="<%= field.autocomplete %>" <%= field.required ? 'required' : '' %>></textarea>
+            <% } else { %>
+              <input id="direct-<%= field.name %>" name="<%= field.name %>" type="<%= field.type %>" autocomplete="<%= field.autocomplete %>" <%= field.required ? 'required' : '' %>>
+            <% } %>
+          </div>
+        <% }) %>
+        <button type="submit">Send my question <span aria-hidden="true">&rarr;</span></button>
+        <p class="direct-form-privacy">Confidential. No spam. Just a direct response.</p>
+      </form>
+    </div>
+  </section>
 </main>
 <%- include('partials/footer', data) %>
 <%- include('partials/schema', data) %>

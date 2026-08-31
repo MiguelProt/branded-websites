@@ -179,61 +179,61 @@
     </div>
   </section>
 
-  <section class="section contact-section" id="contact" aria-labelledby="contact-title">
-  <div class="container contact-grid">
-    <div>
-      <img class="contact-photo" src="./assets/images/contact-photo.webp" alt="Matt Rowenczak headshot" width="150" height="150" loading="lazy">
-      <p class="eyebrow">Contact</p>
-      <h2 id="contact-title">Send me a question</h2>
-      <p>Your information is 100% confidential and your email will never be spammed! Just a friendly response to answer your questions and help point you in the right direction.</p>
-      <p class="contact-location">Atlanta, GA</p>
-      <p class="phone-link"><a href="tel:6783388236">(678) 338 8236</a></p>
+  <section class="section direct-contact" id="contact" aria-labelledby="direct-contact-title">
+    <div class="container direct-contact-grid">
+      <div class="direct-contact-copy">
+        <p class="direct-contact-label">Direct line</p>
+        <h2 id="direct-contact-title">Bring the question.<br>Leave with a clearer next step.</h2>
+        <p>Your information is 100% confidential and your email will never be spammed! Just a friendly response to answer your questions and help point you in the right direction.</p>
+        <div class="direct-contact-person">
+          <img src="./assets/images/contact-photo.webp" alt="Matt Rowenczak headshot" width="150" height="150" loading="lazy">
+          <div><span>Atlanta, GA · Nationwide</span><a href="tel:6783388236">(678) 338 8236</a></div>
+        </div>
+      </div>
+
+      <form class="contact-form direct-contact-form" method="POST" action="">
+        <div class="direct-form-heading"><strong>Ask Matt</strong><span>All fields are required</span></div>
+        
+          <div class="field">
+            <label for="direct-firstName">First name</label>
+            
+              <input id="direct-firstName" name="firstName" type="text" autocomplete="given-name" required>
+            
+          </div>
+        
+          <div class="field">
+            <label for="direct-lastName">Last name</label>
+            
+              <input id="direct-lastName" name="lastName" type="text" autocomplete="family-name" required>
+            
+          </div>
+        
+          <div class="field">
+            <label for="direct-email">Email</label>
+            
+              <input id="direct-email" name="email" type="email" autocomplete="email" required>
+            
+          </div>
+        
+          <div class="field">
+            <label for="direct-phone">Phone</label>
+            
+              <input id="direct-phone" name="phone" type="tel" autocomplete="tel" required>
+            
+          </div>
+        
+          <div class="field">
+            <label for="direct-message">Message</label>
+            
+              <textarea id="direct-message" name="message" autocomplete="off" required></textarea>
+            
+          </div>
+        
+        <button type="submit">Send my question <span aria-hidden="true">&rarr;</span></button>
+        <p class="direct-form-privacy">Confidential. No spam. Just a direct response.</p>
+      </form>
     </div>
-
-    <form class="contact-form" method="POST" action="">
-      
-        <div class="field">
-          <label for="firstName">First name</label>
-          
-            <input id="firstName" name="firstName" type="text" autocomplete="given-name" required>
-          
-        </div>
-      
-        <div class="field">
-          <label for="lastName">Last name</label>
-          
-            <input id="lastName" name="lastName" type="text" autocomplete="family-name" required>
-          
-        </div>
-      
-        <div class="field">
-          <label for="email">Email</label>
-          
-            <input id="email" name="email" type="email" autocomplete="email" required>
-          
-        </div>
-      
-        <div class="field">
-          <label for="phone">Phone</label>
-          
-            <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-          
-        </div>
-      
-        <div class="field">
-          <label for="message">Message</label>
-          
-            <textarea id="message" name="message" autocomplete="off" required></textarea>
-          
-        </div>
-      
-
-      <p class="confidentiality">Your information is confidential and used only to respond to your request.</p>
-      <button type="submit">Next</button>
-    </form>
-  </div>
-</section>
-
+  </section>
 </main>
 <footer class="site-footer">
   <div class="container">

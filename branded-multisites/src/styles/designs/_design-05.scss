@@ -62,19 +62,32 @@ body.design-05{--surface:#f2f3f1;--surface-2:#fff;--ink:#101d2c;--muted:#5a6675;
 .design-05 .review-card{border:1px solid var(--line);border-radius:2px;box-shadow:none}
 .design-05 .review-card blockquote{font-family:'Source Serif 4',Georgia,serif;font-style:italic}
 .design-05 .trustbox-placeholder{display:none}
-.design-05 .trust-bar{padding:1.5rem 0 3rem;background:var(--surface-2)}
-.design-05 .trust-bar-inner{display:flex;flex-direction:column;align-items:center;gap:.5rem;max-width:600px;margin-inline:auto;text-align:center}
-.design-05 .trust-bar-link{text-decoration:none}
-.design-05 .trust-bar-block{display:flex;flex-direction:column;align-items:center;gap:.5rem}
-.design-05 .trust-bar-stars{display:flex;gap:2px}
-.design-05 .trust-bar-star{width:16px;height:16px;fill:#00b67a}
-.design-05 .trust-bar-score{margin:0;font-size:1rem;font-weight:700;color:var(--ink)}
-.design-05 .trust-bar-count{margin:0;font-size:.9rem;color:var(--muted)}
-.design-05 .trust-secondary-line{display:flex;gap:.4rem 1.5rem;flex-wrap:wrap;justify-content:center;margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--line)}
-.design-05 .trust-secondary-line span{display:flex;align-items:center;gap:.35rem;font-size:.9rem;color:var(--ink)}
-.design-05 .trust-secondary-line svg{width:14px;height:14px;fill:var(--gold)}
 
+.design-05 .lifestyle-section{background:var(--surface)}
+.design-05 .lifestyle-section .lifestyle-grid{align-items:center}
+.design-05 .lifestyle-section .lifestyle-grid img{height:auto;min-height:0;object-fit:contain;border:1px solid var(--line);border-radius:0;background:var(--surface-2);padding:.65rem}
+
+.design-05 .faq-section{background:var(--surface-2);border-top:1px solid var(--line)}
+.design-05 .faq-section .eyebrow{text-align:center}
+.design-05 .faq-section h2{max-width:620px;margin-inline:auto;text-align:center}
+.design-05 .faq-list{margin-top:2.5rem;border-top:1px solid var(--ink)}
+.design-05 .faq-list details{padding:0;border-bottom:1px solid var(--line)}
+.design-05 .faq-list summary{display:flex;align-items:center;gap:1.5rem;padding:1.4rem .25rem;list-style:none;color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-size:1.25rem;font-weight:400}
+.design-05 .faq-list summary::-webkit-details-marker{display:none}
+.design-05 .faq-list summary::after{content:"+";margin-left:auto;color:var(--gold);font-family:'Poppins',Arial,sans-serif;font-size:1.4rem;font-weight:400}
+.design-05 .faq-list details[open] summary::after{content:"\2212"}
+.design-05 .faq-list details p{max-width:650px;margin:0;padding:0 3.5rem 1.5rem .25rem;color:var(--muted);font-size:1rem}
+.design-05 .faq-list summary:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+
+.design-05 .contact-section{position:relative;background:var(--accent);color:#fff;border-top:5px solid var(--gold)}
+.design-05 .contact-section .contact-info{padding-top:.5rem}
+.design-05 .contact-section .contact-photo{width:92px;height:92px;border:3px solid rgba(184,147,90,.85);border-radius:0}
+.design-05 .contact-section h2{color:#fff;font-family:'Source Serif 4',Georgia,serif;font-size:clamp(2.7rem,6vw,4.5rem)}
+.design-05 .contact-section .eyebrow{color:#e4d3ac}
+.design-05 .contact-section p,.design-05 .contact-section a{color:rgba(255,255,255,.76)}
+.design-05 .contact-section .phone-link a{color:#fff;font-family:'Source Serif 4',Georgia,serif;font-size:1.7rem;font-weight:400}
 .design-05 .contact-form{border-radius:0;padding:2.5rem 2rem}
+.design-05 .contact-form{border-top:5px solid var(--gold);box-shadow:0 24px 55px rgba(5,14,24,.26)}
 .design-05 .contact-form .field{margin-bottom:1.75rem}
 .design-05 .contact-form .field label{font-family:'Source Serif 4',Georgia,serif;font-size:1.4rem;font-weight:400}
 .design-05 .contact-form input,.design-05 .contact-form textarea{border-radius:2px;border-color:rgba(16,29,44,.35);padding:.75rem .9rem}
@@ -93,7 +106,6 @@ body.design-05{--surface:#f2f3f1;--surface-2:#fff;--ink:#101d2c;--muted:#5a6675;
 @media(min-width:760px){
   .design-05 .contact-grid{grid-template-columns:.85fr 1.3fr}
   .design-05 .lifestyle-grid{grid-template-columns:1fr 1.2fr}
-  .design-05 .lifestyle-grid img{min-height:440px}
 }
 
 @media(min-width:640px){

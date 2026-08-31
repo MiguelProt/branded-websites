@@ -6,43 +6,80 @@
 <main>
   <section class="hero hero-calm">
     <div class="container calm-grid">
-      <div class="calm-image-stack">
-        <img class="main-photo" src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high">
-        <% if(advisor.personal.lifestylePhotos[0]) { %><img class="accent-photo" src="<%= advisor.personal.lifestylePhotos[0].src %>" alt="<%= advisor.personal.lifestylePhotos[0].alt %>" loading="lazy"><% } %>
-      </div>
       <div class="calm-copy">
-        <p class="eyebrow">Retirement should feel more understandable.</p>
-        <h1><%= advisor.identity.name %></h1>
+        <p class="eyebrow"><%= advisor.identity.name %> · <%= advisor.identity.headline %></p>
+        <h1>Make retirement feel less uncertain.</h1>
         <p class="hero-positioning"><%= advisor.identity.positioning %></p>
-        <p><%= advisor.professional.story.title %></p>
+        <div class="calm-actions">
+          <a class="calm-primary-cta" href="#contact">Start a confidential conversation</a>
+          <a class="calm-phone-cta" href="tel:<%= advisor.contact.phone.replace(/[^\d+]/g, '') %>">Call <%= advisor.identity.firstName %> <span><%= advisor.contact.phone %></span></a>
+        </div>
         <%- include('partials/trust', data) %>
       </div>
+      <figure class="calm-portrait">
+        <img class="main-photo" src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high">
+        <figcaption><strong>16+ years</strong><span>Helping clients prepare for retirement</span></figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="section calm-proof" id="credentials"><div class="container"><%- include('partials/credentials', data) %></div></section>
+  <section class="calm-proof" id="credentials" aria-label="Experience and credentials"><div class="container"><%- include('partials/credentials', data) %></div></section>
 
-  <section class="section">
+  <section class="section calm-story-section">
     <div class="container calm-story-grid" id="story">
-      <div><h2>My reason for doing this work</h2><% advisor.professional.story.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
-      <div class="calm-quote">“<%= advisor.professional.story.quote %>”</div>
-    </div>
-  </section>
-
-  <section class="section lifestyle-section" id="lifestyle">
-    <div class="container">
-      <p class="eyebrow">Beyond retirement planning</p>
-      <h2><%= advisor.personal.moreAboutMe.title %></h2>
-      <div class="lifestyle-grid">
-        <% advisor.personal.lifestylePhotos.forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
-        <div class="lifestyle-copy"><% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
-      </div>
+      <div class="calm-story-heading"><p class="eyebrow">Preparedness over guesswork</p><h2>Guidance grounded in experience.</h2></div>
+      <div class="calm-story-copy"><% advisor.professional.story.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+      <blockquote class="calm-quote">“<%= advisor.professional.story.quote %>”</blockquote>
     </div>
   </section>
 
   <%- include('partials/reviews', data) %>
-  <%- include('partials/contact', data) %>
-  <%- include('partials/faq', data) %>
+
+  <section class="section lifestyle-section" id="lifestyle">
+    <div class="container calm-lifestyle-grid">
+      <div class="calm-lifestyle-photos">
+        <% advisor.personal.lifestylePhotos.forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
+      </div>
+      <div class="lifestyle-copy"><p class="eyebrow">The person behind the plan</p><h2><%= advisor.personal.moreAboutMe.title %></h2><% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+    </div>
+  </section>
+
+  <%- include('partials/faq', data).trim() %>
+  <section class="section calm-contact" id="contact" aria-labelledby="calm-contact-title">
+    <div class="container calm-contact-grid">
+      <div class="calm-contact-copy">
+        <div class="calm-contact-person">
+          <img src="<%= images.contactPhoto.src %>" alt="<%= images.contactPhoto.alt %>" width="<%= images.contactPhoto.width %>" height="<%= images.contactPhoto.height %>" loading="lazy">
+          <span>Talk directly with <strong><%= advisor.identity.firstName %></strong></span>
+        </div>
+        <p class="eyebrow">A clearer next step</p>
+        <h2 id="calm-contact-title">Your next chapter starts with one clear question.</h2>
+        <p><%= advisor.contact.intro %></p>
+        <ul class="calm-contact-topics" aria-label="Topics we can discuss">
+          <li>Retirement income</li>
+          <li>Growth strategies</li>
+          <li>Asset protection</li>
+        </ul>
+        <a class="calm-contact-phone" href="tel:<%= advisor.contact.phone.replace(/[^\d+]/g, '') %>"><span>Prefer to call?</span><strong><%= advisor.contact.phone %></strong></a>
+      </div>
+
+      <form class="contact-form calm-contact-form" method="<%= advisor.contact.form.method %>" action="<%= advisor.contact.form.action %>">
+        <div class="calm-form-heading"><span aria-hidden="true">01</span><div><p>Tell me what is on your mind</p><small>Every conversation begins with context.</small></div></div>
+        <% advisor.contact.form.fields.forEach(field => { %>
+          <div class="field">
+            <label for="calm-<%= field.name %>"><%= field.label %></label>
+            <% if (field.type === 'textarea') { %>
+              <textarea id="calm-<%= field.name %>" name="<%= field.name %>" autocomplete="<%= field.autocomplete %>" <%= field.required ? 'required' : '' %>></textarea>
+            <% } else { %>
+              <input id="calm-<%= field.name %>" name="<%= field.name %>" type="<%= field.type %>" autocomplete="<%= field.autocomplete %>" <%= field.required ? 'required' : '' %>>
+            <% } %>
+          </div>
+        <% }) %>
+        <button type="submit">Send my question <span aria-hidden="true">&rarr;</span></button>
+        <p class="calm-form-privacy">Your information stays confidential and is used only to respond to your request.</p>
+      </form>
+    </div>
+  </section>
 </main>
 <%- include('partials/footer', data) %>
 <%- include('partials/schema', data) %>

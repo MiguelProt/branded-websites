@@ -11,6 +11,10 @@
         <h1><%= advisor.identity.name %></h1>
         <p class="executive-role"><%= advisor.identity.headline %></p>
         <p class="hero-positioning"><%= advisor.identity.positioning %></p>
+        <div class="executive-actions">
+          <a class="executive-primary-cta" href="#contact">Start a conversation <span aria-hidden="true">&rarr;</span></a>
+          <a class="executive-phone-cta" href="tel:<%= advisor.contact.phone.replace(/[^\d+]/g, '') %>">Call <%= advisor.identity.firstName %> · <%= advisor.contact.phone %></a>
+        </div>
         <div class="executive-proof">
           <% if (advisor.trust.trustpilot.enabled && advisor.trust.trustpilot.reviewCount) { %>
             <a class="tp-rating-badge" href="<%= advisor.trust.trustpilot.profileUrl %>" target="_blank" rel="noopener noreferrer" aria-label="View Trustpilot profile">
@@ -52,19 +56,6 @@
     </div>
   </section>
 
-  <section class="section lifestyle-section" id="lifestyle">
-    <div class="container">
-      <span class="line-label">Beyond the office</span>
-      <h2><%= advisor.personal.moreAboutMe.title %></h2>
-      <div class="lifestyle-grid">
-        <div class="photo-stack">
-          <% advisor.personal.lifestylePhotos.forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
-        </div>
-        <div class="lifestyle-copy"><% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
-      </div>
-    </div>
-  </section>
-
   <section class="section reviews-section" id="reviews" aria-labelledby="reviews-title">
     <div class="container">
       <div class="section-heading">
@@ -79,10 +70,7 @@
               <blockquote>“<%= review.quote %>”</blockquote>
               <figcaption class="review-author">
                 <span class="review-avatar"><%= review.author.trim().charAt(0).toUpperCase() %></span>
-                <span>
-                  <strong><%= review.author %></strong>
-                  <small>@<%= review.author.replace(/\s+/g, '') %></small>
-                </span>
+                <strong><%= review.author %></strong>
               </figcaption>
             </figure>
           <% }) %>
@@ -93,26 +81,11 @@
 
       <% if (advisor.trust.trustpilot.enabled && advisor.trust.trustpilot.reviewCount) { %>
         <div class="trust-bar">
-          <div class="trust-bar-inner">
-            <a href="<%= advisor.trust.trustpilot.profileUrl %>" target="_blank" rel="noopener noreferrer" class="trust-bar-link">
-              <div class="trust-bar-block">
-                <div class="trust-bar-stars" aria-hidden="true">
-                  <% for (let i = 0; i < 5; i++) { %><svg class="trust-bar-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg><% } %>
-                </div>
-                <span class="trust-bar-score"><%= advisor.trust.trustpilot.rating %> / 5 on Trustpilot</span>
-                <span class="trust-bar-count"><%= Number(advisor.trust.trustpilot.reviewCount).toLocaleString() %>+ verified reviews</span>
-              </div>
-            </a>
-
-            <div class="trust-secondary-line">
-              <% advisor.professional.credentials.slice(0, 3).forEach(credential => { %>
-                <span>
-                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
-                  <%= credential.value %> <%= credential.label %>
-                </span>
-              <% }) %>
-            </div>
-          </div>
+          <a href="<%= advisor.trust.trustpilot.profileUrl %>" target="_blank" rel="noopener noreferrer" class="trust-bar-link">
+            <span class="trust-bar-stars" aria-hidden="true"><% for (let i = 0; i < 5; i++) { %><svg class="trust-bar-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg><% } %></span>
+            <strong><%= advisor.trust.trustpilot.rating %> / 5</strong>
+            <span><%= Number(advisor.trust.trustpilot.reviewCount).toLocaleString() %> verified reviews on Trustpilot</span>
+          </a>
         </div>
       <% } %>
     </div>
@@ -128,12 +101,27 @@
         var card = grid.querySelector('.review-card');
         if (!card) return;
         var gap = parseFloat(getComputedStyle(grid).columnGap) || 0;
-        grid.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: 'instant' });
+        grid.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: 'smooth' });
       }
       prev.addEventListener('click', function () { scrollByCard(-1); });
       next.addEventListener('click', function () { scrollByCard(1); });
     })();
   </script>
+
+  <section class="section lifestyle-section" id="lifestyle">
+    <div class="container">
+      <span class="line-label">Beyond the office</span>
+      <h2><%= advisor.personal.moreAboutMe.title %></h2>
+      <div class="lifestyle-grid">
+        <div class="photo-stack">
+          <% advisor.personal.lifestylePhotos.forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
+        </div>
+        <div class="lifestyle-copy"><% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/faq', data).trim() %>
 
   <section class="section contact-section" id="contact" aria-labelledby="contact-title">
     <div class="container contact-grid">
@@ -161,13 +149,11 @@
           </div>
         <% }) %>
 
+        <button type="submit">Send my question <span aria-hidden="true">&rarr;</span></button>
         <p class="confidentiality">Your information is confidential and used only to respond to your request.</p>
-        <button type="submit"><%= advisor.contact.form.submitLabel %></button>
       </form>
     </div>
   </section>
-
-  <%- include('partials/faq', data) %>
 </main>
 <%- include('partials/footer', data) %>
 <%- include('partials/schema', data) %>

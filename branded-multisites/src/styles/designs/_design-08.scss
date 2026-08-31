@@ -1,8 +1,100 @@
-body.design-08{--surface:#eef7f3;--surface-2:#fbfffd;--ink:#18322a;--accent:#2c7561}
-.design-08 .calm-grid{display:grid;gap:3rem;align-items:center;padding-block:4rem}
-.design-08 .calm-image-stack{position:relative;padding-bottom:3rem}
-.design-08 .main-photo{width:85%;height:600px;object-fit:cover;border-radius:120px 120px 24px 24px}
-.design-08 .accent-photo{position:absolute;right:0;bottom:0;width:45%;height:240px;object-fit:cover;border:10px solid var(--surface);border-radius:50%}
+body.design-08{--surface:#f3f6f8;--surface-2:#fff;--ink:#142b45;--muted:#5a6d7f;--accent:#b78122;--accent-contrast:#fff;--line:#d9e1e8;--radius:18px;--shadow:0 24px 60px rgba(20,43,69,.12);background:var(--surface);color:var(--ink);font-family:'Poppins',Arial,sans-serif}
+.design-08 h1,.design-08 h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.035em}
+.design-08 p{font-size:1.08rem;line-height:1.75}
+.design-08 .eyebrow{color:var(--accent);font-size:.78rem;line-height:1.5;letter-spacing:.14em}
+.design-08 .site-nav{background:rgba(243,246,248,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.design-08 .site-nav-brand{font-family:Georgia,'Times New Roman',serif;font-size:1.25rem}
+.design-08 .site-nav-links a{font-size:.9rem}
+.design-08 .site-nav a:focus-visible,.design-08 .site-nav summary:focus-visible,.design-08 a:focus-visible,.design-08 button:focus-visible,.design-08 summary:focus-visible{outline:3px solid rgba(183,129,34,.5);outline-offset:3px}
+
+.design-08 .hero-calm{position:relative;padding:3.5rem 0 4rem;background:linear-gradient(115deg,#eef3f7 0%,#f8fafb 55%,#e5edf2 100%);overflow:hidden}
+.design-08 .hero-calm::after{content:"";position:absolute;right:-12rem;top:-14rem;width:38rem;height:38rem;border:1px solid rgba(183,129,34,.22);border-radius:50%;box-shadow:0 0 0 5rem rgba(255,255,255,.16),0 0 0 10rem rgba(255,255,255,.12);pointer-events:none}
+.design-08 .calm-grid{position:relative;z-index:1;display:grid;gap:3rem;align-items:center}
+.design-08 .calm-copy{max-width:44rem}
+.design-08 .calm-copy h1{max-width:700px;margin-bottom:1.5rem;font-size:clamp(3.15rem,8vw,6.4rem);line-height:.94}
+.design-08 .hero-positioning{max-width:42rem;color:#465d72}
+.design-08 .calm-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.4rem;margin:2rem 0 1.25rem}
+.design-08 .calm-primary-cta{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:.9rem 1.35rem;border-radius:6px;background:var(--ink);color:#fff;text-decoration:none;font-size:.95rem;font-weight:600;box-shadow:0 12px 30px rgba(20,43,69,.2)}
+.design-08 .calm-primary-cta::after{content:"\2192";margin-left:.8rem;color:#e6bd69;font-size:1.2rem}
+.design-08 .calm-phone-cta{color:var(--ink);font-size:.85rem;font-weight:600;text-decoration:none}
+.design-08 .calm-phone-cta span{display:block;color:var(--muted);font-weight:400}
+.design-08 .trust-summary{background:transparent;border:0;border-radius:0;padding:.5rem 0;box-shadow:none}
+.design-08 .trust-summary .stars{color:var(--accent)}
+.design-08 .calm-portrait{position:relative;justify-self:center;width:min(100%,430px);margin:0;padding:1rem;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+.design-08 .main-photo{display:block;width:100%;height:auto;max-height:570px;object-fit:contain;background:#e6edf2}
+.design-08 .calm-portrait figcaption{position:absolute;right:-1px;bottom:2rem;display:grid;max-width:210px;padding:1rem 1.15rem;background:var(--ink);color:#fff}
+.design-08 .calm-portrait figcaption strong{font-family:Georgia,'Times New Roman',serif;color:#e6bd69;font-size:1.55rem;font-weight:400}
+.design-08 .calm-portrait figcaption span{font-size:.78rem;line-height:1.4}
+
+.design-08 .calm-proof{position:relative;z-index:2;margin-top:-1px;padding:1.1rem 0;background:var(--ink);color:#fff}
+.design-08 .calm-proof .credentials{margin:0}
+.design-08 .calm-proof .credential{padding:1rem 1.15rem;background:transparent;border:0;border-left:1px solid rgba(255,255,255,.2);border-radius:0}
+.design-08 .calm-proof .credential:first-child{border-left:0}
+.design-08 .calm-proof .credential strong{color:#e6bd69;font-family:Georgia,'Times New Roman',serif;font-size:1.45rem;font-weight:400}
+.design-08 .calm-proof .credential span{color:rgba(255,255,255,.7);font-size:.85rem}
+
+.design-08 .calm-story-section{background:#fff}
 .design-08 .calm-story-grid{display:grid;gap:2rem}
-.design-08 .calm-quote{font-family:Georgia,serif;font-size:clamp(2rem,6vw,3.6rem);line-height:1.15}
-@media(min-width:850px){.design-08 .calm-grid,.design-08 .calm-story-grid{grid-template-columns:1fr 1fr}}
+.design-08 .calm-story-heading h2{max-width:540px;font-size:clamp(2.7rem,6vw,4.8rem)}
+.design-08 .calm-story-copy{max-width:680px}
+.design-08 .calm-quote{grid-column:1/-1;margin:1rem 0 0;padding:2rem 0 0;border-top:1px solid var(--line);color:var(--ink);font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.8rem,4.5vw,3.2rem);line-height:1.2}
+
+.design-08 .reviews-section{background:#e9eff3}
+.design-08 .reviews-section .section-heading{text-align:center}
+.design-08 .review-grid{gap:1.2rem}
+.design-08 .review-card{padding:1.7rem;background:#fff;border:1px solid #d5dfe6;border-radius:10px;box-shadow:0 12px 30px rgba(20,43,69,.07)}
+.design-08 .review-card::before{content:"\201C";display:block;height:2.2rem;color:var(--accent);font-family:Georgia,serif;font-size:3.5rem;line-height:1}
+.design-08 .review-card blockquote{color:var(--ink);font-size:1rem}
+.design-08 .review-card figcaption{font-size:.9rem}
+.design-08 .trustbox-placeholder{background:rgba(255,255,255,.45)}
+
+.design-08 .lifestyle-section{background:#fff}
+.design-08 .calm-lifestyle-grid{display:grid;gap:3rem;align-items:center}
+.design-08 .calm-lifestyle-photos{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.design-08 .calm-lifestyle-photos img{display:block;width:100%;height:auto;object-fit:contain;border:1px solid var(--line);background:var(--surface)}
+.design-08 .calm-lifestyle-photos img:nth-child(2){margin-top:3rem}
+.design-08 .lifestyle-copy h2{font-size:clamp(2.6rem,6vw,4.5rem)}
+
+.design-08 .calm-contact{position:relative;background:var(--ink);color:#fff;overflow:hidden}
+.design-08 .calm-contact::before{content:"LET'S TALK";position:absolute;left:-.04em;bottom:-.22em;color:rgba(255,255,255,.035);font-family:Georgia,'Times New Roman',serif;font-size:clamp(7rem,18vw,17rem);line-height:1;white-space:nowrap;pointer-events:none}
+.design-08 .calm-contact::after{content:"";position:absolute;top:0;right:8%;width:1px;height:100%;background:linear-gradient(transparent,rgba(230,189,105,.35),transparent);pointer-events:none}
+.design-08 .calm-contact-grid{position:relative;z-index:1;display:grid;gap:3rem;align-items:start}
+.design-08 .calm-contact-copy{padding-top:.5rem}
+.design-08 .calm-contact-person{display:flex;align-items:center;gap:.85rem;margin-bottom:3rem;color:rgba(255,255,255,.7);font-size:.82rem}
+.design-08 .calm-contact-person img{width:54px;height:54px;object-fit:cover;border:2px solid rgba(230,189,105,.7);border-radius:50%}
+.design-08 .calm-contact-person strong{display:block;color:#fff;font-family:Georgia,'Times New Roman',serif;font-size:1.05rem;font-weight:400}
+.design-08 .calm-contact h2{max-width:650px;color:#fff;font-size:clamp(3rem,7vw,5.8rem);line-height:.96}
+.design-08 .calm-contact-copy>p:not(.eyebrow){max-width:570px;color:rgba(255,255,255,.68)}
+.design-08 .calm-contact .eyebrow{color:#e6bd69}
+.design-08 .calm-contact-topics{display:flex;flex-wrap:wrap;gap:.6rem;margin:2rem 0;padding:0;list-style:none}
+.design-08 .calm-contact-topics li{padding:.5rem .8rem;border:1px solid rgba(255,255,255,.18);border-radius:999px;color:rgba(255,255,255,.82);font-size:.78rem}
+.design-08 .calm-contact-phone{display:inline-grid;color:#fff;text-decoration:none}
+.design-08 .calm-contact-phone span{color:#e6bd69;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.design-08 .calm-contact-phone strong{font-family:Georgia,'Times New Roman',serif;font-size:1.55rem;font-weight:400}
+.design-08 .calm-contact-form{padding:1.5rem;background:#fff;color:var(--ink);border-radius:2px;box-shadow:18px 18px 0 #b78122,0 30px 70px rgba(0,0,0,.28)}
+.design-08 .calm-form-heading{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;padding-bottom:1.25rem;border-bottom:1px solid var(--line)}
+.design-08 .calm-form-heading>span{display:grid;flex:0 0 2.75rem;width:2.75rem;height:2.75rem;place-items:center;border-radius:50%;background:#edf1f4;color:var(--accent);font-family:Georgia,'Times New Roman',serif}
+.design-08 .calm-form-heading p{margin:0;color:var(--ink);font-family:Georgia,'Times New Roman',serif;font-size:1.25rem;line-height:1.2}
+.design-08 .calm-form-heading small{color:var(--muted)}
+.design-08 .calm-contact-form .field{margin-bottom:.85rem}
+.design-08 .calm-contact-form label{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase}
+.design-08 .calm-contact-form input,.design-08 .calm-contact-form textarea{border:0;border-bottom:1px solid #b8c5ce;border-radius:0;background:#f7f9fa}
+.design-08 .calm-contact-form input:focus,.design-08 .calm-contact-form textarea:focus{outline:0;border-bottom:2px solid var(--accent);box-shadow:0 5px 0 rgba(183,129,34,.08)}
+.design-08 .calm-contact-form button{display:flex;align-items:center;justify-content:space-between;margin-top:1.25rem;border-radius:2px;background:var(--accent);color:#fff;text-align:left}
+.design-08 .calm-contact-form button span{font-size:1.25rem}
+.design-08 .calm-form-privacy{margin:.8rem 0 0;color:var(--muted);font-size:.72rem;line-height:1.5;text-align:center}
+
+.design-08 .faq-section{background:#f3f6f8}
+.design-08 .faq-list{border-top-color:#cbd7df}
+.design-08 .faq-list details{padding:1.3rem 0;border-bottom-color:#cbd7df}
+.design-08 .faq-list summary{display:flex;align-items:center;gap:1rem;list-style:none;color:var(--ink);font-family:Georgia,'Times New Roman',serif;font-size:1.2rem;font-weight:400}
+.design-08 .faq-list summary::-webkit-details-marker{display:none}
+.design-08 .faq-list summary::after{content:"+";margin-left:auto;color:var(--accent);font-family:'Poppins',Arial,sans-serif;font-size:1.5rem}
+.design-08 .faq-list details[open] summary::after{content:"\2212"}
+.design-08 .site-footer{background:#0e2034}
+.design-08 .site-footer .container{display:grid;gap:1rem;text-align:center}
+.design-08 .site-footer p{margin:0;color:rgba(255,255,255,.62);font-size:.8rem}
+
+@media(min-width:760px){.design-08 .calm-proof .credentials{grid-template-columns:repeat(4,1fr)}.design-08 .calm-contact-form{padding:2.2rem}}
+@media(min-width:850px){.design-08 .hero-calm{padding:5rem 0}.design-08 .calm-grid{grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr)}.design-08 .calm-story-grid{grid-template-columns:.8fr 1.2fr}.design-08 .calm-lifestyle-grid{grid-template-columns:.9fr 1.1fr}.design-08 .calm-portrait{justify-self:end}.design-08 .calm-contact-grid{grid-template-columns:minmax(0,1.05fr) minmax(360px,.75fr);gap:5rem}.design-08 .calm-contact-form{transform:rotate(.6deg)}}
+@media(max-width:520px){.design-08 .hero-calm{padding-top:2.5rem}.design-08 .calm-copy h1{font-size:3.25rem}.design-08 .calm-actions{align-items:stretch}.design-08 .calm-primary-cta{width:100%}.design-08 .calm-phone-cta{text-align:center}.design-08 .calm-portrait figcaption{right:.5rem;bottom:1.5rem}.design-08 .calm-proof .credentials{grid-template-columns:1fr 1fr}.design-08 .calm-proof .credential:nth-child(odd){border-left:0}}
