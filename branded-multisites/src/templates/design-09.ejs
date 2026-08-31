@@ -7,9 +7,14 @@
   <section class="hero hero-liquid">
     <div class="container liquid-hero-grid">
       <div class="liquid-card liquid-hero-card">
-        <div class="magazine-kicker"><span>Advisor profile</span><span>Nationwide</span></div>
-        <h1><%= advisor.identity.name %></h1>
-        <p class="hero-role"><%= advisor.identity.headline %></p>
+        <div class="liquid-hero-identity">
+          <img class="liquid-hero-photo-mobile" src="<%= images.headshot.src %>" alt="<%= images.headshot.alt %>" width="<%= images.headshot.width %>" height="<%= images.headshot.height %>" fetchpriority="high">
+          <div>
+            <div class="magazine-kicker"><span>Advisor profile</span><span>Nationwide</span></div>
+            <h1><%= advisor.identity.name %></h1>
+            <p class="hero-role"><%= advisor.identity.headline %></p>
+          </div>
+        </div>
         <p class="hero-positioning"><%= advisor.identity.positioning %></p>
         <%- include('partials/trust', data) %>
       </div>
@@ -22,16 +27,21 @@
   <section class="section magazine-story" id="story">
     <div class="container">
       <div class="magazine-story-title"><span>01</span><h2>Story</h2></div>
-      <div class="liquid-card magazine-story-copy"><% advisor.professional.story.paragraphs.forEach((paragraph, i) => { %><p<%= i === 0 ? ' class="lead-copy"' : '' %>><%= paragraph %></p><% }) %></div>
+      <div class="magazine-story-grid">
+        <div class="liquid-card magazine-story-copy"><% advisor.professional.story.paragraphs.forEach((paragraph, i) => { %><p<%= i === 0 ? ' class="lead-copy"' : '' %>><%= paragraph %></p><% }) %></div>
+        <figure class="liquid-image-card story-portrait">
+          <img src="<%= advisor.personal.lifestylePhotos[1].src %>" alt="<%= advisor.personal.lifestylePhotos[1].alt %>" width="<%= advisor.personal.lifestylePhotos[1].width %>" height="<%= advisor.personal.lifestylePhotos[1].height %>" loading="lazy">
+        </figure>
+      </div>
     </div>
-    ext
   </section>
 
   <section class="section lifestyle-section" id="lifestyle">
     <div class="container">
       <div class="magazine-story-title"><span>02</span><h2><%= advisor.personal.moreAboutMe.title %></h2></div>
       <div class="lifestyle-grid">
-        <% advisor.personal.lifestylePhotos.forEach(photo => { %><img src="<%= photo.src %>" alt="<%= photo.alt %>" width="<%= photo.width %>" height="<%= photo.height %>" loading="lazy"><% }) %>
+        <% const aboutPhoto = advisor.personal.lifestylePhotos[0]; -%>
+        <figure class="liquid-image-card lifestyle-photo"><img src="<%= aboutPhoto.src %>" alt="<%= aboutPhoto.alt %>" width="<%= aboutPhoto.width %>" height="<%= aboutPhoto.height %>" loading="lazy"></figure>
         <div class="liquid-card lifestyle-copy"><% advisor.personal.moreAboutMe.paragraphs.forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
       </div>
     </div>
