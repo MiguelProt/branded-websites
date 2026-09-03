@@ -141,6 +141,21 @@
       "position": "center"
     }
   },
+  "design11": {
+    "formSubmitLabel": "Send message",
+    "heroImage": {
+      "src": "./assets/images/advisor.png",
+      "alt": "Matt Rowenczak standing with his arms crossed",
+      "width": 433,
+      "height": 577
+    },
+    "services": [
+      { "number": "01", "title": "Income", "description": "Strategies designed to turn accumulated assets into dependable retirement income." },
+      { "number": "02", "title": "Growth", "description": "A personalized approach for pursuing long-term goals with clarity and intention." },
+      { "number": "03", "title": "Protection", "description": "Planning focused on helping protect the assets you worked hard to build." }
+    ],
+    "statement": "Retirement planning should feel less like decoding a system — and more like designing the life you want to live."
+  },
   "optional": {
     "reviews": [
       {

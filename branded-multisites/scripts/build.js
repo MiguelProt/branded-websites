@@ -16,7 +16,9 @@ const sassResult = sass.compile(path.join(root, "src/styles/main.scss"), {
   style: "compressed"
 });
 
-for (let i = 1; i <= 10; i++) {
+const designCount = 11;
+
+for (let i = 1; i <= designCount; i++) {
   const designNumber = String(i).padStart(2, "0");
   const templatePath = path.join(root, `src/templates/design-${designNumber}.ejs`);
   const outputDir = path.join(root, `dist/design-${designNumber}`);
@@ -47,11 +49,11 @@ for (let i = 1; i <= 10; i++) {
 
 const reviewIndex = await ejs.renderFile(
   path.join(root, "src/templates/index.ejs"),
-  { designs: Array.from({ length: 10 }, (_, index) => String(index + 1).padStart(2, "0")) },
+  { designs: Array.from({ length: designCount }, (_, index) => String(index + 1).padStart(2, "0")) },
   { filename: path.join(root, "src/templates/index.ejs") }
 );
 
 await fs.writeFile(path.join(root, "dist/index.html"), reviewIndex);
 await fs.writeFile(path.join(root, "dist/.nojekyll"), "");
 
-console.log("Built the review index and 10 advisor designs in /dist");
+console.log(`Built the review index and ${designCount} advisor designs in /dist`);

@@ -191,9 +191,9 @@
     <header>
       <div>
         <p class="eyebrow">Branded multisites / revisión</p>
-        <h1>Diez direcciones.<br>Una decisión.</h1>
+        <h1>Once direcciones.<br>Una decisión.</h1>
       </div>
-      <div class="count" aria-label="10 propuestas"><strong>10</strong>propuestas</div>
+      <div class="count" aria-label="<%= designs.length %> propuestas"><strong><%= designs.length %></strong>propuestas</div>
     </header>
 
     <div class="intro">
@@ -202,7 +202,7 @@
     </div>
 
     <section class="grid" aria-label="Propuestas de diseño">
-      <% designs.forEach((design) => { %>
+      <%_ designs.forEach((design) => { _%>
         <a class="card" href="./design-<%= design %>/" aria-label="Abrir diseño <%= design %>">
           <div class="preview" aria-hidden="true">
             <iframe src="./design-<%= design %>/" title="" tabindex="-1" loading="lazy"></iframe>
@@ -212,7 +212,7 @@
             <span class="open">Abrir propuesta ↗</span>
           </div>
         </a>
-      <% }); %>
+      <%_ }); _%>
     </section>
   </main>
 

@@ -26,6 +26,7 @@ dist/design-01/
 dist/design-02/
 ...
 dist/design-10/
+dist/design-11/
 ```
 
 Open any generated `index.html` in a browser.
@@ -36,7 +37,7 @@ Open any generated `index.html` in a browser.
 npm run build
 ```
 
-The build also creates `dist/index.html`, a review dashboard linking to all ten
+The build also creates `dist/index.html`, a review dashboard linking to all eleven
 designs. On every push to `main` that changes this project, GitHub Actions builds
 and publishes the complete `dist/` directory to GitHub Pages.
 
