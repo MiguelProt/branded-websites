@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title><%= seo.title %></title>
+  <meta name="description" content="<%= seo.description %>">
+  <link rel="canonical" href="<%= seo.canonical %>">
+  <link rel="icon" href="<%= seo.favicon %>">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="<%= seo.title %>">
+  <meta property="og:description" content="<%= seo.description %>">
+  <meta property="og:image" content="<%= seo.ogImage %>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="design-12">
+  <a class="d12-skip" href="#main">Skip to content</a>
+  <div class="d12-progress" aria-hidden="true"><i></i></div>
+
+  <header class="d12-header" data-d12-header>
+    <a class="d12-brand" href="#top" aria-label="<%= advisor.identity.name %>, home"><i aria-hidden="true"></i><span><%= advisor.identity.firstName %>.</span></a>
+    <nav class="d12-nav" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#focus">Expertise</a><a href="#journey">Journey</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="d12-header-cta" href="#contact">Let's talk <span>↗</span></a>
+    <button class="d12-menu-button" type="button" aria-label="Open navigation" aria-expanded="false" data-d12-menu-button><span></span><span></span></button>
+  </header>
+
+  <div class="d12-mobile-menu" data-d12-menu aria-hidden="true">
+    <nav><a href="#about">About</a><a href="#focus">Expertise</a><a href="#journey">Journey</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
+    <a href="tel:<%= advisor.contact.phone.replace(/[^\d+]/g, '') %>"><%= advisor.contact.phone %></a>
+  </div>
+
+  <main id="main">
+    <section class="d12-hero" id="top">
+      <div class="d12-hero-glow" aria-hidden="true"></div>
+      <div class="d12-hero-name">
+        <p>Retirement advisor</p>
+        <h1><span><%= advisor.identity.firstName %></span><span><%= advisor.identity.lastName %></span></h1>
+        <a href="#about">Meet your advisor <span>→</span></a>
+      </div>
+      <div class="d12-hero-type" aria-hidden="true"><b>RETIREMENT</b><b>PLANNING</b></div>
+      <figure class="d12-hero-portrait">
+        <div><img src="<%= design11.heroImage.src %>" alt="<%= design11.heroImage.alt %>" width="<%= design11.heroImage.width %>" height="<%= design11.heroImage.height %>" fetchpriority="high" data-d12-parallax></div>
+      </figure>
+      <div class="d12-hero-about">
+        <p class="d12-mini-title">Based in <%= advisor.identity.location %></p>
+        <p><%= advisor.identity.positioning %></p>
+        <div class="d12-rating"><strong><%= advisor.trust.trustpilot.rating %></strong><span>★★★★★<small><%= Number(advisor.trust.trustpilot.reviewCount).toLocaleString() %>+ verified reviews</small></span></div>
+      </div>
+    </section>
+
+    <section class="d12-focus d12-section" id="focus">
+      <div class="d12-wrap">
+        <div class="d12-section-heading" data-d12-reveal><p>Focused guidance</p><h2>Build confidence<br>for what comes next.</h2></div>
+        <div class="d12-focus-grid">
+          <% design11.services.forEach((service, index) => { %>
+            <article class="d12-focus-card" data-d12-reveal style="--delay:<%= index * 90 %>ms">
+              <span>0<%= index + 1 %></span><i aria-hidden="true"><%= index === 0 ? '↗' : index === 1 ? '⌁' : '◇' %></i><h3><%= service.title %></h3><p><%= service.description %></p>
+            </article>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+    <section class="d12-about d12-section" id="about">
+      <div class="d12-wrap d12-about-grid">
+        <div class="d12-about-title" data-d12-reveal><p>About Matt</p><h2>Preparedness<br>is personal.</h2></div>
+        <div class="d12-about-copy" data-d12-reveal><p class="d12-lead"><%= advisor.professional.story.quote %></p><p><%= advisor.professional.story.paragraphs[0] %></p></div>
+      </div>
+      <div class="d12-stats d12-wrap">
+        <% advisor.professional.credentials.forEach((credential, index) => { %>
+          <div data-d12-reveal style="--delay:<%= index * 80 %>ms"><strong><%= credential.value %></strong><span><%= credential.label %></span></div>
+        <% }) %>
+      </div>
+    </section>
+
+    <section class="d12-journey d12-section" id="journey">
+      <div class="d12-wrap">
+        <div class="d12-section-heading" data-d12-reveal><p>Professional journey</p><h2>Discipline behind<br>every decision.</h2></div>
+        <div class="d12-journey-grid">
+          <figure data-d12-reveal><img src="<%= advisor.personal.lifestylePhotos[1].src %>" alt="<%= advisor.personal.lifestylePhotos[1].alt %>" width="<%= advisor.personal.lifestylePhotos[1].width %>" height="<%= advisor.personal.lifestylePhotos[1].height %>" loading="lazy"></figure>
+          <div class="d12-timeline">
+            <article data-d12-reveal><span>Foundation</span><h3>U.S. Navy</h3><strong>Supply Corps Officer</strong><p>A disciplined approach grounded in preparedness, security and service.</p></article>
+            <article data-d12-reveal><span>Education</span><h3>Economics &amp; MBA</h3><strong>Ohio State · University of Georgia</strong><p>Finance, marketing and economic insight brought together for clearer planning.</p></article>
+            <article data-d12-reveal><span>Today</span><h3>Nationwide guidance</h3><strong><%= advisor.identity.headline %></strong><p><%= advisor.identity.serviceArea %></p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="d12-life d12-section" id="lifestyle">
+      <div class="d12-wrap d12-life-grid">
+        <div data-d12-reveal><p class="d12-mini-title">Beyond the office</p><h2><%= advisor.personal.moreAboutMe.title %></h2><% advisor.personal.moreAboutMe.paragraphs.slice(0,1).forEach(paragraph => { %><p><%= paragraph %></p><% }) %></div>
+        <figure data-d12-reveal><img src="<%= advisor.personal.lifestylePhotos[0].src %>" alt="<%= advisor.personal.lifestylePhotos[0].alt %>" width="<%= advisor.personal.lifestylePhotos[0].width %>" height="<%= advisor.personal.lifestylePhotos[0].height %>" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <section class="d12-reviews d12-section" id="reviews">
+      <div class="d12-wrap">
+        <div class="d12-section-heading" data-d12-reveal><p>Client perspective</p><h2>Confidence,<br>in their words.</h2></div>
+        <div class="d12-review-track">
+          <% optional.reviews.forEach((review, index) => { %><figure data-d12-reveal style="--delay:<%= index * 90 %>ms"><span>“</span><blockquote><%= review.quote %></blockquote><figcaption><%= review.author %></figcaption></figure><% }) %>
+        </div>
+      </div>
+    </section>
+
+    <section class="d12-contact d12-section" id="contact">
+      <div class="d12-wrap d12-contact-grid">
+        <div class="d12-contact-copy" data-d12-reveal><p>Start a conversation</p><h2>Plan what<br>comes next.</h2><a href="tel:<%= advisor.contact.phone.replace(/[^\d+]/g, '') %>"><span>Call Matt</span><strong><%= advisor.contact.phone %></strong></a></div>
+        <form class="d12-form" method="<%= advisor.contact.form.method %>" action="<%= advisor.contact.form.action %>" data-d12-reveal>
+          <% advisor.contact.form.fields.forEach(field => { %><div class="d12-field d12-field--<%= field.type %>"><label for="d12-<%= field.name %>"><%= field.label %></label><% if (field.type === 'textarea') { %><textarea id="d12-<%= field.name %>" name="<%= field.name %>" autocomplete="<%= field.autocomplete %>" <%= field.required ? 'required' : '' %>></textarea><% } else { %><input id="d12-<%= field.name %>" name="<%= field.name %>" type="<%= field.type %>" autocomplete="<%= field.autocomplete %>" <%= field.required ? 'required' : '' %>><% } %></div><% }) %>
+          <button type="submit">Send my question <span>↗</span></button><p>Your information stays confidential.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="d12-footer"><div class="d12-wrap"><a class="d12-brand" href="#top"><i></i><span><%= advisor.identity.firstName %>.</span></a><p><%= advisor.compliance.text %></p><div><span>© <%= new Date().getFullYear() %> <%= advisor.identity.name %></span><span><%= advisor.identity.location %> · Nationwide</span></div></div></footer>
+  <%- include('partials/schema', data) %>
+  <script>
+    (function () {
+      var body = document.body, header = document.querySelector('[data-d12-header]'), button = document.querySelector('[data-d12-menu-button]'), menu = document.querySelector('[data-d12-menu]');
+      var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      button.addEventListener('click', function () { var open = body.classList.toggle('d12-menu-open'); button.setAttribute('aria-expanded', String(open)); button.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation'); menu.setAttribute('aria-hidden', String(!open)); });
+      menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', function () { body.classList.remove('d12-menu-open'); button.setAttribute('aria-expanded','false'); menu.setAttribute('aria-hidden','true'); }); });
+      var reveals = document.querySelectorAll('[data-d12-reveal]');
+      if (reduced || !('IntersectionObserver' in window)) reveals.forEach(function (el) { el.classList.add('is-visible'); });
+      else { var observer = new IntersectionObserver(function (entries) { entries.forEach(function (entry) { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold:.13, rootMargin:'0px 0px -6% 0px' }); reveals.forEach(function (el) { observer.observe(el); }); }
+      requestAnimationFrame(function () { requestAnimationFrame(function () { body.classList.add('d12-loaded'); }); });
+      var ticking = false, portrait = document.querySelector('[data-d12-parallax]'), bar = document.querySelector('.d12-progress i');
+      function paint() { var y=scrollY, max=document.documentElement.scrollHeight-innerHeight; header.classList.toggle('is-compact',y>48); bar.style.transform='scaleX('+(max ? y/max : 0)+')'; if(!reduced){ portrait.style.transform='translate3d(0,'+Math.min(70,y*.075)+'px,0)'; } ticking=false; }
+      addEventListener('scroll',function(){ if(!ticking){ticking=true;requestAnimationFrame(paint);} },{passive:true}); paint();
+    })();
+  </script>
+</body>
+</html>

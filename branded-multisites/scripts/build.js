@@ -16,7 +16,7 @@ const sassResult = sass.compile(path.join(root, "src/styles/main.scss"), {
   style: "compressed"
 });
 
-const designCount = 11;
+const designCount = 13;
 
 for (let i = 1; i <= designCount; i++) {
   const designNumber = String(i).padStart(2, "0");

@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title><%= seo.title %></title>
+  <meta name="description" content="<%= seo.description %>">
+  <link rel="canonical" href="<%= seo.canonical %>">
+  <link rel="icon" href="<%= seo.favicon %>">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="<%= seo.title %>">
+  <meta property="og:description" content="<%= seo.description %>">
+  <meta property="og:image" content="<%= seo.ogImage %>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="design-13">
+  <a class="d13-skip" href="#main">Skip to content</a>
+  <div class="d13-grain" aria-hidden="true"></div>
+  <div class="d13-progress" aria-hidden="true"><i></i></div>
+  <div class="d13-cursor" aria-hidden="true" data-d13-cursor><i></i></div>
+
+  <header class="d13-header" data-d13-header>
+    <a class="d13-brand" href="#top" aria-label="<%= advisor.identity.name %>, home"><i aria-hidden="true"></i><span><%= advisor.identity.firstName %></span><em><%= advisor.identity.lastName %></em></a>
+    <nav class="d13-nav" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#focus">Focus</a><a href="#journey">Journey</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="d13-header-cta" href="#contact" data-d13-magnetic>Start a plan <span>→</span></a>
+    <button class="d13-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" data-d13-menu-btn><span></span><span></span></button>
+  </header>
+
+  <div class="d13-mobile-menu" data-d13-menu aria-hidden="true">
+    <nav>
+      <a href="#about">About</a><a href="#focus">Focus</a><a href="#journey">Journey</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:<%= advisor.contact.phone.replace(/[^\d+]/g, '') %>"><%= advisor.contact.phone %></a>
+  </div>
+
+  <main id="main">
+    <section class="d13-hero" id="top">
+      <div class="d13-hero-bg" aria-hidden="true" data-d13-parallax-bg></div>
+      <div class="d13-hero-inner">
+        <p class="d13-eyebrow"><span class="d13-dot" aria-hidden="true"></span>Independent advisor · <%= advisor.identity.location %></p>
+        <h1 class="d13-hero-title">
+          <span><b>Retirement</b></span>
+          <span><b>planning,</b></span>
+          <span><b class="d13-outline">engineered for you.</b></span>
+        </h1>
+        <p class="d13-hero-sub"><%= advisor.identity.headline %></p>
+      </div>
+      <figure class="d13-hero-portrait">
+        <div><img src="<%= design11.heroImage.src %>" alt="<%= design11.heroImage.alt %>" width="<%= design11.heroImage.width %>" height="<%= design11.heroImage.height %>" fetchpriority="high" data-d13-parallax></div>
+      </figure>
+      <div class="d13-hero-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <% if (advisor.trust.trustpilot.enabled) { %>
+        <div class="d13-hero-rating"><strong><%= advisor.trust.trustpilot.rating %></strong><span>★★★★★<small><%= Number(advisor.trust.trustpilot.reviewCount).toLocaleString() %>+ verified reviews</small></span></div>
+      <% } %>
+      <a class="d13-scroll-cue" href="#focus" aria-label="Scroll to explore"><span>Scroll</span><i></i></a>
+    </section>
+
+    <section class="d13-ticker" aria-hidden="true">
+      <div class="d13-ticker-track">
+        <% for (let rep = 0; rep < 2; rep++) { %>
+          <span>
+            <% design11.services.forEach((service, index) => { %><b><%= service.title %></b><i>◆</i><% }) %>
+          </span>
+        <% } %>
+      </div>
+    </section>
+
+    <section class="d13-focus d13-section" id="focus">
+      <div class="d13-wrap">
+        <div class="d13-heading" data-d13-reveal>
+          <p class="d13-tag">01 / Focus areas</p>
+          <h2>Three pillars.<br>One plan.</h2>
+        </div>
+        <div class="d13-focus-grid">
+          <% design11.services.forEach((service, index) => { %>
+            <article class="d13-focus-card" data-d13-reveal style="--d13-r-delay:<%= index * 100 %>ms">
+              <span><%= service.number %></span>
+              <i aria-hidden="true"><%= index === 0 ? '↗' : index === 1 ? '⬡' : '◎' %></i>
+              <h3><%= service.title %></h3>
+              <p><%= service.description %></p>
+            </article>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+    <section class="d13-about d13-section" id="about">
+      <div class="d13-wrap">
+        <div class="d13-about-grid">
+          <div class="d13-about-title" data-d13-reveal>
+            <p class="d13-tag">02 / About <%= advisor.identity.firstName %></p>
+            <h2>Preparedness<br>is personal.</h2>
+          </div>
+          <div class="d13-about-copy" data-d13-reveal style="--d13-r-delay:100ms">
+            <p class="d13-lead"><%= advisor.professional.story.quote %></p>
+            <p><%= advisor.professional.story.paragraphs[0] %></p>
+          </div>
+        </div>
+        <div class="d13-stats">
+          <% advisor.professional.credentials.forEach((credential, index) => {
+            const numeric = String(credential.value).match(/^(\d+)(.*)$/);
+          %>
+            <div class="d13-stat" data-d13-reveal style="--d13-r-delay:<%= index * 90 %>ms">
+              <% if (numeric) { %>
+                <strong data-d13-count="<%= numeric[1] %>" data-d13-suffix="<%= numeric[2] %>">0<%= numeric[2] %></strong>
+              <% } else { %>
+                <strong><%= credential.value %></strong>
+              <% } %>
+              <span><%= credential.label %></span>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+    <section class="d13-philosophy" id="philosophy">
+      <div class="d13-philosophy-sticky">
+        <div class="d13-philosophy-bg" aria-hidden="true"></div>
+        <div class="d13-wrap">
+          <p class="d13-tag">03 / Philosophy</p>
+          <p class="d13-statement-text" data-d13-scrub>
+            <%
+              const accentWords = ['designing', 'life', 'want', 'to', 'live.'];
+              design11.statement.split(' ').forEach((word, index) => {
+                const clean = word.replace(/[^a-zA-Z]/g, '').toLowerCase();
+                const isAccent = accentWords.includes(word.toLowerCase()) || accentWords.includes(clean);
+            %><span class="d13-word<%= isAccent ? ' d13-word--accent' : '' %>"><%= word %></span><%= index < design11.statement.split(' ').length - 1 ? ' ' : '' %><%
+              });
+            %>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="d13-journey d13-section" id="journey">
+      <div class="d13-wrap d13-journey-grid">
+        <figure data-d13-reveal>
+          <img src="<%= advisor.personal.lifestylePhotos[1].src %>" alt="<%= advisor.personal.lifestylePhotos[1].alt %>" width="<%= advisor.personal.lifestylePhotos[1].width %>" height="<%= advisor.personal.lifestylePhotos[1].height %>" loading="lazy">
+        </figure>
+        <div class="d13-journey-copy" data-d13-reveal style="--d13-r-delay:100ms">
+          <p class="d13-tag">04 / Professional journey</p>
+          <h2><%= advisor.professional.story.title %></h2>
+          <p><%= advisor.professional.story.paragraphs[1] %></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="d13-lifestyle d13-section" id="lifestyle">
+      <div class="d13-wrap d13-lifestyle-grid">
+        <div data-d13-reveal>
+          <p class="d13-tag">05 / Beyond the office</p>
+          <h2><%= advisor.personal.moreAboutMe.title %></h2>
+          <% advisor.personal.moreAboutMe.paragraphs.slice(0, 1).forEach(paragraph => { %><p><%= paragraph %></p><% }) %>
+        </div>
+        <figure data-d13-reveal style="--d13-r-delay:100ms">
+          <img src="<%= advisor.personal.lifestylePhotos[0].src %>" alt="<%= advisor.personal.lifestylePhotos[0].alt %>" width="<%= advisor.personal.lifestylePhotos[0].width %>" height="<%= advisor.personal.lifestylePhotos[0].height %>" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <section class="d13-reviews d13-section" id="reviews">
+      <div class="d13-wrap">
+        <div class="d13-reviews-head">
+          <div data-d13-reveal>
+            <p class="d13-tag">06 / Client perspective</p>
+            <h2>Confidence, in<br>their words.</h2>
+          </div>
+          <div class="d13-review-controls">
+            <button type="button" data-d13-review-prev aria-label="Previous testimonial">←</button>
+            <button type="button" data-d13-review-next aria-label="Next testimonial">→</button>
+          </div>
+        </div>
+        <div class="d13-review-track" data-d13-review-track tabindex="0" aria-label="Client testimonials">
+          <% optional.reviews.forEach(review => { %>
+            <figure><span aria-hidden="true">&ldquo;</span><blockquote><%= review.quote %></blockquote><figcaption><%= review.author %></figcaption></figure>
+          <% }) %>
+        </div>
+        <% if (advisor.trust.trustpilot.enabled) { %>
+          <a class="d13-trust" href="<%= advisor.trust.trustpilot.profileUrl %>" target="_blank" rel="noopener noreferrer"><strong><%= advisor.trust.trustpilot.rating %> / 5</strong> on Trustpilot · <%= Number(advisor.trust.trustpilot.reviewCount).toLocaleString() %>+ reviews ↗</a>
+        <% } %>
+      </div>
+    </section>
+
+    <section class="d13-contact d13-section" id="contact">
+      <div class="d13-wrap d13-contact-grid">
+        <div class="d13-contact-copy" data-d13-reveal>
+          <p class="d13-tag">07 / Get in touch</p>
+          <h2><%= advisor.contact.title %></h2>
+          <p><%= advisor.contact.intro %></p>
+          <a class="d13-contact-phone" href="tel:<%= advisor.contact.phone.replace(/[^\d+]/g, '') %>"><span>Call directly</span><strong><%= advisor.contact.phone %></strong></a>
+          <p class="d13-availability"><i aria-hidden="true"></i> Available for virtual meetings nationwide</p>
+        </div>
+        <form class="d13-form" method="<%= advisor.contact.form.method %>" action="<%= advisor.contact.form.action %>" data-d13-reveal style="--d13-r-delay:100ms">
+          <% advisor.contact.form.fields.forEach(field => { %>
+            <div class="d13-field d13-field--<%= field.type %>">
+              <label for="d13-<%= field.name %>"><%= field.label %></label>
+              <% if (field.type === 'textarea') { %>
+                <textarea id="d13-<%= field.name %>" name="<%= field.name %>" autocomplete="<%= field.autocomplete %>" <%= field.required ? 'required' : '' %>></textarea>
+              <% } else { %>
+                <input id="d13-<%= field.name %>" name="<%= field.name %>" type="<%= field.type %>" autocomplete="<%= field.autocomplete %>" <%= field.required ? 'required' : '' %>>
+              <% } %>
+            </div>
+          <% }) %>
+          <button type="submit" data-d13-magnetic><%= design11.formSubmitLabel %> <span aria-hidden="true">↗</span></button>
+          <p>Your information is confidential and will only be used to respond to your request.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="d13-footer">
+    <div class="d13-wrap">
+      <a class="d13-brand" href="#top"><i aria-hidden="true"></i><span><%= advisor.identity.firstName %></span><em><%= advisor.identity.lastName %></em></a>
+      <p><%= advisor.compliance.text %></p>
+      <div class="d13-footer-bottom"><span>© <%= new Date().getFullYear() %> <%= advisor.identity.name %></span><span><%= advisor.identity.location %> · Nationwide</span></div>
+    </div>
+  </footer>
+
+  <%- include('partials/schema', data) %>
+  <script>
+    (function () {
+      var body = document.body;
+      var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var header = document.querySelector('[data-d13-header]');
+      var menuBtn = document.querySelector('[data-d13-menu-btn]');
+      var menu = document.querySelector('[data-d13-menu]');
+
+      menuBtn.addEventListener('click', function () {
+        var open = body.classList.toggle('d13-menu-open');
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+        menu.setAttribute('aria-hidden', String(!open));
+      });
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          body.classList.remove('d13-menu-open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+          menu.setAttribute('aria-hidden', 'true');
+        });
+      });
+
+      requestAnimationFrame(function () { requestAnimationFrame(function () { body.classList.add('d13-loaded'); }); });
+
+      var reveals = document.querySelectorAll('[data-d13-reveal]');
+      var statEls = document.querySelectorAll('[data-d13-count]');
+      function countUp(el) {
+        var target = parseInt(el.getAttribute('data-d13-count'), 10);
+        var suffix = el.getAttribute('data-d13-suffix') || '';
+        if (reduced || !isFinite(target)) { el.textContent = target + suffix; return; }
+        var start = null, duration = 1200;
+        function step(ts) {
+          if (!start) start = ts;
+          var progress = Math.min(1, (ts - start) / duration);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      if (reduced || !('IntersectionObserver' in window)) {
+        reveals.forEach(function (el) { el.classList.add('is-visible'); });
+        statEls.forEach(countUp);
+      } else {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            var counter = entry.target.querySelector('[data-d13-count]');
+            if (counter) countUp(counter);
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: .18, rootMargin: '0px 0px -6% 0px' });
+        reveals.forEach(function (el) { observer.observe(el); });
+      }
+
+      var ticking = false;
+      var progressBar = document.querySelector('.d13-progress i');
+      var portrait = document.querySelector('[data-d13-parallax]');
+      var heroBg = document.querySelector('[data-d13-parallax-bg]');
+      var philosophy = document.querySelector('#philosophy');
+      var words = document.querySelectorAll('.d13-word');
+
+      function paint() {
+        var y = scrollY;
+        var maxScroll = document.documentElement.scrollHeight - innerHeight;
+        header.classList.toggle('is-compact', y > 48);
+        if (progressBar) progressBar.style.transform = 'scaleX(' + (maxScroll > 0 ? Math.min(1, y / maxScroll) : 0) + ')';
+
+        if (!reduced) {
+          if (portrait) portrait.style.transform = 'translate3d(0,' + Math.min(56, y * .05) + 'px,0)';
+          if (heroBg) heroBg.style.transform = 'translate3d(0,' + Math.min(40, y * .08) + 'px,0)';
+          if (philosophy && words.length) {
+            var rect = philosophy.getBoundingClientRect();
+            var runway = rect.height - innerHeight;
+            var progress = runway > 0 ? Math.min(1, Math.max(0, -rect.top / runway)) : 0;
+            var lit = Math.round(progress * words.length);
+            words.forEach(function (word, index) { word.classList.toggle('is-lit', index < lit); });
+          }
+        }
+        ticking = false;
+      }
+      addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(paint); } }, { passive: true });
+      paint();
+
+      var track = document.querySelector('[data-d13-review-track]');
+      if (track) {
+        var prev = document.querySelector('[data-d13-review-prev]');
+        var next = document.querySelector('[data-d13-review-next]');
+        function scrollByCard(direction) {
+          var card = track.querySelector('figure');
+          var amount = card ? card.getBoundingClientRect().width + 24 : 320;
+          track.scrollBy({ left: direction * amount, behavior: reduced ? 'auto' : 'smooth' });
+        }
+        prev.addEventListener('click', function () { scrollByCard(-1); });
+        next.addEventListener('click', function () { scrollByCard(1); });
+      }
+
+      if (!reduced && matchMedia('(pointer: fine) and (hover: hover)').matches) {
+        var cursor = document.querySelector('[data-d13-cursor]');
+        body.classList.add('d13-cursor-on');
+        addEventListener('mousemove', function (event) {
+          cursor.style.transform = 'translate3d(' + event.clientX + 'px,' + event.clientY + 'px,0)';
+        }, { passive: true });
+        document.querySelectorAll('a, button, input, textarea').forEach(function (el) {
+          el.addEventListener('mouseenter', function () { body.classList.add('d13-cursor-hover'); });
+          el.addEventListener('mouseleave', function () { body.classList.remove('d13-cursor-hover'); });
+        });
+
+        document.querySelectorAll('[data-d13-magnetic]').forEach(function (el) {
+          el.addEventListener('mousemove', function (event) {
+            var box = el.getBoundingClientRect();
+            var relX = event.clientX - box.left - box.width / 2;
+            var relY = event.clientY - box.top - box.height / 2;
+            el.style.transform = 'translate(' + (relX * .3) + 'px,' + (relY * .35) + 'px)';
+          });
+          el.addEventListener('mouseleave', function () { el.style.transform = 'translate(0,0)'; });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
