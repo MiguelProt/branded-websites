@@ -165,29 +165,29 @@
       </div>
     </section>
 
-    <section class="d13-journey d13-section" id="journey">
-      <div class="d13-wrap d13-journey-grid">
-        <figure data-d13-reveal>
-          <img src="./assets/images/professional-journey.webp" alt="Matt Rowenczak speaking with clients" width="642" height="642" loading="lazy">
-        </figure>
-        <div class="d13-journey-copy" data-d13-reveal style="--d13-r-delay:100ms">
-          <p class="d13-tag">04 / Professional journey</p>
-          <h2>My professional journey</h2>
-          <p>I hold a Bachelor of Arts in Economics from The Ohio State University and an MBA in Finance and Marketing from the University of Georgia&#39;s Terry College of Business. My career spans from military service as a Supply Corps Officer in the Navy to a decade in corporate America. My experience enables me to offer valuable insights to clients navigating their retirement or personal financial journeys.</p>
-        </div>
-      </div>
-    </section>
+    <section class="d13-story" id="journey" data-d13-story>
+      <div class="d13-story-sticky">
+        <div class="d13-story-progress" aria-hidden="true"><i data-d13-story-dot></i><i data-d13-story-dot></i></div>
 
-    <section class="d13-lifestyle d13-section" id="lifestyle">
-      <div class="d13-wrap d13-lifestyle-grid">
-        <div data-d13-reveal>
-          <p class="d13-tag">05 / Beyond the office</p>
-          <h2>More about me</h2>
-          <p>Outside of work, I enjoy the excitement of college football, exploring the great outdoors, diving into American history, and traveling to experience other cultures. My Southern roots influence my tastes, especially my love for BBQ, while my time living in Southern California sparked a fondness for quality tacos and burritos. XX I hope you share a little bit about what you enjoy as well.</p>
+        <div class="d13-story-panel" data-d13-story-panel>
+          <div class="d13-story-bg" role="img" aria-label="Matt Rowenczak speaking with clients" style="background-image:url('./assets/images/professional-journey.webp')" data-d13-story-bg></div>
+          <div class="d13-story-scrim" aria-hidden="true"></div>
+          <div class="d13-wrap d13-story-copy" data-d13-story-copy>
+            <p class="d13-tag">04 / Professional journey</p>
+            <h2>My professional journey</h2>
+            <p>I hold a Bachelor of Arts in Economics from The Ohio State University and an MBA in Finance and Marketing from the University of Georgia&#39;s Terry College of Business. My career spans from military service as a Supply Corps Officer in the Navy to a decade in corporate America. My experience enables me to offer valuable insights to clients navigating their retirement or personal financial journeys.</p>
+          </div>
         </div>
-        <figure data-d13-reveal style="--d13-r-delay:100ms">
-          <img src="./assets/images/about-me.webp" alt="Matt Rowenczak enjoying the outdoors" width="640" height="640" loading="lazy">
-        </figure>
+
+        <div class="d13-story-panel" data-d13-story-panel id="lifestyle">
+          <div class="d13-story-bg" role="img" aria-label="Matt Rowenczak enjoying the outdoors" style="background-image:url('./assets/images/about-me.webp')" data-d13-story-bg></div>
+          <div class="d13-story-scrim" aria-hidden="true"></div>
+          <div class="d13-wrap d13-story-copy" data-d13-story-copy>
+            <p class="d13-tag">05 / Beyond the office</p>
+            <h2>More about me</h2>
+            <p>Outside of work, I enjoy the excitement of college football, exploring the great outdoors, diving into American history, and traveling to experience other cultures. My Southern roots influence my tastes, especially my love for BBQ, while my time living in Southern California sparked a fondness for quality tacos and burritos. XX I hope you share a little bit about what you enjoy as well.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -457,6 +457,9 @@
       var heroBg = document.querySelector('[data-d13-parallax-bg]');
       var philosophy = document.querySelector('#philosophy');
       var words = document.querySelectorAll('.d13-word');
+      var story = document.querySelector('[data-d13-story]');
+      var storyPanels = story ? Array.from(story.querySelectorAll('[data-d13-story-panel]')) : [];
+      var storyDots = story ? Array.from(story.querySelectorAll('[data-d13-story-dot]')) : [];
 
       function paint() {
         var y = scrollY;
@@ -473,6 +476,28 @@
             var progress = runway > 0 ? Math.min(1, Math.max(0, -rect.top / runway)) : 0;
             var lit = Math.round(progress * words.length);
             words.forEach(function (word, index) { word.classList.toggle('is-lit', index < lit); });
+          }
+          if (story && storyPanels.length) {
+            var srect = story.getBoundingClientRect();
+            var srunway = srect.height - innerHeight;
+            var sprogress = srunway > 0 ? Math.min(1, Math.max(0, -srect.top / srunway)) : 0;
+            var band = .3;
+            var t = Math.min(1, Math.max(0, (sprogress - (.5 - band / 2)) / band));
+            storyPanels.forEach(function (panel, index) {
+              var bg = panel.querySelector('[data-d13-story-bg]');
+              var copy = panel.querySelector('[data-d13-story-copy]');
+              var opacity = index === 0 ? 1 - t : t;
+              var bgShift = index === 0 ? -sprogress * 34 : (1 - sprogress) * 34;
+              var textShift = index === 0 ? -t * 34 : (1 - t) * 34;
+              bg.style.opacity = opacity;
+              bg.style.transform = 'translate3d(0,' + bgShift + 'px,0) scale(' + (1 + sprogress * .05) + ')';
+              copy.style.opacity = opacity;
+              copy.style.transform = 'translate3d(0,' + textShift + 'px,0)';
+            });
+            storyDots.forEach(function (dot, index) {
+              var span = index === 0 ? Math.min(1, sprogress / .5) : Math.min(1, Math.max(0, (sprogress - .5) / .5));
+              dot.style.setProperty('--p', Math.round(span * 100) + '%');
+            });
           }
         }
         ticking = false;
