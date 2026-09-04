@@ -109,6 +109,40 @@
       padding-bottom: 72px;
     }
 
+    .grid[hidden] { display: none; }
+
+    .grid--all { padding-top: 6px; }
+
+    .see-all {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 56px;
+    }
+
+    .see-all-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 30px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: var(--card);
+      color: var(--ink);
+      font-family: "Courier New", Courier, monospace;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color .2s ease, color .2s ease, box-shadow .2s ease;
+    }
+
+    .see-all-btn:hover { border-color: var(--signal); color: var(--signal); }
+    .see-all-btn:focus-visible { outline: 4px solid var(--signal-soft); outline-offset: 3px; }
+
+    .see-all-btn span { display: inline-block; transition: transform .25s ease; }
+    .see-all-btn[aria-expanded="true"] span { transform: rotate(180deg); }
+
     .card {
       position: relative;
       overflow: hidden;
@@ -183,6 +217,7 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .card { transition: none; }
+      .see-all-btn span { transition: none; }
     }
   </style>
 </head>
@@ -201,8 +236,10 @@
       <span>Actualizado automáticamente desde main</span>
     </div>
 
-    <section class="grid" aria-label="Propuestas de diseño">
-      <%_ designs.forEach((design) => { _%>
+    <% const recentDesigns = designs.slice(-3).reverse(); const olderDesigns = designs.slice(0, -3); %>
+
+    <section class="grid" aria-label="Propuestas de diseño más recientes">
+      <%_ recentDesigns.forEach((design) => { _%>
         <a class="card" href="./design-<%= design %>/" aria-label="Abrir diseño <%= design %>">
           <div class="preview" aria-hidden="true">
             <iframe src="./design-<%= design %>/" title="" tabindex="-1" loading="lazy"></iframe>
@@ -214,8 +251,47 @@
         </a>
       <%_ }); _%>
     </section>
+
+    <% if (olderDesigns.length) { %>
+      <div class="see-all">
+        <button type="button" class="see-all-btn" data-see-all aria-expanded="false" aria-controls="all-grid">
+          <span class="see-all-label">Ver todos los diseños</span><span aria-hidden="true">↓</span>
+        </button>
+      </div>
+
+      <section class="grid grid--all" id="all-grid" aria-label="Todas las propuestas de diseño" hidden>
+        <%_ olderDesigns.forEach((design) => { _%>
+          <a class="card" href="./design-<%= design %>/" aria-label="Abrir diseño <%= design %>">
+            <div class="preview" aria-hidden="true">
+              <iframe src="./design-<%= design %>/" title="" tabindex="-1" loading="lazy"></iframe>
+            </div>
+            <div class="card-meta">
+              <span class="card-number">Diseño <%= design %></span>
+              <span class="open">Abrir propuesta ↗</span>
+            </div>
+          </a>
+        <%_ }); _%>
+      </section>
+    <% } %>
   </main>
 
   <footer><div class="shell">Vista de revisión · branded-multisites</div></footer>
+
+  <script>
+    (function () {
+      var btn = document.querySelector('[data-see-all]');
+      var panel = document.getElementById('all-grid');
+      if (!btn || !panel) return;
+      var label = btn.querySelector('.see-all-label');
+      btn.addEventListener('click', function () {
+        var open = panel.hasAttribute('hidden');
+        if (open) panel.removeAttribute('hidden');
+        else panel.setAttribute('hidden', '');
+        btn.setAttribute('aria-expanded', String(open));
+        label.textContent = open ? 'Ver menos' : 'Ver todos los diseños';
+        if (open) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    })();
+  </script>
 </body>
 </html>

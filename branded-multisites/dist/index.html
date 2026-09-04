@@ -109,6 +109,40 @@
       padding-bottom: 72px;
     }
 
+    .grid[hidden] { display: none; }
+
+    .grid--all { padding-top: 6px; }
+
+    .see-all {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 56px;
+    }
+
+    .see-all-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 30px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: var(--card);
+      color: var(--ink);
+      font-family: "Courier New", Courier, monospace;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color .2s ease, color .2s ease, box-shadow .2s ease;
+    }
+
+    .see-all-btn:hover { border-color: var(--signal); color: var(--signal); }
+    .see-all-btn:focus-visible { outline: 4px solid var(--signal-soft); outline-offset: 3px; }
+
+    .see-all-btn span { display: inline-block; transition: transform .25s ease; }
+    .see-all-btn[aria-expanded="true"] span { transform: rotate(180deg); }
+
     .card {
       position: relative;
       overflow: hidden;
@@ -183,6 +217,7 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .card { transition: none; }
+      .see-all-btn span { transition: none; }
     }
   </style>
 </head>
@@ -201,103 +236,15 @@
       <span>Actualizado automáticamente desde main</span>
     </div>
 
-    <section class="grid" aria-label="Propuestas de diseño">
-        <a class="card" href="./design-01/" aria-label="Abrir diseño 01">
+    
+
+    <section class="grid" aria-label="Propuestas de diseño más recientes">
+        <a class="card" href="./design-13/" aria-label="Abrir diseño 13">
           <div class="preview" aria-hidden="true">
-            <iframe src="./design-01/" title="" tabindex="-1" loading="lazy"></iframe>
+            <iframe src="./design-13/" title="" tabindex="-1" loading="lazy"></iframe>
           </div>
           <div class="card-meta">
-            <span class="card-number">Diseño 01</span>
-            <span class="open">Abrir propuesta ↗</span>
-          </div>
-        </a>
-        <a class="card" href="./design-02/" aria-label="Abrir diseño 02">
-          <div class="preview" aria-hidden="true">
-            <iframe src="./design-02/" title="" tabindex="-1" loading="lazy"></iframe>
-          </div>
-          <div class="card-meta">
-            <span class="card-number">Diseño 02</span>
-            <span class="open">Abrir propuesta ↗</span>
-          </div>
-        </a>
-        <a class="card" href="./design-03/" aria-label="Abrir diseño 03">
-          <div class="preview" aria-hidden="true">
-            <iframe src="./design-03/" title="" tabindex="-1" loading="lazy"></iframe>
-          </div>
-          <div class="card-meta">
-            <span class="card-number">Diseño 03</span>
-            <span class="open">Abrir propuesta ↗</span>
-          </div>
-        </a>
-        <a class="card" href="./design-04/" aria-label="Abrir diseño 04">
-          <div class="preview" aria-hidden="true">
-            <iframe src="./design-04/" title="" tabindex="-1" loading="lazy"></iframe>
-          </div>
-          <div class="card-meta">
-            <span class="card-number">Diseño 04</span>
-            <span class="open">Abrir propuesta ↗</span>
-          </div>
-        </a>
-        <a class="card" href="./design-05/" aria-label="Abrir diseño 05">
-          <div class="preview" aria-hidden="true">
-            <iframe src="./design-05/" title="" tabindex="-1" loading="lazy"></iframe>
-          </div>
-          <div class="card-meta">
-            <span class="card-number">Diseño 05</span>
-            <span class="open">Abrir propuesta ↗</span>
-          </div>
-        </a>
-        <a class="card" href="./design-06/" aria-label="Abrir diseño 06">
-          <div class="preview" aria-hidden="true">
-            <iframe src="./design-06/" title="" tabindex="-1" loading="lazy"></iframe>
-          </div>
-          <div class="card-meta">
-            <span class="card-number">Diseño 06</span>
-            <span class="open">Abrir propuesta ↗</span>
-          </div>
-        </a>
-        <a class="card" href="./design-07/" aria-label="Abrir diseño 07">
-          <div class="preview" aria-hidden="true">
-            <iframe src="./design-07/" title="" tabindex="-1" loading="lazy"></iframe>
-          </div>
-          <div class="card-meta">
-            <span class="card-number">Diseño 07</span>
-            <span class="open">Abrir propuesta ↗</span>
-          </div>
-        </a>
-        <a class="card" href="./design-08/" aria-label="Abrir diseño 08">
-          <div class="preview" aria-hidden="true">
-            <iframe src="./design-08/" title="" tabindex="-1" loading="lazy"></iframe>
-          </div>
-          <div class="card-meta">
-            <span class="card-number">Diseño 08</span>
-            <span class="open">Abrir propuesta ↗</span>
-          </div>
-        </a>
-        <a class="card" href="./design-09/" aria-label="Abrir diseño 09">
-          <div class="preview" aria-hidden="true">
-            <iframe src="./design-09/" title="" tabindex="-1" loading="lazy"></iframe>
-          </div>
-          <div class="card-meta">
-            <span class="card-number">Diseño 09</span>
-            <span class="open">Abrir propuesta ↗</span>
-          </div>
-        </a>
-        <a class="card" href="./design-10/" aria-label="Abrir diseño 10">
-          <div class="preview" aria-hidden="true">
-            <iframe src="./design-10/" title="" tabindex="-1" loading="lazy"></iframe>
-          </div>
-          <div class="card-meta">
-            <span class="card-number">Diseño 10</span>
-            <span class="open">Abrir propuesta ↗</span>
-          </div>
-        </a>
-        <a class="card" href="./design-11/" aria-label="Abrir diseño 11">
-          <div class="preview" aria-hidden="true">
-            <iframe src="./design-11/" title="" tabindex="-1" loading="lazy"></iframe>
-          </div>
-          <div class="card-meta">
-            <span class="card-number">Diseño 11</span>
+            <span class="card-number">Diseño 13</span>
             <span class="open">Abrir propuesta ↗</span>
           </div>
         </a>
@@ -310,18 +257,136 @@
             <span class="open">Abrir propuesta ↗</span>
           </div>
         </a>
-        <a class="card" href="./design-13/" aria-label="Abrir diseño 13">
+        <a class="card" href="./design-11/" aria-label="Abrir diseño 11">
           <div class="preview" aria-hidden="true">
-            <iframe src="./design-13/" title="" tabindex="-1" loading="lazy"></iframe>
+            <iframe src="./design-11/" title="" tabindex="-1" loading="lazy"></iframe>
           </div>
           <div class="card-meta">
-            <span class="card-number">Diseño 13</span>
+            <span class="card-number">Diseño 11</span>
             <span class="open">Abrir propuesta ↗</span>
           </div>
         </a>
     </section>
+
+    
+      <div class="see-all">
+        <button type="button" class="see-all-btn" data-see-all aria-expanded="false" aria-controls="all-grid">
+          <span class="see-all-label">Ver todos los diseños</span><span aria-hidden="true">↓</span>
+        </button>
+      </div>
+
+      <section class="grid grid--all" id="all-grid" aria-label="Todas las propuestas de diseño" hidden>
+          <a class="card" href="./design-01/" aria-label="Abrir diseño 01">
+            <div class="preview" aria-hidden="true">
+              <iframe src="./design-01/" title="" tabindex="-1" loading="lazy"></iframe>
+            </div>
+            <div class="card-meta">
+              <span class="card-number">Diseño 01</span>
+              <span class="open">Abrir propuesta ↗</span>
+            </div>
+          </a>
+          <a class="card" href="./design-02/" aria-label="Abrir diseño 02">
+            <div class="preview" aria-hidden="true">
+              <iframe src="./design-02/" title="" tabindex="-1" loading="lazy"></iframe>
+            </div>
+            <div class="card-meta">
+              <span class="card-number">Diseño 02</span>
+              <span class="open">Abrir propuesta ↗</span>
+            </div>
+          </a>
+          <a class="card" href="./design-03/" aria-label="Abrir diseño 03">
+            <div class="preview" aria-hidden="true">
+              <iframe src="./design-03/" title="" tabindex="-1" loading="lazy"></iframe>
+            </div>
+            <div class="card-meta">
+              <span class="card-number">Diseño 03</span>
+              <span class="open">Abrir propuesta ↗</span>
+            </div>
+          </a>
+          <a class="card" href="./design-04/" aria-label="Abrir diseño 04">
+            <div class="preview" aria-hidden="true">
+              <iframe src="./design-04/" title="" tabindex="-1" loading="lazy"></iframe>
+            </div>
+            <div class="card-meta">
+              <span class="card-number">Diseño 04</span>
+              <span class="open">Abrir propuesta ↗</span>
+            </div>
+          </a>
+          <a class="card" href="./design-05/" aria-label="Abrir diseño 05">
+            <div class="preview" aria-hidden="true">
+              <iframe src="./design-05/" title="" tabindex="-1" loading="lazy"></iframe>
+            </div>
+            <div class="card-meta">
+              <span class="card-number">Diseño 05</span>
+              <span class="open">Abrir propuesta ↗</span>
+            </div>
+          </a>
+          <a class="card" href="./design-06/" aria-label="Abrir diseño 06">
+            <div class="preview" aria-hidden="true">
+              <iframe src="./design-06/" title="" tabindex="-1" loading="lazy"></iframe>
+            </div>
+            <div class="card-meta">
+              <span class="card-number">Diseño 06</span>
+              <span class="open">Abrir propuesta ↗</span>
+            </div>
+          </a>
+          <a class="card" href="./design-07/" aria-label="Abrir diseño 07">
+            <div class="preview" aria-hidden="true">
+              <iframe src="./design-07/" title="" tabindex="-1" loading="lazy"></iframe>
+            </div>
+            <div class="card-meta">
+              <span class="card-number">Diseño 07</span>
+              <span class="open">Abrir propuesta ↗</span>
+            </div>
+          </a>
+          <a class="card" href="./design-08/" aria-label="Abrir diseño 08">
+            <div class="preview" aria-hidden="true">
+              <iframe src="./design-08/" title="" tabindex="-1" loading="lazy"></iframe>
+            </div>
+            <div class="card-meta">
+              <span class="card-number">Diseño 08</span>
+              <span class="open">Abrir propuesta ↗</span>
+            </div>
+          </a>
+          <a class="card" href="./design-09/" aria-label="Abrir diseño 09">
+            <div class="preview" aria-hidden="true">
+              <iframe src="./design-09/" title="" tabindex="-1" loading="lazy"></iframe>
+            </div>
+            <div class="card-meta">
+              <span class="card-number">Diseño 09</span>
+              <span class="open">Abrir propuesta ↗</span>
+            </div>
+          </a>
+          <a class="card" href="./design-10/" aria-label="Abrir diseño 10">
+            <div class="preview" aria-hidden="true">
+              <iframe src="./design-10/" title="" tabindex="-1" loading="lazy"></iframe>
+            </div>
+            <div class="card-meta">
+              <span class="card-number">Diseño 10</span>
+              <span class="open">Abrir propuesta ↗</span>
+            </div>
+          </a>
+      </section>
+    
   </main>
 
   <footer><div class="shell">Vista de revisión · branded-multisites</div></footer>
+
+  <script>
+    (function () {
+      var btn = document.querySelector('[data-see-all]');
+      var panel = document.getElementById('all-grid');
+      if (!btn || !panel) return;
+      var label = btn.querySelector('.see-all-label');
+      btn.addEventListener('click', function () {
+        var open = panel.hasAttribute('hidden');
+        if (open) panel.removeAttribute('hidden');
+        else panel.setAttribute('hidden', '');
+        btn.setAttribute('aria-expanded', String(open));
+        label.textContent = open ? 'Ver menos' : 'Ver todos los diseños';
+        if (open) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    })();
+  </script>
 </body>
 </html>
